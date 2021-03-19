@@ -1,0 +1,211 @@
+﻿<ul id="menu" class="bg-red dker">
+    @*<li class="nav-header">Menu</li>*@
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <meta http-equiv="refresh" content="url=../Account/Login.cshtml">
+    }
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        @*<li class="nav-divider"></li>*@
+        @*<li class="nav-header">Transfer Clients</li>*@
+        <li class="">
+            <a href="javascript:;">
+                <i class="fa fa-bus"></i>
+                <span class="link-title">
+                    Transfers Clients
+                </span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="collapse">
+                <li>
+                    <a href="~/TransferEstimate/Index">
+                        <i class="fa fa-calculator"></i><span class="link-title">&nbsp;Transfer Estimate</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/TransferEstimate/TransferApproved">
+                        <i class="fa fa-thumbs-o-up"></i><span class="link-title">&nbsp;Transfer Approved</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        @*Controle de recebimento*@
+        @*<li class="">
+                <a href="javascript:;">
+                    <i class="fa fa-calculator"></i>
+                    <span class="link-title">
+                        Financial
+                    </span>
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="collapse">
+                    <li>
+                        <a href="~/Financial/InvoiceManagement.aspx">
+                            <i class="fa fa-calculator"></i><span class="link-title">&nbsp;Invoice Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/TransferEstimate/TransferApproved">
+                            <i class="fa fa-thumbs-o-up"></i><span class="link-title">&nbsp;Payment Record</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>*@
+
+        @*<li class="nav-divider"></li>*@
+        @*<li class="nav-header">Control WebApp</li>*@
+        <li class="">
+            <a href="javascript:;">
+                <i class="fa fa-cog"></i>
+                <span class="link-title">
+                    Config System
+                </span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="collapse">
+                <li>
+                    <a href="~/UsersAdmin/Index">
+                        <i class="fa fa-user"></i><span class="link-title">&nbsp;Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/ConfigApp/Index">
+                        <i class="fa fa-envelope"></i><span class="link-title">&nbsp;Config Email</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/MetingPoint/Index">
+                        <i class="fa fa-plane"></i><span class="link-title">&nbsp;Meeting Point</span>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+
+        <li class="">
+            <a href="javascript:;">
+                <i class="fa fa-cogs"></i>
+                <span class="link-title">
+                    Config Invoice
+                </span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="collapse">
+                <li>
+                    <a href="~/BankInfo/Index">
+                        <i class="fa fa-university"></i><span class="link-title">&nbsp;Bank Info</span>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+
+        @*<li class="nav-divider"></li>*@
+        @*<li class="nav-header">Destination</li>*@
+        <li class="">
+            <a href="javascript:;">
+                <i class="fa fa-map-marker"></i>
+                <span class="link-title">
+                    Config Destination
+                </span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="collapse">
+                <li>
+                    <a href="~/Destination/Index">
+                        <i class="fa fa-map-marker"></i><span class="link-title">&nbsp; Destination</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/TypeDestination/Index">
+                        <i class="fa fa-map-signs"></i><span class="link-title">&nbsp; Type Destination</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        @*<li class="nav-divider"></li>*@
+        @*<li class="nav-header">Sales</li>*@
+        <li class="">
+            <a href="javascript:;">
+                <i class="fa fa fa-money"></i>
+                <span class="link-title">
+                    Config Sales
+                </span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="collapse">
+                <li>
+                    <a href="~/SalesSource/Index">
+                        <i class="fa fa-money"></i><span class="link-title">&nbsp;Sales Source</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/SalesContact/Index">
+                        <i class="fa fa-user-plus"></i><span class="link-title">&nbsp;Sales Contact</span>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+
+        @*<li class="nav-divider"></li>*@
+        @*<li class="nav-header">Prices</li>*@
+        <li class="">
+            <a href="javascript:;">
+                <i class="fa fa-mail-forward"></i>
+                <span class="link-title">
+                    Config Transfer
+                </span>
+                <span class="fa arrow"></span>
+            </a>
+            <ul class="collapse">
+                <li>
+                    <a href="~/PriceCities/Index">
+                        <i class="fa fa-dollar"></i><span class="link-title">&nbsp;Price Cities</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/TypeTransfer/Index">
+                        <i class="fa fa-map-signs"></i><span class="link-title">&nbsp;Type Transfer</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/Passenger/Index">
+                        <i class="fa fa-users"></i><span class="link-title">&nbsp;Passengers</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+    }
+
+
+    @if (User.IsInRole("Admin") || User.IsInRole("Driver"))
+    {
+        <li class="">
+            <a href="~/Calendar/Index">
+                <i class="fa fa-calendar"></i><span class="link-title">&nbsp;Calendar</span>
+            </a>
+        </li>
+    }
+
+    @*<li class="nav-divider"></li>
+        <li class="nav-header">Exemplos Metis</li>
+        <li>
+            <a href="~/sample_metis/form-validation.html">
+                <i class="fa fa-angle-right"></i><span class="link-title">&nbsp;Forms validation</span>
+            </a>
+        </li>*@
+
+</ul>
+    

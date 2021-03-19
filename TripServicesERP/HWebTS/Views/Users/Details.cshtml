@@ -1,0 +1,244 @@
+﻿@model HWebTS.Models.AspNetUsers
+
+@{
+    ViewBag.Title = @User.Identity.Name + " Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/toastr.min.css" rel="stylesheet" />
+<h2>@User.Identity.Name Profile</h2>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-lg-3">
+                <div class="col-lg-12 text-center">
+                    @Html.Hidden("IdUser", Model.Id, new { @id = "IdUser" })
+                    <img class="img-fluid rounded-circle" src="../../images/users/@Session["UserLog"].ToString()" alt="User profile picture" width="128">
+                    <p class="mb-0">
+                        <h3 class="profile-username text-center">@User.Identity.Name</h3>
+                    <p class="text-muted text-center">Software Engineer</p>
+                </div>
+            </div>
+
+            <!-- /.col -->
+            <div class="col-lg-9">
+                        <div class="col-lg-12">
+                            <div class="card-box">
+                                <h4 class="header-title mb-4">My Account</h4>
+
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a href="#home" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                                            Change Password
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#profile" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                            Edit Profile
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane show active" id="home">
+                                        <form id="formchangepassword" data-toggle="validator" roles="form">
+                                            <div class="user-block">
+
+                                                <p></p>
+                                                <div class="form-group">
+                                                    @*<label for="inputPassword" class="control-label">Password</label>*@
+
+                                                    <div class="form-group">
+                                                        <div class="form-group col-lg-12">
+                                                            <p>Minimum of 6 and maximum is 12 characters</p>
+                                                        </div>
+                                                        <div class="form-group col-lg-4">
+                                                            <input type="password" data-minlength="6" maxlength="12" class="form-control input-sm" id="oldPassword" placeholder="Old Password" required>
+                                                            <div class="help-block"></div><br />
+                                                            <input type="password" data-minlength="6" maxlength="12" class="form-control input-sm" id="inputPassword" placeholder="Password" required>
+                                                            <div class="help-block"></div><br />
+                                                            <input type="password" class="form-control input-sm" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+                                                            <div class="help-block with-errors"></div><br />
+                                                            <button type="submit" id="btn" class="ladda-button btn btn-danger pull-right btn-block btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin '></i>   Changing">Change</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="profile">
+                                        <form class="form-horizontal" data-toggle="validator" roles="form">
+                                            <br />
+                                            <div class="form-group">
+                                                <label for="inputName" class="col-sm-2 control-label">Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputName" class="col-sm-2 control-label">Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-danger">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> <!-- end card-box-->
+                        </div> <!-- end col -->
+            </div>
+            <!-- /.col -->
+
+        </div>
+    </div>
+</div>
+
+
+        @section Scripts {
+
+            <script src="~/Scripts/validator.min.js"></script>
+            <script src="~/Scripts/toastr.min.js"></script>
+
+            @*btn Loading*@
+            <script>
+                $('.btn').on('click', function () {
+                    var $this = $(this);
+                    $this.button('loading');
+                    setTimeout(function () {
+                        $this.button('reset');
+                    }, 8000);
+                });
+            </script>
+
+
+            <script>
+                //$("#btnchangepassword").click(function () {
+                //    var NewPassword = $('#newpassword').val();
+                //    var ConfirmPassword = $('#confirmpassword').val();
+                //    var div = document.querySelector('div#divpassword');
+
+                //    if (NewPassword === "" || ConfirmPassword === "") {
+                //        trocaClasse(div, 'user-block', 'has-error');
+                //    }
+                //    else {
+                //        if (NewPassword === ConfirmPassword) {
+                //            trocaClasse(div, 'user-block', 'has-error');
+                //            toastr["error"]("Have fun storming the castle!");
+                //        }
+                //        else {
+                //            trocaClasse(div, 'has-error', 'user-block');
+                //            swal("Password Diferente.", "Password Diferente.", "success");
+                //        }
+                //    }
+
+                //});
+
+                //$("#btn").click(function () {
+                //    toastr["success"]("Have fun storming the castle!");
+                //    //$("#ModalNewProduct").modal('show');
+                //});
+
+                function trocaClasse(elemento, antiga, nova) {
+                    elemento.classList.remove(antiga);
+                    elemento.classList.add(nova);
+                }
+
+
+                //Usando o Bootstrap validator
+                $('#formchangepassword').validator().on('submit', function (e) {
+                    if (e.isDefaultPrevented()) {
+                        // handle the invalid form...
+                        //swal("Password Diferente.", "Password Diferente.", "error");
+                        toastr["error"]("Verifique os Requisitos para trocar de senha!");
+                    } else {
+                        // everything looks good!
+                        //swal("Muda Password.", "Tudo ok. Vamos seguir en frente.", "success");
+                        var OldPassword = $('#oldPassword').val();
+                        var NewPassword = $('#inputPassword').val();
+                        var IdUser = $('#IdUser').val();
+
+                        $.ajax({
+                            type: 'get',
+                            dataType: 'json',
+                            cache: false,
+                            url: "/Users/ChangePasswordUserAsync",
+                            data: {
+                                oldPassword: OldPassword,
+                                newPassword: NewPassword,
+                                userId: IdUser
+                            },
+                            success: function (response, textStatus, jqXHR) {
+                                //document.getElementById("typeservice").value = "";
+                                //document.getElementById("descservice").value = "";
+                                //$("#ModalNewService").modal('hide');
+                                //$("#TableService").change(location.reload());
+                                toastr["success"]("Password Changed !");
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                //alert('Error - ' + errorThrown);
+                                toastr["error"]("Tente novamente houve um erro !");
+                                //swal("Password not changed.", "Password Diferente.", "error");
+                            }
+                        });
+
+
+                    }
+                })
+
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-bottom-full-width",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+            </script>
+        }

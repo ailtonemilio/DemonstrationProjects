@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWebTS", "HWebTS\HWebTS.csproj", "{AED32677-DA56-42A6-A4CA-AFFF2AD16730}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{49A9ACEE-7CD9-40E6-A936-9000F4A0FBE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWebTS.Common.Identity", "Common\HWebTS.Common.Identity\HWebTS.Common.Identity.csproj", "{DAC0F99E-75E8-437A-9914-2DAE23C6CF51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AED32677-DA56-42A6-A4CA-AFFF2AD16730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED32677-DA56-42A6-A4CA-AFFF2AD16730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED32677-DA56-42A6-A4CA-AFFF2AD16730}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED32677-DA56-42A6-A4CA-AFFF2AD16730}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{DAC0F99E-75E8-437A-9914-2DAE23C6CF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC0F99E-75E8-437A-9914-2DAE23C6CF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC0F99E-75E8-437A-9914-2DAE23C6CF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC0F99E-75E8-437A-9914-2DAE23C6CF51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DAC0F99E-75E8-437A-9914-2DAE23C6CF51} = {49A9ACEE-7CD9-40E6-A936-9000F4A0FBE4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E453F0E7-778F-4F21-A7F2-05CE95DE977F}
+	EndGlobalSection
+EndGlobal

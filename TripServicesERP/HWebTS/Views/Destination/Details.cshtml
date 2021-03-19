@@ -1,0 +1,106 @@
+﻿@model HWebTS.Models.Destination
+
+@{
+    ViewBag.Title = "Details Destination";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<div class="card">
+    <div class="card-body">
+
+        <div>
+            <h4>Destination</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PostalCode)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PostalCode)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Mobile)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Mobile)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PriceCities.City)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PriceCities.City)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalesContact.Contact)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SalesContact.Contact)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TypeDestination.DescTypeDestination)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TypeDestination.DescTypeDestination)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            <a href="@Url.Action("Edit", new { id = Model.IdCity })" title="Edit" class="ladda-button btn btn-blue">
+                <img src="../../images/icon/editar.png" />&nbsp;&nbsp;Edit
+            </a>
+            <a href="@Url.Action("Index")" title="Back" class="ladda-button btn btn-warning">
+                <img src="../../images/icon/reverse.png" />&nbsp;&nbsp;Back
+            </a>
+        </p>
+    </div>
+</div>
+
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    @* Loading in the button *@
+    <script>
+        $('.btn').on('click', function () {
+            var $this = $(this);
+            $this.button('loading');
+            setTimeout(function () {
+                $this.button('reset');
+            }, 2000);
+        });
+    </script>
+}

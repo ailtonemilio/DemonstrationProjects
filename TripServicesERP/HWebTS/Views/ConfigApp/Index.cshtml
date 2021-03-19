@@ -1,0 +1,146 @@
+﻿@model IEnumerable<HWebTS.Models.ConfigApp>
+
+@{
+    ViewBag.Title = "Config Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Config Email</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="~/ConfigApp/Create" title="Create New User" class="ladda-button btn btn-success">
+        <img src="../../images/icon/add.png" />&nbsp;&nbsp;Create New
+    </a>
+</p>
+
+<div class="card">
+    <div class="card-body">
+        <table id="myTable" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NameApp)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AccountPOP3)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PortPOP3)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AccountSMTP)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PortSMTP)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.account)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PasswordAccount)
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.IdConfigApp.ToString() }, new { @class = "ladda-button btn btn-blue fa fa-edit edit", title = "Edit" })&nbsp;
+                            @Html.ActionLink(" ", "Details", new { id = item.IdConfigApp }, new { @class = "ladda-button btn btn-success far fa-address-card text-white", title = "Details" })&nbsp;
+                            <button type="button" class="ladda-button btn btn-danger fas fa-trash-alt text-white delete" data-id="@item.IdConfigApp" title="Delete Email Config"></button>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NameApp)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AccountPOP3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PortPOP3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AccountSMTP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PortSMTP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.account)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PasswordAccount)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(".delete").click(function () {
+            var id = $(this).attr("data-id");
+
+            //Sweet Alert V2
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    //Action is here
+                    $.ajax({
+                        type: 'get',
+                        dataType: 'json',
+                        cache: false,
+                        url: "/ConfigApp/DeleteItem",
+                        data: {
+                            Id: id
+                        },
+                        success: function (response, textStatus, jqXHR) {
+                            if (response.deleted == "true") {
+                                //Swal.fire({ title: "Deleted!", text: "Your Client has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true });
+
+                                $.toast({
+                                    heading: 'Success',
+                                    text: 'Item deleted successfully!',
+                                    showHideTransition: 'slide',
+                                    position: 'top-right',
+                                    icon: 'success'
+                                })
+
+                                //location.reload();
+                                $("#myTable").change(location.reload());
+
+                                return true;
+                            }
+                            else {
+                                Swal.fire({ title: "Error!", text: "Unable to delete this item!", type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            Swal.fire({ title: "Error!", text: "Unable to delete this item!", type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                            //alert('Error - ' + errorThrown);
+                        }
+                    });
+                } else {
+                    Swal.fire("Cancelled", "Your item is safe.", "error");
+                    return false;
+                }
+            })
+        });
+    </script>
+}
+
+
+

@@ -1,0 +1,75 @@
+﻿@model HWebTS.Models.SalesContact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<div class="card">
+    <div class="card-body">
+
+        <div>
+            <h4>SalesContact</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Contact)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Contact)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.City)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.City)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+
+                <dt>
+                    <label>Theme Color</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ThemeColor)
+                </dd>
+
+                <dt>
+                    <label>Discount $</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PercentPay)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            <a href="@Url.Action("Edit", new { id = Model.IdSalesContact })" title="Edit" class="ladda-button btn btn-blue">
+                <img src="../../images/icon/editar.png" />&nbsp;&nbsp;Edit
+            </a>
+            <a href="@Url.Action("Index")" title="Back" class="ladda-button btn btn-warning">
+                <img src="../../images/icon/reverse.png" />&nbsp;&nbsp;Back
+            </a>
+        </p>
+    </div>
+</div>

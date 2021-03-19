@@ -1,0 +1,87 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<asp:DropDownList CssClass="form-control"  runat="server" >
+</asp:DropDownList>
+
+<asp:CheckBoxList CssClass="checkbox" runat="server" >
+</asp:CheckBoxList>
+
+<asp:TextBox runat="server" CssClass="form-control" >
+</asp:TextBox>
+
+<asp:CheckBox CssClass="checkbox-fs" runat="server" >
+</asp:CheckBox>
+
+<asp:GridView 
+    BorderColor="#c4c1c1" 
+    BorderStyle="Solid" 
+    BorderWidth="2px"
+    Runat="Server"
+    GridLines="Horizontal"
+    SkinID="NoGridBS">
+
+        <RowStyle BackColor="White" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#fff293" BorderWidth="2" BorderStyle="Solid" Font-Bold="True" VerticalAlign="Bottom" />
+        <PagerStyle BackColor="#FFCC66" ForeColor="#FFFFFF" HorizontalAlign="Center" />
+        <HeaderStyle BackColor="#a3162b" Font-Bold="True" ForeColor="white" />
+</asp:GridView>
+
+<asp:GridView 
+    BorderColor="#c4c1c1" 
+    BorderStyle="Solid" 
+    BorderWidth="2px"
+    Runat="Server"
+    GridLines="Horizontal"
+    CssClass= "table table-hover table-bordered"
+    SkinID="GridBS">
+
+        <RowStyle BackColor="White" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#fff293" BorderWidth="2" BorderStyle="Solid" Font-Bold="True" VerticalAlign="Bottom" />
+        <PagerStyle BackColor="#FFCC66" ForeColor="#FFFFFF" HorizontalAlign="Center" />
+        <HeaderStyle BackColor="#a3162b" Font-Bold="True" ForeColor="white" />
+</asp:GridView>
+
+<asp:GridView 
+    BorderColor="#c4c1c1" 
+    BorderStyle="Solid" 
+    BorderWidth="2px"
+    Runat="Server"
+    GridLines="Horizontal"
+    CssClass= "table table-hover table-bordered nowrap"
+    SkinID="GridBS2">
+
+        <RowStyle BackColor="White" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#fff293" BorderWidth="2" BorderStyle="Solid" Font-Bold="True" VerticalAlign="Bottom" />
+        <PagerStyle BackColor="#FFCC66" ForeColor="#FFFFFF" HorizontalAlign="Center" />
+        <HeaderStyle BackColor="#a3162b" Font-Bold="True" ForeColor="white" />
+</asp:GridView>
+
+<asp:GridView 
+    BorderColor="#c4c1c1" 
+    BorderStyle="Solid" 
+    BorderWidth="2px"
+    Runat="Server"
+    GridLines="Horizontal"
+    CssClass= "table table-striped table-bordered nowrap"
+    SkinID="GridBS3">
+
+        <RowStyle BackColor="White" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#fff293" BorderWidth="2" BorderStyle="Solid" Font-Bold="True" VerticalAlign="Bottom" />
+        <PagerStyle BackColor="#FFCC66" ForeColor="#FFFFFF" HorizontalAlign="Center" />
+        <HeaderStyle BackColor="#a3162b" Font-Bold="True" ForeColor="white" />
+</asp:GridView>
+

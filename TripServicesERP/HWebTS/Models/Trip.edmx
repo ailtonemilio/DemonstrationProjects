@@ -1,0 +1,1670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="atripservices.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCESS">
+          <Key>
+            <PropertyRef Name="IdLogin" />
+          </Key>
+          <Property Name="IdLogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="UserLog" Type="varchar" MaxLength="25" />
+          <Property Name="UserLogin" Type="varchar" MaxLength="15" />
+          <Property Name="Password" Type="varchar" MaxLength="12" />
+          <Property Name="Active" Type="char" MaxLength="1" />
+          <Property Name="Profile" Type="varchar" MaxLength="15" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="LastName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="UserImage" Type="nvarchar" MaxLength="120" />
+          <Property Name="LastAccess" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="IdBank" />
+          </Key>
+          <Property Name="IdBank" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="InstituteNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="BankInfo">
+          <Key>
+            <PropertyRef Name="IdBankInfo" />
+          </Key>
+          <Property Name="IdBankInfo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankAddress" Type="varchar" MaxLength="100" />
+          <Property Name="BankPostalCode" Type="varchar" MaxLength="10" />
+          <Property Name="BankCity" Type="int" />
+          <Property Name="BankProvince" Type="char" MaxLength="2" />
+          <Property Name="AccountNumber" Type="int" />
+          <Property Name="TransitNumber" Type="int" />
+          <Property Name="SwiftCode" Type="varchar" MaxLength="25" />
+          <Property Name="Customer" Type="varchar" MaxLength="100" />
+          <Property Name="IdBank" Type="int" />
+        </EntityType>
+        <EntityType Name="ConfigApp">
+          <Key>
+            <PropertyRef Name="IdConfigApp" />
+          </Key>
+          <Property Name="IdConfigApp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameApp" Type="varchar" MaxLength="35" />
+          <Property Name="AccountPOP3" Type="varchar" MaxLength="100" />
+          <Property Name="PortPOP3" Type="varchar" MaxLength="10" />
+          <Property Name="AccountSMTP" Type="varchar" MaxLength="100" />
+          <Property Name="PortSMTP" Type="varchar" MaxLength="10" />
+          <Property Name="account" Type="varchar" MaxLength="100" />
+          <Property Name="PasswordAccount" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Destination">
+          <Key>
+            <PropertyRef Name="IdDestination" />
+          </Key>
+          <Property Name="IdDestination" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="7" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="IdCity" Type="int" />
+          <Property Name="IdTypeDestination" Type="int" />
+          <Property Name="IdSalesContact" Type="int" />
+        </EntityType>
+        <EntityType Name="DestinationSalesContact">
+          <Key>
+            <PropertyRef Name="IdSalesConttDest" />
+          </Key>
+          <Property Name="IdSalesConttDest" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDestination" Type="int" />
+          <Property Name="IdSalesContact" Type="int" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="ThemeColor" Type="nvarchar" MaxLength="10" />
+          <Property Name="IsFullDay" Type="bit" Nullable="false" />
+          <Property Name="IdTransEst" Type="int" />
+        </EntityType>
+        <EntityType Name="LastIPReservation">
+          <Key>
+            <PropertyRef Name="IdIP" />
+          </Key>
+          <Property Name="IdIP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="18" />
+          <Property Name="DateReservation" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MetingPoint">
+          <Key>
+            <PropertyRef Name="IdMetingPoint" />
+          </Key>
+          <Property Name="IdMetingPoint" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescMetingPoint" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Passenger">
+          <Key>
+            <PropertyRef Name="IdPassenger" />
+          </Key>
+          <Property Name="IdPassenger" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Phone2" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="IdTypeVisa" Type="int" />
+        </EntityType>
+        <EntityType Name="PriceCities">
+          <Key>
+            <PropertyRef Name="IdCity" />
+          </Key>
+          <Property Name="IdCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="25" />
+          <Property Name="PriceOne" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Pricetwo" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ReservationRequest">
+          <Key>
+            <PropertyRef Name="IdReservationRequest" />
+          </Key>
+          <Property Name="IdReservationRequest" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamePD" Type="varchar" MaxLength="100" />
+          <Property Name="AddressPD" Type="varchar" MaxLength="100" />
+          <Property Name="PostalCodePD" Type="varchar" MaxLength="7" />
+          <Property Name="PhonePD" Type="varchar" MaxLength="20" />
+          <Property Name="MobilePD" Type="varchar" MaxLength="20" />
+          <Property Name="IdCityPD" Type="int" />
+          <Property Name="IdTypeDestinationPD" Type="int" />
+          <Property Name="IdPassenger" Type="int" />
+          <Property Name="IdTransferEst" Type="int" />
+        </EntityType>
+        <EntityType Name="SalesContact">
+          <Key>
+            <PropertyRef Name="IdSalesContact" />
+          </Key>
+          <Property Name="IdSalesContact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contact" Type="varchar" MaxLength="35" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="25" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="PercentPay" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ThemeColor" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="SalesSource">
+          <Key>
+            <PropertyRef Name="IdSalesSource" />
+          </Key>
+          <Property Name="IdSalesSource" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PercentPay" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TypePay" Type="varchar" MaxLength="10" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
+          <Property Name="Note" Type="varchar" MaxLength="250" />
+          <Property Name="IdSalesContact" Type="int" />
+          <Property Name="NumInvoice" Type="int" />
+        </EntityType>
+        <EntityType Name="StatusPayment">
+          <Key>
+            <PropertyRef Name="IdStatusPayment" />
+          </Key>
+          <Property Name="IdStatusPayment" Type="int" Nullable="false" />
+          <Property Name="DescStatusPayment" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="TransferAprove">
+          <Key>
+            <PropertyRef Name="IdAprove" />
+          </Key>
+          <Property Name="IdAprove" Type="int" Nullable="false" />
+          <Property Name="DescAprove" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TransferEstimate">
+          <Key>
+            <PropertyRef Name="IdTransEst" />
+          </Key>
+          <Property Name="IdTransEst" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlightNumber" Type="varchar" MaxLength="8" />
+          <Property Name="DateFligh" Type="date" />
+          <Property Name="TimeFligh" Type="varchar" MaxLength="12" />
+          <Property Name="TimePiDo" Type="varchar" MaxLength="12" />
+          <Property Name="IdMetingPoint" Type="int" />
+          <Property Name="QtyPassenger" Type="int" />
+          <Property Name="QtyPassengerKids" Type="int" />
+          <Property Name="QtyMalaGr" Type="int" />
+          <Property Name="QtyMalaPq" Type="int" />
+          <Property Name="CityFromId" Type="int" />
+          <Property Name="CityToId" Type="int" />
+          <Property Name="TransferAmount" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Discount" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="FinalPrice" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="DateTransEst" Type="date" />
+          <Property Name="DateAprove" Type="date" />
+          <Property Name="DateRequestEstimate" Type="date" />
+          <Property Name="IdPassenger" Type="int" />
+          <Property Name="NamePassenger" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Phone2" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="TypeVisa" Type="varchar" MaxLength="25" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="IdAprove" Type="int" />
+          <Property Name="IdTypeDestination" Type="int" />
+          <Property Name="IdDestination" Type="int" />
+          <Property Name="IdSales" Type="int" />
+          <Property Name="IdTypeTransfer" Type="int" />
+          <Property Name="IdTypePayment" Type="int" />
+          <Property Name="IdStatusPayment" Type="int" />
+        </EntityType>
+        <EntityType Name="TransferSend">
+          <Key>
+            <PropertyRef Name="IdTransferSend" />
+          </Key>
+          <Property Name="IdTransferSend" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateSend" Type="datetime" />
+          <Property Name="IdTransEst" Type="int" />
+          <Property Name="IdAprove" Type="int" />
+          <Property Name="SmallMessage" Type="varchar" MaxLength="500" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="NameUser" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TripBankInfo">
+          <Key>
+            <PropertyRef Name="IdTripBankInfo" />
+          </Key>
+          <Property Name="IdTripBankInfo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTripInfo" Type="int" />
+          <Property Name="IdBankInfo" Type="int" />
+        </EntityType>
+        <EntityType Name="TripInfo">
+          <Key>
+            <PropertyRef Name="IdTripInfo" />
+          </Key>
+          <Property Name="IdTripInfo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TripName" Type="varchar" MaxLength="100" />
+          <Property Name="TripAddress" Type="varchar" MaxLength="100" />
+          <Property Name="TripPostalCode" Type="varchar" MaxLength="10" />
+          <Property Name="TripCity" Type="int" />
+          <Property Name="TripProvince" Type="char" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="TypeDestination">
+          <Key>
+            <PropertyRef Name="IdTypeDestination" />
+          </Key>
+          <Property Name="IdTypeDestination" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescTypeDestination" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TypePayment">
+          <Key>
+            <PropertyRef Name="IdTypePayment" />
+          </Key>
+          <Property Name="IdTypePayment" Type="int" Nullable="false" />
+          <Property Name="DescTypePayment" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TypeTransfer">
+          <Key>
+            <PropertyRef Name="IdTypeTransfer" />
+          </Key>
+          <Property Name="IdTypeTransfer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescType" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TypeVisa">
+          <Key>
+            <PropertyRef Name="IdTypeVisa" />
+          </Key>
+          <Property Name="IdTypeVisa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescTypeVisa" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <Association Name="FK_BankInfo_Bank">
+          <End Role="Bank" Type="Self.Bank" Multiplicity="0..1" />
+          <End Role="BankInfo" Type="Self.BankInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="IdBank" />
+            </Principal>
+            <Dependent Role="BankInfo">
+              <PropertyRef Name="IdBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Destination_PriceCities">
+          <End Role="PriceCities" Type="Self.PriceCities" Multiplicity="0..1" />
+          <End Role="Destination" Type="Self.Destination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceCities">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="Destination">
+              <PropertyRef Name="IdCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Destination_SalesContact">
+          <End Role="SalesContact" Type="Self.SalesContact" Multiplicity="0..1" />
+          <End Role="Destination" Type="Self.Destination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesContact">
+              <PropertyRef Name="IdSalesContact" />
+            </Principal>
+            <Dependent Role="Destination">
+              <PropertyRef Name="IdSalesContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Destination_TypeDestination">
+          <End Role="TypeDestination" Type="Self.TypeDestination" Multiplicity="0..1" />
+          <End Role="Destination" Type="Self.Destination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDestination">
+              <PropertyRef Name="IdTypeDestination" />
+            </Principal>
+            <Dependent Role="Destination">
+              <PropertyRef Name="IdTypeDestination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passenger_TypeVisa">
+          <End Role="TypeVisa" Type="Self.TypeVisa" Multiplicity="0..1" />
+          <End Role="Passenger" Type="Self.Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeVisa">
+              <PropertyRef Name="IdTypeVisa" />
+            </Principal>
+            <Dependent Role="Passenger">
+              <PropertyRef Name="IdTypeVisa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesSource_SalesContact">
+          <End Role="SalesContact" Type="Self.SalesContact" Multiplicity="0..1" />
+          <End Role="SalesSource" Type="Self.SalesSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesContact">
+              <PropertyRef Name="IdSalesContact" />
+            </Principal>
+            <Dependent Role="SalesSource">
+              <PropertyRef Name="IdSalesContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_Aprove">
+          <End Role="TransferAprove" Type="Self.TransferAprove" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransferAprove">
+              <PropertyRef Name="IdAprove" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdAprove" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_CityFromId">
+          <End Role="PriceCities" Type="Self.PriceCities" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceCities">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="CityFromId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_CityToId">
+          <End Role="PriceCities" Type="Self.PriceCities" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceCities">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="CityToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_Destination">
+          <End Role="Destination" Type="Self.Destination" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destination">
+              <PropertyRef Name="IdDestination" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdDestination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_MetingPoint">
+          <End Role="MetingPoint" Type="Self.MetingPoint" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetingPoint">
+              <PropertyRef Name="IdMetingPoint" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdMetingPoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_Passenger">
+          <End Role="Passenger" Type="Self.Passenger" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passenger">
+              <PropertyRef Name="IdPassenger" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdPassenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_SalesContact">
+          <End Role="SalesContact" Type="Self.SalesContact" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesContact">
+              <PropertyRef Name="IdSalesContact" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdSales" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_StatusPayment">
+          <End Role="StatusPayment" Type="Self.StatusPayment" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPayment">
+              <PropertyRef Name="IdStatusPayment" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdStatusPayment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_TypeDestination">
+          <End Role="TypeDestination" Type="Self.TypeDestination" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDestination">
+              <PropertyRef Name="IdTypeDestination" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdTypeDestination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_TypePayment">
+          <End Role="TypePayment" Type="Self.TypePayment" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePayment">
+              <PropertyRef Name="IdTypePayment" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdTypePayment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_TypeTransfer">
+          <End Role="TypeTransfer" Type="Self.TypeTransfer" Multiplicity="0..1" />
+          <End Role="TransferEstimate" Type="Self.TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeTransfer">
+              <PropertyRef Name="IdTypeTransfer" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdTypeTransfer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TripBankInfo_BankInfo">
+          <End Role="BankInfo" Type="Self.BankInfo" Multiplicity="0..1" />
+          <End Role="TripBankInfo" Type="Self.TripBankInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BankInfo">
+              <PropertyRef Name="IdBankInfo" />
+            </Principal>
+            <Dependent Role="TripBankInfo">
+              <PropertyRef Name="IdBankInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TripBankInfo_TripInfo">
+          <End Role="TripInfo" Type="Self.TripInfo" Multiplicity="0..1" />
+          <End Role="TripBankInfo" Type="Self.TripBankInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TripInfo">
+              <PropertyRef Name="IdTripInfo" />
+            </Principal>
+            <Dependent Role="TripBankInfo">
+              <PropertyRef Name="IdTripInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TripInfo_TripCity">
+          <End Role="PriceCities" Type="Self.PriceCities" Multiplicity="0..1" />
+          <End Role="TripInfo" Type="Self.TripInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceCities">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="TripInfo">
+              <PropertyRef Name="TripCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="atripservicesStoreContainer">
+          <EntitySet Name="ACCESS" EntityType="Self.ACCESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankInfo" EntityType="Self.BankInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfigApp" EntityType="Self.ConfigApp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Destination" EntityType="Self.Destination" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DestinationSalesContact" EntityType="Self.DestinationSalesContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LastIPReservation" EntityType="Self.LastIPReservation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MetingPoint" EntityType="Self.MetingPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passenger" EntityType="Self.Passenger" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceCities" EntityType="Self.PriceCities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservationRequest" EntityType="Self.ReservationRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesContact" EntityType="Self.SalesContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesSource" EntityType="Self.SalesSource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusPayment" EntityType="Self.StatusPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransferAprove" EntityType="Self.TransferAprove" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransferEstimate" EntityType="Self.TransferEstimate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransferSend" EntityType="Self.TransferSend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TripBankInfo" EntityType="Self.TripBankInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TripInfo" EntityType="Self.TripInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeDestination" EntityType="Self.TypeDestination" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypePayment" EntityType="Self.TypePayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeTransfer" EntityType="Self.TypeTransfer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeVisa" EntityType="Self.TypeVisa" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BankInfo_Bank" Association="Self.FK_BankInfo_Bank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="BankInfo" EntitySet="BankInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Destination_PriceCities" Association="Self.FK_Destination_PriceCities">
+            <End Role="PriceCities" EntitySet="PriceCities" />
+            <End Role="Destination" EntitySet="Destination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Destination_SalesContact" Association="Self.FK_Destination_SalesContact">
+            <End Role="SalesContact" EntitySet="SalesContact" />
+            <End Role="Destination" EntitySet="Destination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Destination_TypeDestination" Association="Self.FK_Destination_TypeDestination">
+            <End Role="TypeDestination" EntitySet="TypeDestination" />
+            <End Role="Destination" EntitySet="Destination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passenger_TypeVisa" Association="Self.FK_Passenger_TypeVisa">
+            <End Role="TypeVisa" EntitySet="TypeVisa" />
+            <End Role="Passenger" EntitySet="Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesSource_SalesContact" Association="Self.FK_SalesSource_SalesContact">
+            <End Role="SalesContact" EntitySet="SalesContact" />
+            <End Role="SalesSource" EntitySet="SalesSource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_Aprove" Association="Self.FK_TransferEstimate_Aprove">
+            <End Role="TransferAprove" EntitySet="TransferAprove" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_CityFromId" Association="Self.FK_TransferEstimate_CityFromId">
+            <End Role="PriceCities" EntitySet="PriceCities" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_CityToId" Association="Self.FK_TransferEstimate_CityToId">
+            <End Role="PriceCities" EntitySet="PriceCities" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_Destination" Association="Self.FK_TransferEstimate_Destination">
+            <End Role="Destination" EntitySet="Destination" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_MetingPoint" Association="Self.FK_TransferEstimate_MetingPoint">
+            <End Role="MetingPoint" EntitySet="MetingPoint" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_Passenger" Association="Self.FK_TransferEstimate_Passenger">
+            <End Role="Passenger" EntitySet="Passenger" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_SalesContact" Association="Self.FK_TransferEstimate_SalesContact">
+            <End Role="SalesContact" EntitySet="SalesContact" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_StatusPayment" Association="Self.FK_TransferEstimate_StatusPayment">
+            <End Role="StatusPayment" EntitySet="StatusPayment" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_TypeDestination" Association="Self.FK_TransferEstimate_TypeDestination">
+            <End Role="TypeDestination" EntitySet="TypeDestination" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_TypePayment" Association="Self.FK_TransferEstimate_TypePayment">
+            <End Role="TypePayment" EntitySet="TypePayment" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_TypeTransfer" Association="Self.FK_TransferEstimate_TypeTransfer">
+            <End Role="TypeTransfer" EntitySet="TypeTransfer" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TripBankInfo_BankInfo" Association="Self.FK_TripBankInfo_BankInfo">
+            <End Role="BankInfo" EntitySet="BankInfo" />
+            <End Role="TripBankInfo" EntitySet="TripBankInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TripBankInfo_TripInfo" Association="Self.FK_TripBankInfo_TripInfo">
+            <End Role="TripInfo" EntitySet="TripInfo" />
+            <End Role="TripBankInfo" EntitySet="TripBankInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TripInfo_TripCity" Association="Self.FK_TripInfo_TripCity">
+            <End Role="PriceCities" EntitySet="PriceCities" />
+            <End Role="TripInfo" EntitySet="TripInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="atripservices" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End" Type="DateTime" Precision="3" />
+          <Property Name="ThemeColor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsFullDay" Type="Boolean" Nullable="false" />
+          <Property Name="IdTransEst" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="atripservicesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="TypeTransfer" EntityType="atripservices.TypeTransfer" />
+          <EntitySet Name="TypeDestination" EntityType="atripservices.TypeDestination" />
+          <EntitySet Name="SalesContact" EntityType="atripservices.SalesContact" />
+          <EntitySet Name="SalesSource" EntityType="atripservices.SalesSource" />
+          <AssociationSet Name="FK_SalesSource_SalesContact" Association="atripservices.FK_SalesSource_SalesContact">
+            <End Role="SalesContact" EntitySet="SalesContact" />
+            <End Role="SalesSource" EntitySet="SalesSource" />
+          </AssociationSet>
+          <EntitySet Name="StatusPayment" EntityType="atripservices.StatusPayment" />
+          <EntitySet Name="TransferAprove" EntityType="atripservices.TransferAprove" />
+          <EntitySet Name="TypePayment" EntityType="atripservices.TypePayment" />
+          <EntitySet Name="MetingPoint" EntityType="atripservices.MetingPoint" />
+          <EntitySet Name="TransferEstimate" EntityType="atripservices.TransferEstimate" />
+          <AssociationSet Name="FK_TransferEstimate_MetingPoint" Association="atripservices.FK_TransferEstimate_MetingPoint">
+            <End Role="MetingPoint" EntitySet="MetingPoint" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_SalesContact" Association="atripservices.FK_TransferEstimate_SalesContact">
+            <End Role="SalesContact" EntitySet="SalesContact" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_StatusPayment" Association="atripservices.FK_TransferEstimate_StatusPayment">
+            <End Role="StatusPayment" EntitySet="StatusPayment" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_Aprove" Association="atripservices.FK_TransferEstimate_Aprove">
+            <End Role="TransferAprove" EntitySet="TransferAprove" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_TypeDestination" Association="atripservices.FK_TransferEstimate_TypeDestination">
+            <End Role="TypeDestination" EntitySet="TypeDestination" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_TypePayment" Association="atripservices.FK_TransferEstimate_TypePayment">
+            <End Role="TypePayment" EntitySet="TypePayment" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_TypeTransfer" Association="atripservices.FK_TransferEstimate_TypeTransfer">
+            <End Role="TypeTransfer" EntitySet="TypeTransfer" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <EntitySet Name="ACCESS" EntityType="atripservices.ACCESS" />
+          <EntitySet Name="PriceCities" EntityType="atripservices.PriceCities" />
+          <AssociationSet Name="FK_TransferEstimate_CityFromId" Association="atripservices.FK_TransferEstimate_CityFromId">
+            <End Role="PriceCities" EntitySet="PriceCities" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_CityToId" Association="atripservices.FK_TransferEstimate_CityToId">
+            <End Role="PriceCities" EntitySet="PriceCities" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <EntitySet Name="Destination" EntityType="atripservices.Destination" />
+          <AssociationSet Name="FK_Destination_SalesContact" Association="atripservices.FK_Destination_SalesContact">
+            <End Role="SalesContact" EntitySet="SalesContact" />
+            <End Role="Destination" EntitySet="Destination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Destination_TypeDestination" Association="atripservices.FK_Destination_TypeDestination">
+            <End Role="TypeDestination" EntitySet="TypeDestination" />
+            <End Role="Destination" EntitySet="Destination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_Destination" Association="atripservices.FK_TransferEstimate_Destination">
+            <End Role="Destination" EntitySet="Destination" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <EntitySet Name="Passenger" EntityType="atripservices.Passenger" />
+          <EntitySet Name="TransferSend" EntityType="atripservices.TransferSend" />
+          <EntitySet Name="ConfigApp" EntityType="atripservices.ConfigApp" />
+          <EntitySet Name="TypeVisa" EntityType="atripservices.TypeVisa" />
+          <AssociationSet Name="FK_Passenger_TypeVisa" Association="atripservices.FK_Passenger_TypeVisa">
+            <End Role="TypeVisa" EntitySet="TypeVisa" />
+            <End Role="Passenger" EntitySet="Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Destination_PriceCities" Association="atripservices.FK_Destination_PriceCities">
+            <End Role="PriceCities" EntitySet="PriceCities" />
+            <End Role="Destination" EntitySet="Destination" />
+          </AssociationSet>
+          <EntitySet Name="DestinationSalesContact" EntityType="atripservices.DestinationSalesContact" />
+          <EntitySet Name="ReservationRequest" EntityType="atripservices.ReservationRequest" />
+          <EntitySet Name="LastIPReservation" EntityType="atripservices.LastIPReservation" />
+          <EntitySet Name="Bank" EntityType="atripservices.Bank" />
+          <EntitySet Name="TripBankInfo" EntityType="atripservices.TripBankInfo" />
+          <EntitySet Name="TripInfo" EntityType="atripservices.TripInfo" />
+          <AssociationSet Name="FK_TripInfo_TripCity" Association="atripservices.FK_TripInfo_TripCity">
+            <End Role="PriceCities" EntitySet="PriceCities" />
+            <End Role="TripInfo" EntitySet="TripInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TripBankInfo_TripInfo" Association="atripservices.FK_TripBankInfo_TripInfo">
+            <End Role="TripInfo" EntitySet="TripInfo" />
+            <End Role="TripBankInfo" EntitySet="TripBankInfo" />
+          </AssociationSet>
+          <EntitySet Name="BankInfo" EntityType="atripservices.BankInfo" />
+          <AssociationSet Name="FK_BankInfo_Bank" Association="atripservices.FK_BankInfo_Bank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="BankInfo" EntitySet="BankInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TripBankInfo_BankInfo" Association="atripservices.FK_TripBankInfo_BankInfo">
+            <End Role="BankInfo" EntitySet="BankInfo" />
+            <End Role="TripBankInfo" EntitySet="TripBankInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferEstimate_Passenger" Association="atripservices.FK_TransferEstimate_Passenger">
+            <End Role="Passenger" EntitySet="Passenger" />
+            <End Role="TransferEstimate" EntitySet="TransferEstimate" />
+          </AssociationSet>
+          <EntitySet Name="AspNetUsers" EntityType="atripservices.AspNetUsers" />
+          </EntityContainer>
+        <EntityType Name="TypeTransfer">
+          <Key>
+            <PropertyRef Name="IdTypeTransfer" />
+          </Key>
+          <Property Name="IdTypeTransfer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_TypeTransfer" FromRole="TypeTransfer" ToRole="TransferEstimate" />
+        </EntityType>
+        <EntityType Name="TypeDestination">
+          <Key>
+            <PropertyRef Name="IdTypeDestination" />
+          </Key>
+          <Property Name="IdTypeDestination" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescTypeDestination" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_TypeDestination" FromRole="TypeDestination" ToRole="TransferEstimate" />
+          <NavigationProperty Name="Destination" Relationship="atripservices.FK_Destination_TypeDestination" FromRole="TypeDestination" ToRole="Destination" />
+        </EntityType>
+        <EntityType Name="SalesContact">
+          <Key>
+            <PropertyRef Name="IdSalesContact" />
+          </Key>
+          <Property Name="IdSalesContact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contact" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ThemeColor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PercentPay" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="SalesSource" Relationship="atripservices.FK_SalesSource_SalesContact" FromRole="SalesContact" ToRole="SalesSource" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_SalesContact" FromRole="SalesContact" ToRole="TransferEstimate" />
+          <NavigationProperty Name="Destination" Relationship="atripservices.FK_Destination_SalesContact" FromRole="SalesContact" ToRole="Destination" />
+          </EntityType>
+        <EntityType Name="SalesSource">
+          <Key>
+            <PropertyRef Name="IdSalesSource" />
+          </Key>
+          <Property Name="IdSalesSource" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PercentPay" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TypePay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdSalesContact" Type="Int32" />
+          <Property Name="NumInvoice" Type="Int32" />
+          <NavigationProperty Name="SalesContact" Relationship="atripservices.FK_SalesSource_SalesContact" FromRole="SalesSource" ToRole="SalesContact" />
+        </EntityType>
+        <Association Name="FK_SalesSource_SalesContact">
+          <End Type="atripservices.SalesContact" Role="SalesContact" Multiplicity="0..1" />
+          <End Type="atripservices.SalesSource" Role="SalesSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesContact">
+              <PropertyRef Name="IdSalesContact" />
+            </Principal>
+            <Dependent Role="SalesSource">
+              <PropertyRef Name="IdSalesContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StatusPayment">
+          <Key>
+            <PropertyRef Name="IdStatusPayment" />
+          </Key>
+          <Property Name="IdStatusPayment" Type="Int32" Nullable="false" />
+          <Property Name="DescStatusPayment" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_StatusPayment" FromRole="StatusPayment" ToRole="TransferEstimate" />
+        </EntityType>
+        <EntityType Name="TransferAprove">
+          <Key>
+            <PropertyRef Name="IdAprove" />
+          </Key>
+          <Property Name="IdAprove" Type="Int32" Nullable="false" />
+          <Property Name="DescAprove" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_Aprove" FromRole="TransferAprove" ToRole="TransferEstimate" />
+        </EntityType>
+        <EntityType Name="TypePayment">
+          <Key>
+            <PropertyRef Name="IdTypePayment" />
+          </Key>
+          <Property Name="IdTypePayment" Type="Int32" Nullable="false" />
+          <Property Name="DescTypePayment" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_TypePayment" FromRole="TypePayment" ToRole="TransferEstimate" />
+        </EntityType>
+        <EntityType Name="MetingPoint">
+          <Key>
+            <PropertyRef Name="IdMetingPoint" />
+          </Key>
+          <Property Name="IdMetingPoint" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescMetingPoint" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_MetingPoint" FromRole="MetingPoint" ToRole="TransferEstimate" />
+        </EntityType>
+        <EntityType Name="TransferEstimate">
+          <Key>
+            <PropertyRef Name="IdTransEst" />
+          </Key>
+          <Property Name="IdTransEst" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FlightNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DateFligh" Type="DateTime" Precision="0" />
+          <Property Name="TimeFligh" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="TimePiDo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="IdMetingPoint" Type="Int32" />
+          <Property Name="QtyPassenger" Type="Int32" />
+          <Property Name="QtyMalaGr" Type="Int32" />
+          <Property Name="QtyMalaPq" Type="Int32" />
+          <Property Name="CityFromId" Type="Int32" />
+          <Property Name="CityToId" Type="Int32" />
+          <Property Name="TransferAmount" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="FinalPrice" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="DateTransEst" Type="DateTime" Precision="0" />
+          <Property Name="DateAprove" Type="DateTime" Precision="0" />
+          <Property Name="NamePassenger" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdAprove" Type="Int32" />
+          <Property Name="IdTypeDestination" Type="Int32" />
+          <Property Name="IdDestination" Type="Int32" />
+          <Property Name="IdSales" Type="Int32" />
+          <Property Name="IdTypeTransfer" Type="Int32" />
+          <Property Name="IdTypePayment" Type="Int32" />
+          <Property Name="IdStatusPayment" Type="Int32" />
+          <NavigationProperty Name="MetingPoint" Relationship="atripservices.FK_TransferEstimate_MetingPoint" FromRole="TransferEstimate" ToRole="MetingPoint" />
+          <NavigationProperty Name="SalesContact" Relationship="atripservices.FK_TransferEstimate_SalesContact" FromRole="TransferEstimate" ToRole="SalesContact" />
+          <NavigationProperty Name="StatusPayment" Relationship="atripservices.FK_TransferEstimate_StatusPayment" FromRole="TransferEstimate" ToRole="StatusPayment" />
+          <NavigationProperty Name="TransferAprove" Relationship="atripservices.FK_TransferEstimate_Aprove" FromRole="TransferEstimate" ToRole="TransferAprove" />
+          <NavigationProperty Name="TypeDestination" Relationship="atripservices.FK_TransferEstimate_TypeDestination" FromRole="TransferEstimate" ToRole="TypeDestination" />
+          <NavigationProperty Name="TypePayment" Relationship="atripservices.FK_TransferEstimate_TypePayment" FromRole="TransferEstimate" ToRole="TypePayment" />
+          <NavigationProperty Name="TypeTransfer" Relationship="atripservices.FK_TransferEstimate_TypeTransfer" FromRole="TransferEstimate" ToRole="TypeTransfer" />
+          <NavigationProperty Name="PriceCitiesFrom" Relationship="atripservices.FK_TransferEstimate_CityFromId" FromRole="TransferEstimate" ToRole="PriceCities" />
+          <NavigationProperty Name="PriceCitiesTo" Relationship="atripservices.FK_TransferEstimate_CityToId" FromRole="TransferEstimate" ToRole="PriceCities" />
+          <NavigationProperty Name="Destination" Relationship="atripservices.FK_TransferEstimate_Destination" FromRole="TransferEstimate" ToRole="Destination" />
+          <Property Name="TypeVisa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="QtyPassengerKids" Type="Int32" />
+          <Property Name="DateRequestEstimate" Type="DateTime" Precision="0" />
+          <Property Name="IdPassenger" Type="Int32" />
+          <NavigationProperty Name="Passenger" Relationship="atripservices.FK_TransferEstimate_Passenger" FromRole="TransferEstimate" ToRole="Passenger" />
+        </EntityType>
+        <Association Name="FK_TransferEstimate_MetingPoint">
+          <End Type="atripservices.MetingPoint" Role="MetingPoint" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetingPoint">
+              <PropertyRef Name="IdMetingPoint" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdMetingPoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_SalesContact">
+          <End Type="atripservices.SalesContact" Role="SalesContact" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesContact">
+              <PropertyRef Name="IdSalesContact" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdSales" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_StatusPayment">
+          <End Type="atripservices.StatusPayment" Role="StatusPayment" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPayment">
+              <PropertyRef Name="IdStatusPayment" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdStatusPayment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_Aprove">
+          <End Type="atripservices.TransferAprove" Role="TransferAprove" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransferAprove">
+              <PropertyRef Name="IdAprove" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdAprove" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_TypeDestination">
+          <End Type="atripservices.TypeDestination" Role="TypeDestination" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDestination">
+              <PropertyRef Name="IdTypeDestination" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdTypeDestination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_TypePayment">
+          <End Type="atripservices.TypePayment" Role="TypePayment" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePayment">
+              <PropertyRef Name="IdTypePayment" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdTypePayment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_TypeTransfer">
+          <End Type="atripservices.TypeTransfer" Role="TypeTransfer" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeTransfer">
+              <PropertyRef Name="IdTypeTransfer" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdTypeTransfer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ACCESS">
+          <Key>
+            <PropertyRef Name="IdLogin" />
+          </Key>
+          <Property Name="IdLogin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserLog" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Profile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PriceCities">
+          <Key>
+            <PropertyRef Name="IdCity" />
+          </Key>
+          <Property Name="IdCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PriceOne" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Pricetwo" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="TransferEstimateCityFrom" Relationship="atripservices.FK_TransferEstimate_CityFromId" FromRole="PriceCities" ToRole="TransferEstimate" />
+          <NavigationProperty Name="TransferEstimateCityTo" Relationship="atripservices.FK_TransferEstimate_CityToId" FromRole="PriceCities" ToRole="TransferEstimate" />
+          <NavigationProperty Name="Destination" Relationship="atripservices.FK_Destination_PriceCities" FromRole="PriceCities" ToRole="Destination" />
+          <NavigationProperty Name="TripInfo" Relationship="atripservices.FK_TripInfo_TripCity" FromRole="PriceCities" ToRole="TripInfo" />
+        </EntityType>
+        <Association Name="FK_TransferEstimate_CityFromId">
+          <End Type="atripservices.PriceCities" Role="PriceCities" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceCities">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="CityFromId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_CityToId">
+          <End Type="atripservices.PriceCities" Role="PriceCities" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceCities">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="CityToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Destination">
+          <Key>
+            <PropertyRef Name="IdDestination" />
+          </Key>
+          <Property Name="IdDestination" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdTypeDestination" Type="Int32" />
+          <Property Name="IdSalesContact" Type="Int32" />
+          <NavigationProperty Name="SalesContact" Relationship="atripservices.FK_Destination_SalesContact" FromRole="Destination" ToRole="SalesContact" />
+          <NavigationProperty Name="TypeDestination" Relationship="atripservices.FK_Destination_TypeDestination" FromRole="Destination" ToRole="TypeDestination" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_Destination" FromRole="Destination" ToRole="TransferEstimate" />
+          <Property Name="IdCity" Type="Int32" />
+          <NavigationProperty Name="PriceCities" Relationship="atripservices.FK_Destination_PriceCities" FromRole="Destination" ToRole="PriceCities" />
+        </EntityType>
+        <Association Name="FK_Destination_SalesContact">
+          <End Type="atripservices.SalesContact" Role="SalesContact" Multiplicity="0..1" />
+          <End Type="atripservices.Destination" Role="Destination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesContact">
+              <PropertyRef Name="IdSalesContact" />
+            </Principal>
+            <Dependent Role="Destination">
+              <PropertyRef Name="IdSalesContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Destination_TypeDestination">
+          <End Type="atripservices.TypeDestination" Role="TypeDestination" Multiplicity="0..1" />
+          <End Type="atripservices.Destination" Role="Destination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDestination">
+              <PropertyRef Name="IdTypeDestination" />
+            </Principal>
+            <Dependent Role="Destination">
+              <PropertyRef Name="IdTypeDestination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_Destination">
+          <End Type="atripservices.Destination" Role="Destination" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destination">
+              <PropertyRef Name="IdDestination" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdDestination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Passenger">
+          <Key>
+            <PropertyRef Name="IdPassenger" />
+          </Key>
+          <Property Name="IdPassenger" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdTypeVisa" Type="Int32" />
+          <NavigationProperty Name="TypeVisa" Relationship="atripservices.FK_Passenger_TypeVisa" FromRole="Passenger" ToRole="TypeVisa" />
+          <NavigationProperty Name="TransferEstimate" Relationship="atripservices.FK_TransferEstimate_Passenger" FromRole="Passenger" ToRole="TransferEstimate" />
+        </EntityType>
+        <EntityType Name="TransferSend">
+          <Key>
+            <PropertyRef Name="IdTransferSend" />
+          </Key>
+          <Property Name="IdTransferSend" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateSend" Type="DateTime" Precision="3" />
+          <Property Name="IdTransEst" Type="Int32" />
+          <Property Name="IdAprove" Type="Int32" />
+          <Property Name="SmallMessage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NameUser" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ConfigApp">
+          <Key>
+            <PropertyRef Name="IdConfigApp" />
+          </Key>
+          <Property Name="IdConfigApp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameApp" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="AccountPOP3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PortPOP3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AccountSMTP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PortSMTP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="account" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordAccount" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TypeVisa">
+          <Key>
+            <PropertyRef Name="IdTypeVisa" />
+          </Key>
+          <Property Name="IdTypeVisa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescTypeVisa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Passenger" Relationship="atripservices.FK_Passenger_TypeVisa" FromRole="TypeVisa" ToRole="Passenger" />
+        </EntityType>
+        <Association Name="FK_Passenger_TypeVisa">
+          <End Type="atripservices.TypeVisa" Role="TypeVisa" Multiplicity="0..1" />
+          <End Type="atripservices.Passenger" Role="Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeVisa">
+              <PropertyRef Name="IdTypeVisa" />
+            </Principal>
+            <Dependent Role="Passenger">
+              <PropertyRef Name="IdTypeVisa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Destination_PriceCities">
+          <End Type="atripservices.PriceCities" Role="PriceCities" Multiplicity="0..1" />
+          <End Type="atripservices.Destination" Role="Destination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceCities">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="Destination">
+              <PropertyRef Name="IdCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DestinationSalesContact">
+          <Key>
+            <PropertyRef Name="IdSalesConttDest" />
+          </Key>
+          <Property Name="IdSalesConttDest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDestination" Type="Int32" />
+          <Property Name="IdSalesContact" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ReservationRequest">
+          <Key>
+            <PropertyRef Name="IdReservationRequest" />
+          </Key>
+          <Property Name="IdReservationRequest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamePD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AddressPD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCodePD" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="PhonePD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MobilePD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdCityPD" Type="Int32" />
+          <Property Name="IdTypeDestinationPD" Type="Int32" />
+          <Property Name="IdPassenger" Type="Int32" />
+          <Property Name="IdTransferEst" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LastIPReservation">
+          <Key>
+            <PropertyRef Name="IdIP" />
+          </Key>
+          <Property Name="IdIP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="DateReservation" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="IdBank" />
+          </Key>
+          <Property Name="IdBank" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InstituteNumber" Type="Int32" />
+          <NavigationProperty Name="BankInfo" Relationship="atripservices.FK_BankInfo_Bank" FromRole="Bank" ToRole="BankInfo" />
+        </EntityType>
+        <EntityType Name="TripBankInfo">
+          <Key>
+            <PropertyRef Name="IdTripBankInfo" />
+          </Key>
+          <Property Name="IdTripBankInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTripInfo" Type="Int32" />
+          <Property Name="IdBankInfo" Type="Int32" />
+          <NavigationProperty Name="TripInfo" Relationship="atripservices.FK_TripBankInfo_TripInfo" FromRole="TripBankInfo" ToRole="TripInfo" />
+          <NavigationProperty Name="BankInfo" Relationship="atripservices.FK_TripBankInfo_BankInfo" FromRole="TripBankInfo" ToRole="BankInfo" />
+        </EntityType>
+        <EntityType Name="TripInfo">
+          <Key>
+            <PropertyRef Name="IdTripInfo" />
+          </Key>
+          <Property Name="IdTripInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TripName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TripAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TripPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TripCity" Type="Int32" />
+          <Property Name="TripProvince" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="PriceCities" Relationship="atripservices.FK_TripInfo_TripCity" FromRole="TripInfo" ToRole="PriceCities" />
+          <NavigationProperty Name="TripBankInfo" Relationship="atripservices.FK_TripBankInfo_TripInfo" FromRole="TripInfo" ToRole="TripBankInfo" />
+        </EntityType>
+        <Association Name="FK_TripInfo_TripCity">
+          <End Type="atripservices.PriceCities" Role="PriceCities" Multiplicity="0..1" />
+          <End Type="atripservices.TripInfo" Role="TripInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceCities">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="TripInfo">
+              <PropertyRef Name="TripCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TripBankInfo_TripInfo">
+          <End Type="atripservices.TripInfo" Role="TripInfo" Multiplicity="0..1" />
+          <End Type="atripservices.TripBankInfo" Role="TripBankInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TripInfo">
+              <PropertyRef Name="IdTripInfo" />
+            </Principal>
+            <Dependent Role="TripBankInfo">
+              <PropertyRef Name="IdTripInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BankInfo">
+          <Key>
+            <PropertyRef Name="IdBankInfo" />
+          </Key>
+          <Property Name="IdBankInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BankPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BankCity" Type="Int32" />
+          <Property Name="BankProvince" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="AccountNumber" Type="Int32" />
+          <Property Name="SwiftCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="IdBank" Type="Int32" />
+          <Property Name="TransitNumber" Type="Int32" />
+          <NavigationProperty Name="Bank" Relationship="atripservices.FK_BankInfo_Bank" FromRole="BankInfo" ToRole="Bank" />
+          <NavigationProperty Name="TripBankInfo" Relationship="atripservices.FK_TripBankInfo_BankInfo" FromRole="BankInfo" ToRole="TripBankInfo" />
+          <Property Name="Customer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_BankInfo_Bank">
+          <End Type="atripservices.Bank" Role="Bank" Multiplicity="0..1" />
+          <End Type="atripservices.BankInfo" Role="BankInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="IdBank" />
+            </Principal>
+            <Dependent Role="BankInfo">
+              <PropertyRef Name="IdBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TripBankInfo_BankInfo">
+          <End Type="atripservices.BankInfo" Role="BankInfo" Multiplicity="0..1" />
+          <End Type="atripservices.TripBankInfo" Role="TripBankInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BankInfo">
+              <PropertyRef Name="IdBankInfo" />
+            </Principal>
+            <Dependent Role="TripBankInfo">
+              <PropertyRef Name="IdBankInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferEstimate_Passenger">
+          <End Type="atripservices.Passenger" Role="Passenger" Multiplicity="0..1" />
+          <End Type="atripservices.TransferEstimate" Role="TransferEstimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passenger">
+              <PropertyRef Name="IdPassenger" />
+            </Principal>
+            <Dependent Role="TransferEstimate">
+              <PropertyRef Name="IdPassenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LastAccess" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="atripservicesStoreContainer" CdmEntityContainer="atripservicesEntities">
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="atripservices.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="IdTransEst" ColumnName="IdTransEst" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+                <ScalarProperty Name="IsFullDay" ColumnName="IsFullDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeTransfer">
+            <EntityTypeMapping TypeName="atripservices.TypeTransfer">
+              <MappingFragment StoreEntitySet="TypeTransfer">
+                <ScalarProperty Name="DescType" ColumnName="DescType" />
+                <ScalarProperty Name="IdTypeTransfer" ColumnName="IdTypeTransfer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeDestination">
+            <EntityTypeMapping TypeName="atripservices.TypeDestination">
+              <MappingFragment StoreEntitySet="TypeDestination">
+                <ScalarProperty Name="DescTypeDestination" ColumnName="DescTypeDestination" />
+                <ScalarProperty Name="IdTypeDestination" ColumnName="IdTypeDestination" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesContact">
+            <EntityTypeMapping TypeName="atripservices.SalesContact">
+              <MappingFragment StoreEntitySet="SalesContact">
+                <ScalarProperty Name="PercentPay" ColumnName="PercentPay" />
+                <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="IdSalesContact" ColumnName="IdSalesContact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesSource">
+            <EntityTypeMapping TypeName="atripservices.SalesSource">
+              <MappingFragment StoreEntitySet="SalesSource">
+                <ScalarProperty Name="NumInvoice" ColumnName="NumInvoice" />
+                <ScalarProperty Name="IdSalesContact" ColumnName="IdSalesContact" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TypePay" ColumnName="TypePay" />
+                <ScalarProperty Name="PercentPay" ColumnName="PercentPay" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="IdSalesSource" ColumnName="IdSalesSource" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusPayment">
+            <EntityTypeMapping TypeName="atripservices.StatusPayment">
+              <MappingFragment StoreEntitySet="StatusPayment">
+                <ScalarProperty Name="DescStatusPayment" ColumnName="DescStatusPayment" />
+                <ScalarProperty Name="IdStatusPayment" ColumnName="IdStatusPayment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransferAprove">
+            <EntityTypeMapping TypeName="atripservices.TransferAprove">
+              <MappingFragment StoreEntitySet="TransferAprove">
+                <ScalarProperty Name="DescAprove" ColumnName="DescAprove" />
+                <ScalarProperty Name="IdAprove" ColumnName="IdAprove" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypePayment">
+            <EntityTypeMapping TypeName="atripservices.TypePayment">
+              <MappingFragment StoreEntitySet="TypePayment">
+                <ScalarProperty Name="DescTypePayment" ColumnName="DescTypePayment" />
+                <ScalarProperty Name="IdTypePayment" ColumnName="IdTypePayment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MetingPoint">
+            <EntityTypeMapping TypeName="atripservices.MetingPoint">
+              <MappingFragment StoreEntitySet="MetingPoint">
+                <ScalarProperty Name="DescMetingPoint" ColumnName="DescMetingPoint" />
+                <ScalarProperty Name="IdMetingPoint" ColumnName="IdMetingPoint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransferEstimate">
+            <EntityTypeMapping TypeName="atripservices.TransferEstimate">
+              <MappingFragment StoreEntitySet="TransferEstimate">
+                <ScalarProperty Name="IdPassenger" ColumnName="IdPassenger" />
+                <ScalarProperty Name="DateRequestEstimate" ColumnName="DateRequestEstimate" />
+                <ScalarProperty Name="QtyPassengerKids" ColumnName="QtyPassengerKids" />
+                <ScalarProperty Name="TypeVisa" ColumnName="TypeVisa" />
+                <ScalarProperty Name="IdStatusPayment" ColumnName="IdStatusPayment" />
+                <ScalarProperty Name="IdTypePayment" ColumnName="IdTypePayment" />
+                <ScalarProperty Name="IdTypeTransfer" ColumnName="IdTypeTransfer" />
+                <ScalarProperty Name="IdSales" ColumnName="IdSales" />
+                <ScalarProperty Name="IdDestination" ColumnName="IdDestination" />
+                <ScalarProperty Name="IdTypeDestination" ColumnName="IdTypeDestination" />
+                <ScalarProperty Name="IdAprove" ColumnName="IdAprove" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="NamePassenger" ColumnName="NamePassenger" />
+                <ScalarProperty Name="DateAprove" ColumnName="DateAprove" />
+                <ScalarProperty Name="DateTransEst" ColumnName="DateTransEst" />
+                <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="TransferAmount" ColumnName="TransferAmount" />
+                <ScalarProperty Name="CityToId" ColumnName="CityToId" />
+                <ScalarProperty Name="CityFromId" ColumnName="CityFromId" />
+                <ScalarProperty Name="QtyMalaPq" ColumnName="QtyMalaPq" />
+                <ScalarProperty Name="QtyMalaGr" ColumnName="QtyMalaGr" />
+                <ScalarProperty Name="QtyPassenger" ColumnName="QtyPassenger" />
+                <ScalarProperty Name="IdMetingPoint" ColumnName="IdMetingPoint" />
+                <ScalarProperty Name="TimePiDo" ColumnName="TimePiDo" />
+                <ScalarProperty Name="TimeFligh" ColumnName="TimeFligh" />
+                <ScalarProperty Name="DateFligh" ColumnName="DateFligh" />
+                <ScalarProperty Name="FlightNumber" ColumnName="FlightNumber" />
+                <ScalarProperty Name="IdTransEst" ColumnName="IdTransEst" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCESS">
+            <EntityTypeMapping TypeName="atripservices.ACCESS">
+              <MappingFragment StoreEntitySet="ACCESS">
+                <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserLog" ColumnName="UserLog" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceCities">
+            <EntityTypeMapping TypeName="atripservices.PriceCities">
+              <MappingFragment StoreEntitySet="PriceCities">
+                <ScalarProperty Name="Pricetwo" ColumnName="Pricetwo" />
+                <ScalarProperty Name="PriceOne" ColumnName="PriceOne" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Destination">
+            <EntityTypeMapping TypeName="atripservices.Destination">
+              <MappingFragment StoreEntitySet="Destination">
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+                <ScalarProperty Name="IdSalesContact" ColumnName="IdSalesContact" />
+                <ScalarProperty Name="IdTypeDestination" ColumnName="IdTypeDestination" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdDestination" ColumnName="IdDestination" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passenger">
+            <EntityTypeMapping TypeName="atripservices.Passenger">
+              <MappingFragment StoreEntitySet="Passenger">
+                <ScalarProperty Name="IdTypeVisa" ColumnName="IdTypeVisa" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdPassenger" ColumnName="IdPassenger" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransferSend">
+            <EntityTypeMapping TypeName="atripservices.TransferSend">
+              <MappingFragment StoreEntitySet="TransferSend">
+                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="SmallMessage" ColumnName="SmallMessage" />
+                <ScalarProperty Name="IdAprove" ColumnName="IdAprove" />
+                <ScalarProperty Name="IdTransEst" ColumnName="IdTransEst" />
+                <ScalarProperty Name="DateSend" ColumnName="DateSend" />
+                <ScalarProperty Name="IdTransferSend" ColumnName="IdTransferSend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfigApp">
+            <EntityTypeMapping TypeName="atripservices.ConfigApp">
+              <MappingFragment StoreEntitySet="ConfigApp">
+                <ScalarProperty Name="PasswordAccount" ColumnName="PasswordAccount" />
+                <ScalarProperty Name="account" ColumnName="account" />
+                <ScalarProperty Name="PortSMTP" ColumnName="PortSMTP" />
+                <ScalarProperty Name="AccountSMTP" ColumnName="AccountSMTP" />
+                <ScalarProperty Name="PortPOP3" ColumnName="PortPOP3" />
+                <ScalarProperty Name="AccountPOP3" ColumnName="AccountPOP3" />
+                <ScalarProperty Name="NameApp" ColumnName="NameApp" />
+                <ScalarProperty Name="IdConfigApp" ColumnName="IdConfigApp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeVisa">
+            <EntityTypeMapping TypeName="atripservices.TypeVisa">
+              <MappingFragment StoreEntitySet="TypeVisa">
+                <ScalarProperty Name="DescTypeVisa" ColumnName="DescTypeVisa" />
+                <ScalarProperty Name="IdTypeVisa" ColumnName="IdTypeVisa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DestinationSalesContact">
+            <EntityTypeMapping TypeName="atripservices.DestinationSalesContact">
+              <MappingFragment StoreEntitySet="DestinationSalesContact">
+                <ScalarProperty Name="IdSalesContact" ColumnName="IdSalesContact" />
+                <ScalarProperty Name="IdDestination" ColumnName="IdDestination" />
+                <ScalarProperty Name="IdSalesConttDest" ColumnName="IdSalesConttDest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservationRequest">
+            <EntityTypeMapping TypeName="atripservices.ReservationRequest">
+              <MappingFragment StoreEntitySet="ReservationRequest">
+                <ScalarProperty Name="IdTransferEst" ColumnName="IdTransferEst" />
+                <ScalarProperty Name="IdPassenger" ColumnName="IdPassenger" />
+                <ScalarProperty Name="IdTypeDestinationPD" ColumnName="IdTypeDestinationPD" />
+                <ScalarProperty Name="IdCityPD" ColumnName="IdCityPD" />
+                <ScalarProperty Name="MobilePD" ColumnName="MobilePD" />
+                <ScalarProperty Name="PhonePD" ColumnName="PhonePD" />
+                <ScalarProperty Name="PostalCodePD" ColumnName="PostalCodePD" />
+                <ScalarProperty Name="AddressPD" ColumnName="AddressPD" />
+                <ScalarProperty Name="NamePD" ColumnName="NamePD" />
+                <ScalarProperty Name="IdReservationRequest" ColumnName="IdReservationRequest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LastIPReservation">
+            <EntityTypeMapping TypeName="atripservices.LastIPReservation">
+              <MappingFragment StoreEntitySet="LastIPReservation">
+                <ScalarProperty Name="DateReservation" ColumnName="DateReservation" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="IdIP" ColumnName="IdIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bank">
+            <EntityTypeMapping TypeName="atripservices.Bank">
+              <MappingFragment StoreEntitySet="Bank">
+                <ScalarProperty Name="InstituteNumber" ColumnName="InstituteNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdBank" ColumnName="IdBank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TripBankInfo">
+            <EntityTypeMapping TypeName="atripservices.TripBankInfo">
+              <MappingFragment StoreEntitySet="TripBankInfo">
+                <ScalarProperty Name="IdBankInfo" ColumnName="IdBankInfo" />
+                <ScalarProperty Name="IdTripInfo" ColumnName="IdTripInfo" />
+                <ScalarProperty Name="IdTripBankInfo" ColumnName="IdTripBankInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TripInfo">
+            <EntityTypeMapping TypeName="atripservices.TripInfo">
+              <MappingFragment StoreEntitySet="TripInfo">
+                <ScalarProperty Name="TripProvince" ColumnName="TripProvince" />
+                <ScalarProperty Name="TripCity" ColumnName="TripCity" />
+                <ScalarProperty Name="TripPostalCode" ColumnName="TripPostalCode" />
+                <ScalarProperty Name="TripAddress" ColumnName="TripAddress" />
+                <ScalarProperty Name="TripName" ColumnName="TripName" />
+                <ScalarProperty Name="IdTripInfo" ColumnName="IdTripInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankInfo">
+            <EntityTypeMapping TypeName="atripservices.BankInfo">
+              <MappingFragment StoreEntitySet="BankInfo">
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="TransitNumber" ColumnName="TransitNumber" />
+                <ScalarProperty Name="IdBank" ColumnName="IdBank" />
+                <ScalarProperty Name="SwiftCode" ColumnName="SwiftCode" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="BankProvince" ColumnName="BankProvince" />
+                <ScalarProperty Name="BankCity" ColumnName="BankCity" />
+                <ScalarProperty Name="BankPostalCode" ColumnName="BankPostalCode" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+                <ScalarProperty Name="IdBankInfo" ColumnName="IdBankInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="atripservices.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="LastAccess" ColumnName="LastAccess" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,133 @@
+﻿@model IEnumerable<HWebTS.Models.ACCESS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users</h2>
+
+<p>
+    <a href="~/Access/Create" title="Create New User" class="btn btn-success">
+        <img src="../../images/icon/add.png" />&nbsp;&nbsp;Create New
+    </a>
+</p>
+<table id="myTable" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.UserLog)*@
+                <label>Image</label>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserLogin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.IdLogin }, new { @class = "fa fa-edit edit", title = "Edit" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.IdLogin }, new { @class = "fa fa-vcard-o text-success", title = "Details" }) |
+                @Html.ActionLink(" ", "DeleteItem", new { id = item.IdLogin }, new { @class = "fa fa-trash-o text-danger delete", title = "Delete", onclick = "return deletealert(this, event);;" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserLog)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserLogin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        function deletealert(ctl, event) {
+            // STORE HREF ATTRIBUTE OF LINK CTL (THIS) BUTTON
+            var defaultAction = $(ctl).prop("href");
+            // CANCEL DEFAULT LINK BEHAVIOUR
+            event.preventDefault();
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        swal({ title: "Deleted!", text: "Your file has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true },
+                            function () {
+                                // RESUME THE DEFAULT LINK ACTION
+                                window.location.href = defaultAction;
+                                return true;
+                            });
+                    } else {
+                        swal("Cancelled", "Your file is safe.", "error");
+                        return false;
+                    }
+                });
+        }
+    </script>
+
+    @* Loading in the button *@
+    <script>
+        $('.btn').on('click', function () {
+            var $this = $(this);
+            $this.button('loading');
+            setTimeout(function () {
+                $this.button('reset');
+            }, 2000);
+        });
+    </script>
+}

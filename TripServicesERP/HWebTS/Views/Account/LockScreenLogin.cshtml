@@ -1,0 +1,109 @@
+﻿@model HWebTS.Common.Identity.Users.LoginViewModel
+@{
+    ViewBag.Title = "Lock Screen";
+    Layout = "~/Views/Shared/_LockScreen.cshtml";
+}
+
+@using (Html.BeginForm("LockScreenLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    //cria a tag do formulário
+    @Html.AntiForgeryToken()
+    // previne o ataque CSRF
+
+    <div>
+        <div class="text-center mb-4">
+            <a href="index.html">
+                <span><img src="../images/logoemail.png" alt="" height="50"></span>
+            </a>
+        </div>
+
+        <div class="text-center w-75 m-auto">
+
+            @{try
+                {
+                    if (Session["UserLog"] != null)
+                    {
+                        <img src="../../images/users/@Session["UserLog"].ToString()" height="88" alt="user-image" class="rounded-circle shadow">
+                    }
+                    else
+                    {
+                        <img src="../../images/users/usericon.png" height="88" alt="user-image" class="rounded-circle shadow">
+                    }
+
+                }
+                catch (System.Exception)
+                {
+                    Response.Redirect("/Account/login");
+                }
+
+            }
+
+
+        </div>
+
+        @if (Session["Name"] != null)
+        {
+
+        }
+
+        @if (Session["Name"] != null)
+        {
+            <div class="text-center w-75 m-auto">
+
+                <h4 class="text-dark-50 text-center mt-3">
+                    <label> Hi! @Session["Name"]</label>
+                </h4>
+                <p class="text-muted mb-4">Enter your password to access the System</p>
+            </div>
+
+
+            <form action="#">
+
+                <div class="form-group mb-3">
+                    @Html.TextBoxFor(Model => Model.Alias, new { @Value = @Session["Name"].ToString(), @type = "hidden" })
+
+                    <label for="password">Password</label>
+                    @Html.PasswordFor(Model => Model.Password, new { @class = "form-control text-danger", placeholder = "password", required = "required", type = "password" })
+                    @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-0 text-center">
+                    <button class="ladda-button btn btn-danger btn-block" type="submit"> Log In </button>
+                </div>
+            </form>
+        }
+        else
+        {
+            <div class="text-center w-75 m-auto">
+
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <label>Você precisa logar novamente !</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <p class="text-black-50">Not you? return <a href="Login" class="text-black ml-1"><b>Sign In</b></a></p>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    if (@ViewBag.Message != null)
+    {
+        <div class="alert alert-danger fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Error!</strong> @ViewBag.Message
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Error!</strong> @ViewBag.Message
+        </div>
+    }
+}
+

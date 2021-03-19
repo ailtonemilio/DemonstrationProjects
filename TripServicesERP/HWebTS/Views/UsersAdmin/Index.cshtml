@@ -1,0 +1,374 @@
+﻿@model IEnumerable<HWebTS.Common.Identity.Users.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 col-lg-12 col-sm-12 panel-collapse panel-default">
+    <br />
+
+    <div class="panel-heading">
+        <h4><i class="fas fa-adn"></i>&nbsp;&nbsp;&nbsp;User Administration</h4>
+    </div>
+    <br />
+
+    <!--/ Aqui entram os conteúdos -->
+    <div class="animated fadeInRightBig">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="ibox-tools">
+                            <!--/ Botão create -->
+                            <a href="~/Home/Index" class="btn btn-blue" data-toggle="tooltip" data-placement="bottom" title="Back to Home" data-original-title="Back to Home"> <i class="fas fa-home"></i></a>
+                            <button class="btn btn-blue createUser" data-toggle="tooltip" data-placement="bottom" title="Adicionar novo Usuário" data-original-title="Adicionar novo Usuário"> <i class="fas fa-user-plus"></i> </button>
+                            <button class="btn btn-success btn-transparent createRole" data-toggle="tooltip" data-placement="bottom" title="Adds a new Access Policy so it can be associated with Users." data-original-title="Adds a new Access Policy so it can be associated with Users."> <i class="fas fa-plus"></i>&nbsp;&nbsp;Add Access Policy</button>
+                            <button class="btn btn-success btn-transparent listRoles" data-toggle="tooltip" data-placement="bottom" title="List the access permissions registered in the system." data-original-title="List the access permissions registered in the system."> <i class="fas fa-list-ul"></i>&nbsp;&nbsp;List Access Policy</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="ibox-content">
+                        @*<table id="myTable" class="table table-striped dataTables_wrapper table-responsive table-bordered table-hover cursomvc display" cellspacing="0" style="width:100%">*@
+                        <table id="myTable" class="table table-bordered table-condensed table-hover table-striped" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th style="width:12%">Details/Edit</th>
+                                    <th data-class="expand">@Html.DisplayNameFor(model => model.UserName)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                    <th>@Html.DisplayNameFor(model => model.UserImage)</th>
+                                    <th style="width:3%">Access</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td align="center">
+                                            @if (Request.IsAuthenticated && item.UserName != "Administrator")
+                                            {
+                                                <button type="button" class="btn btn-sm btn-success details" data-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes do Usuário" data-original-title="Detalhes do Usuário"><i class="fa fa-file"></i></button>
+                                                <button class="btn btn-sm btn-primary edit" data-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Editar Usuário" data-original-title="Editar Usuário"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger delete" data-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Excluir Usuário" data-original-title="Editar Usuário"><i class="fa fa-trash"></i></button>
+                                                @*@Html.ActionLink(" ", "DeleteUser", new { id = item.Id }, new { @class = "btn btn-sm btn-danger fa fa-trash", title = "Delete", onclick = "return deletealertuser(this, event);;" })*@
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-sm btn-success details" data-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes do Usuário" data-original-title="Detalhes do Usuário"><i class="fa fa-file"></i></button>
+                                            }
+
+                                        </td>
+                                        <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.UserImage)</td>
+                                        <td align="center">
+                                            <button class="btn btn-sm btn-default setClaim" data-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Acessos do Usuário" data-original-title="Acessos do Usuário"><i class="fa fa-user"></i></button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            @*<tfoot>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                        <th>Details/Edit</th>
+                                        <th>Access</th>
+                                    </tr>
+                                </tfoot>*@
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--/ Aqui entram os conteúdos -->
+
+</div>
+
+<!-- Modal Users-->
+
+<div class="modal fade" id="ModalUser" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Insert New Service</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    @* MODAL SERÁ CARREGADO AQUI! *@
+</div>
+
+@*<div class="modal fade modal-style6"
+     id="modal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    
+</div>*@
+
+<!-- Custom Modal -->
+<div id="custom-modal" class="modal-demo">
+    <button type="button" class="close" onclick="Custombox.modal.close();">
+        <span>&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="custom-modal-title">Animation Modal title</h4>
+    <div class="custom-modal-text">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    </div>
+</div>
+
+@section Scripts {
+
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $('#myTable2').DataTable({
+                    "scrollX": true,
+                    colReorder: true,
+                    paging: false
+                });
+            });
+        </script>*@
+
+    <script>
+        $("#btninsertservice").click(function () {
+
+            $("#ModalUser").modal('show');
+        });
+
+        $("#btnAddService").click(function () {
+            var TypeService = $('#typeservice').val();
+            var DescService = $('#descservice').val();
+            var HourRate = $('#hourrate').val();
+            var Hours = $('#hours').val();
+            var NumInv = $('#NumInvoice').val();
+            var SubTot = $('#SubTotal').val();
+            var Tot = $('#Total').val();
+            var Taxx = $('#Tax').val();
+            var IdService = $('#IdServ').val();
+
+            if (TypeService === "" || DescService === "" || HourRate === "" || Hours === "") {
+                swal("Fields is empty.", "Type Service or Description or Hours Rate or Hours is empty.", "warning");
+            }
+            else {
+                $.ajax({
+                    type: 'get',
+                    dataType: 'json',
+                    cache: false,
+                    url: "/Invoice/SaveService",
+                    data: {
+                        TypeService: $("#typeservice").val(),
+                        DescService: $("#descservice").val(),
+                        HourRate: $("#hourrate").val(),
+                        Hour: $("#hours").val(),
+                        NumInv: $("#NumInvoice").val(),
+                        IdIssuer: $("#IdIssuer").val(),
+                        SubTot: $('#SubTotal').val(),
+                        Tot: $('#Total').val(),
+                        Taxx: $('#Tax').val(),
+                        IdService: $('#IdServ').val()
+                    },
+                    success: function (response, textStatus, jqXHR) {
+                        document.getElementById("typeservice").value = "";
+                        document.getElementById("descservice").value = "";
+                        document.getElementById("hourrate").value = "";
+                        document.getElementById("hours").value = "";
+                        document.getElementById("SubTotal").value = SubTot;
+                        document.getElementById("Total").value = Tot;
+                        document.getElementById("Tax").value = Taxx;
+                        document.getElementById("IdServ").value = IdService;
+                        $("#ModalNewService").modal('hide');
+                        $("#TableService").change(location.reload());
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Error - ' + errorThrown);
+                    }
+                });
+            }
+        });
+
+        $(".edits").click(function () {
+            var id = $(this).attr("data-id");
+
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                cache: false,
+                url: "/Invoice/GetService",
+                data: {
+                    Id: id
+                },
+                success: function (response, textStatus, jqXHR) {
+
+                    $("#ModalNewService").modal('show');
+
+                    document.getElementById("typeservice").value = response.typeservices;
+                    document.getElementById("descservice").value = response.descservices;
+                    document.getElementById("hourrate").value = response.hourrate;
+                    document.getElementById("hours").value = response.hours;
+                    document.getElementById("IdServ").value = response.idservice;
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Error - ' + errorThrown);
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        // USAR O $ ABAIXO, TEM DE MUDAR O BUNDLLES, A CHAMADA CSS NO _LAYOUT E MUDAR DE ID PARA CLASS
+
+
+        //    $(document).ready(function () {
+        //        $('#evolumed').DataTable({
+        //            "language": {
+        //                "sEmptyTable": "Nenhum registro encontrado",
+        //                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+        //                "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+        //                "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+        //                "sInfoPostFix": "",
+        //                "sInfoThousands": ".",
+        //                "sLengthMenu": "_MENU_ resultados por página",
+        //                "sLoadingRecords": "Carregando...",
+        //                "sProcessing": "Processando...",
+        //                "sZeroRecords": "Nenhum registro encontrado",
+        //                "sSearch": "Pesquisar",
+        //                "oPaginate": {
+        //                    "sNext": "Próximo",
+        //                    "sPrevious": "Anterior",
+        //                    "sFirst": "Primeiro",
+        //                    "sLast": "Último"
+        //                },
+        //                "oAria": {
+        //                    "sSortAscending": ": Ordenar colunas de forma ascendente",
+        //                    "sSortDescending": ": Ordenar colunas de forma descendente"
+        //                }
+        //            },
+        //            //Campo ordenado por padrão (ao carregar página) O 1 é a coluna a ser ordenada lembrando que começa com 0
+        //            "order": [[1, "desc"]],
+        //        });
+        //    $('#evolumed td').css('white-space', 'initial');
+        //});
+
+
+
+        $(document).ready(function () {
+            $('.cursomvc').DataTable({
+                dom: 'T<"clear">lfrtip',
+                tableTools: {
+                    "sSwfPath": "../../myPlugins/copy_csv_xls_pdf.swf"
+                }
+            });
+        });
+
+
+        /* ------------------------------------------------------------- */
+
+        //$(".createClaim").click(function () {
+        //    $("#modal").load("/UsersAdmin/CreateClaim", function () {
+        //        $("#modal").modal();
+        //    });
+        //});
+
+        $(".setClaim").click(function () {
+            var id = $(this).attr("data-id");
+            $("#modal").load("/UsersAdmin/SetUserClaim?id=" + id, function () {
+                $("#modal").modal();
+            });
+        });
+
+
+        /*Start Manager Roles*/
+        /*Create Role*/
+
+        $(".createRole").click(function () {
+            $("#modal").load("/RolesAdmin/CreateRole", function () {
+                $("#modal").modal();
+            });
+        });
+
+
+        $(".listRoles").click(function () {
+            $("#modal").load("/RolesAdmin/ListRole", function () {
+                $("#modal").modal();
+            });
+        });
+        /*End Manager User*/
+        /* ------------------------------------------------------------- */
+
+        /*Start Manager Users*/
+        $(".edit").click(function () {
+            var id = $(this).attr("data-id");
+            $("#modal").load("/UsersAdmin/Edit?id=" + id, function () {
+                $("#modal").modal();
+            });
+        });
+
+        $(".details").click(function () {
+            var id = $(this).attr("data-id");
+            $("#modal").load("/UsersAdmin/Details?id=" + id, function () {
+                $("#modal").modal();
+            });
+        });
+
+
+        $(".createUser").click(function () {
+            $("#modal").load("/UsersAdmin/Create", function () {
+                $("#modal").modal();
+            });
+        });
+        /*Start Manager Users*/
+    </script>
+
+    @* DELETE User *@
+    <script>
+        function deletealertuser(ctl, event) {
+            // STORE HREF ATTRIBUTE OF LINK CTL (THIS) BUTTON
+            var defaultAction = $(ctl).prop("href");
+            // CANCEL DEFAULT LINK BEHAVIOUR
+            event.preventDefault();
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonClass: "btn-primary",
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        swal({ title: "Deleted!", text: "Your file has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true },
+                            function () {
+                                // RESUME THE DEFAULT LINK ACTION
+                                window.location.href = defaultAction;
+                                return true;
+                            });
+                    } else {
+                        swal("Cancelled", "Your file is safe.", "error");
+                        return false;
+                    }
+                });
+        }
+    </script>
+
+}
+

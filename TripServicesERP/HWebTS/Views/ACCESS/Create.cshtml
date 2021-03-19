@@ -1,0 +1,138 @@
+﻿@model HWebTS.Models.ACCESS
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create new user</h2>
+
+@using (Html.BeginForm("Create", "ACCESS", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    //cria a tag do formulário
+    @Html.AntiForgeryToken()
+    // previne o ataque CSRF
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+
+    List<SelectListItem> profile = new List<SelectListItem>();
+
+    SelectListItem admin = new SelectListItem() { Text = "Administrator", Value = "Administrator" };
+    SelectListItem driver = new SelectListItem() { Text = "Driver", Value = "Driver" };
+    SelectListItem user = new SelectListItem() { Text = "User", Value = "User" };
+    profile.Add(admin);
+    profile.Add(driver);
+    profile.Add(user);
+
+    List<SelectListItem> Active = new List<SelectListItem>();
+
+    SelectListItem yes = new SelectListItem() { Text = "YES", Value = "Y" };
+    SelectListItem no = new SelectListItem() { Text = "NO", Value = "N" };
+    Active.Add(yes);
+    Active.Add(no);
+
+        <div class="form-horizontal">
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", required = true } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Image</label>
+                @*@Html.LabelFor(model => model.UserLog, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserLog, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserLog, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Login</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserLogin, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserLogin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", required = true } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Active, Active, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Profile, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Profile, profile, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Profile, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Last Name</label>
+                @*@Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @*<a href="Create" title="Create New User" class="btn btn-success">
+            <img src="../../images/icon/save.png" />&nbsp;&nbsp;Create New
+        </a>*@
+                    <button type="submit" value="Create" class="btn btn-primary">
+                        <img src="../../images/icon/save.png" />&nbsp;&nbsp;Save
+                    </button>
+                    <a href="Index" title="Cancel" class="btn btn-danger">
+                        <img src="../../images/icon/cancel.png" />&nbsp;&nbsp;Cancel
+                    </a>
+                    @*@Html.ActionLink(" Cancel ", "Index", null, new { @class = "fa fa-ban btn btn-danger", title = "Back to List" })*@
+                </div>
+            </div>
+        </div>
+}
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    @* Loading in the button *@
+    <script>
+        $('.btn').on('click', function () {
+            var $this = $(this);
+            $this.button('loading');
+            setTimeout(function () {
+                $this.button('reset');
+            }, 2000);
+        });
+    </script>
+}

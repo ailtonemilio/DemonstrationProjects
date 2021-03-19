@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d3aaf68d287347a78c8dbaa64870b55d" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="atripservices.Event" Width="1.5" PointX="0.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="atripservices.TypeTransfer" Width="1.5" PointX="15" PointY="4.875" />
+        <EntityTypeShape EntityType="atripservices.TypeDestination" Width="1.875" PointX="6.875" PointY="4.25" />
+        <EntityTypeShape EntityType="atripservices.SalesContact" Width="1.5" PointX="5" PointY="0.625" />
+        <EntityTypeShape EntityType="atripservices.SalesSource" Width="1.5" PointX="7.75" PointY="0.5" />
+        <AssociationConnector Association="atripservices.FK_SalesSource_SalesContact" />
+        <EntityTypeShape EntityType="atripservices.StatusPayment" Width="1.5" PointX="15" PointY="3.125" />
+        <EntityTypeShape EntityType="atripservices.TransferAprove" Width="1.5" PointX="15" PointY="6.75" />
+        <EntityTypeShape EntityType="atripservices.TypePayment" Width="1.5" PointX="15" PointY="0.75" />
+        <EntityTypeShape EntityType="atripservices.MetingPoint" Width="1.5" PointX="15" PointY="8.75" />
+        <EntityTypeShape EntityType="atripservices.TransferEstimate" Width="1.75" PointX="12.25" PointY="0.5" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_MetingPoint" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_SalesContact" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_StatusPayment" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_Aprove" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_TypeDestination" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_TypePayment" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_TypeTransfer" />
+        <EntityTypeShape EntityType="atripservices.ACCESS" Width="1.5" PointX="0.625" PointY="0.5" />
+        <EntityTypeShape EntityType="atripservices.PriceCities" Width="2" PointX="4.625" PointY="5.5" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_CityFromId" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_CityToId" />
+        <EntityTypeShape EntityType="atripservices.Destination" Width="1.5" PointX="9.875" PointY="0.5" />
+        <AssociationConnector Association="atripservices.FK_Destination_SalesContact" />
+        <AssociationConnector Association="atripservices.FK_Destination_TypeDestination" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_Destination" />
+        <EntityTypeShape EntityType="atripservices.Passenger" Width="1.5" PointX="2.75" PointY="0.625" />
+        <EntityTypeShape EntityType="atripservices.TransferSend" Width="1.5" PointX="16.875" PointY="0.5" />
+        <EntityTypeShape EntityType="atripservices.ConfigApp" Width="1.5" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="atripservices.TypeVisa" Width="1.5" PointX="2.75" PointY="4" />
+        <AssociationConnector Association="atripservices.FK_Passenger_TypeVisa" />
+        <AssociationConnector Association="atripservices.FK_Destination_PriceCities" />
+        <EntityTypeShape EntityType="atripservices.DestinationSalesContact" Width="2.125" PointX="2.25" PointY="6" />
+        <EntityTypeShape EntityType="atripservices.ReservationRequest" Width="1.5" PointX="16.875" PointY="3.125" />
+        <EntityTypeShape EntityType="atripservices.LastIPReservation" Width="1.5" PointX="16.875" PointY="6.375" />
+        <EntityTypeShape EntityType="atripservices.Bank" Width="1.5" PointX="14.75" PointY="11.5" />
+        <EntityTypeShape EntityType="atripservices.TripBankInfo" Width="1.5" PointX="10" PointY="9.125" />
+        <EntityTypeShape EntityType="atripservices.TripInfo" Width="1.5" PointX="7.75" PointY="8.875" />
+        <AssociationConnector Association="atripservices.FK_TripInfo_TripCity" />
+        <AssociationConnector Association="atripservices.FK_TripBankInfo_TripInfo" />
+        <EntityTypeShape EntityType="atripservices.BankInfo" Width="1.5" PointX="12.25" PointY="10.625" />
+        <AssociationConnector Association="atripservices.FK_BankInfo_Bank" />
+        <AssociationConnector Association="atripservices.FK_TripBankInfo_BankInfo" />
+        <AssociationConnector Association="atripservices.FK_TransferEstimate_Passenger" />
+        <EntityTypeShape EntityType="atripservices.AspNetUsers" Width="1.5" PointX="0.75" PointY="9" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

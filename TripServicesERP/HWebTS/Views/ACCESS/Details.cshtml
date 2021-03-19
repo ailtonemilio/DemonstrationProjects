@@ -1,0 +1,101 @@
+﻿@model HWebTS.Models.ACCESS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserLog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserLog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserLogin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserLogin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.IdLogin })" title="Edit" class="btn btn-primary">
+        <img src="../../images/icon/editar.png" />&nbsp;&nbsp;Edit
+    </a>
+    <a href="@Url.Action("Index")" title="Back" class="btn btn-warning">
+        <img src="../../images/icon/reverse.png" />&nbsp;&nbsp;Back
+    </a>
+</p>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    @* Loading in the button *@
+    <script>
+        $('.btn').on('click', function () {
+            var $this = $(this);
+            $this.button('loading');
+            setTimeout(function () {
+                $this.button('reset');
+            }, 2000);
+        });
+    </script>
+}

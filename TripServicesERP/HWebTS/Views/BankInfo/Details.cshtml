@@ -1,0 +1,95 @@
+﻿@using HWebTS.Models
+@using HWebTS.Controllers
+
+@model HWebTS.Models.BankInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Details Bank Info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bank.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bank.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransitNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransitNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SwiftCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SwiftCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankPostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankPostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankCity)
+        </dt>
+
+        <dd>
+            @Html.DropDownListFor(model => model.BankCity, BankInfoController.GetCity(), new { id = "BankCity", @class = "form-control", @disabled = "disabled" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankProvince)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankProvince)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.IdBankInfo })" title="Edit" class="ladda-button btn btn-blue">
+        <img src="../../images/icon/editar.png" />&nbsp;&nbsp;Edit
+    </a>
+    <a href="@Url.Action("Index")" title="Back" class="ladda-button btn btn-warning">
+        <img src="../../images/icon/reverse.png" />&nbsp;&nbsp;Back
+    </a>
+</p>

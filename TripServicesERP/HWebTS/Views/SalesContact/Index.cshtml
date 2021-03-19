@@ -1,0 +1,145 @@
+﻿@using HWebTS.Models
+@using HWebTS.Controllers
+
+@model IEnumerable<HWebTS.Models.SalesContact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* Is necessary this links here in all index *@
+<link href="~/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+<script src="~/Scripts/sweetalert/sweetalert.js"></script>
+<script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+
+<h2>Sales Contact</h2>
+
+<p>
+    <a href="~/SalesContact/Create" title="Create New Type Destination" class="ladda-button btn btn-success">
+        <img src="../../images/icon/add.png" />&nbsp;&nbsp;Create New
+    </a>
+</p>
+<div class="card">
+    <div class="card-body">
+
+        <table id="myTable" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.City)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ThemeColor)
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.PercentPay)*@
+                        <label>Discount $</label>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.IdSalesContact.ToString() }, new { @class = "ladda-button btn btn-blue fa fa-edit edit", title = "Edit" })&nbsp;
+                            @Html.ActionLink(" ", "Details", new { id = item.IdSalesContact }, new { @class = "ladda-button btn btn-success far fa-address-card text-white", title = "Details" })&nbsp;
+                            <button type="button" class="ladda-button btn btn-danger fas fa-trash-alt text-white delete" data-id="@item.IdSalesContact" title="Delete"></button>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contact)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ThemeColor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PercentPay)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        $(".delete").click(function () {
+            var id = $(this).attr("data-id");
+
+            //Sweet Alert V2
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    //Action is here
+                    $.ajax({
+                        type: 'get',
+                        dataType: 'json',
+                        cache: false,
+                        url: "/SalesContact/DeleteItem",
+                        data: {
+                            Id: id
+                        },
+                        success: function (response, textStatus, jqXHR) {
+                            if (response.deleted == "true") {
+                                //Swal.fire({ title: "Deleted!", text: "Your Client has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true });
+
+                                $.toast({
+                                    heading: 'Success',
+                                    text: 'Item deleted successfully!',
+                                    showHideTransition: 'slide',
+                                    position: 'top-right',
+                                    icon: 'success'
+                                })
+
+                                //location.reload();
+                                $("#myTable").change(location.reload());
+
+                                return true;
+                            }
+                            else {
+                                Swal.fire({ title: "Error!", text: "Unable to delete this item!", type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            Swal.fire({ title: "Error!", text: "Unable to delete this item!", type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                            //alert('Error - ' + errorThrown);
+                        }
+                    });
+                } else {
+                    Swal.fire("Cancelled", "Your Issuer is safe.", "error");
+                    return false;
+                }
+            })
+        });
+    </script>
+}

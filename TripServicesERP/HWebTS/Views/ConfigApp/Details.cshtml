@@ -1,0 +1,79 @@
+﻿@model HWebTS.Models.ConfigApp
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ConfigApp</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameApp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameApp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountPOP3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountPOP3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PortPOP3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PortPOP3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountSMTP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountSMTP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PortSMTP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PortSMTP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.account)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.account)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PasswordAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PasswordAccount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.IdConfigApp })" title="Edit" class="ladda-button btn btn-blue">
+        <img src="../../images/icon/editar.png" />&nbsp;&nbsp;Edit
+    </a>
+    <a href="@Url.Action("Index")" title="Back" class="ladda-button btn btn-warning">
+        <img src="../../images/icon/reverse.png" />&nbsp;&nbsp;Back
+    </a>
+</p>

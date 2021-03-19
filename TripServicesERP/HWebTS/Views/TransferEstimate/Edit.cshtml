@@ -1,0 +1,929 @@
+﻿@model HWebTS.Models.TransferEstimate
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* CSS *@
+@*<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />*@
+<link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+<link href="~/Ubold/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Ubold/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Ubold/assets/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Ubold/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+@* JScript *@
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    List<SelectListItem> ls = new List<SelectListItem>();
+
+    SelectListItem um = new SelectListItem() { Text = "1", Value = "1" };
+    SelectListItem dois = new SelectListItem() { Text = "2", Value = "2" };
+    SelectListItem tres = new SelectListItem() { Text = "3", Value = "3" };
+    SelectListItem quatro = new SelectListItem() { Text = "4", Value = "4" };
+    SelectListItem cinco = new SelectListItem() { Text = "5", Value = "5" };
+    SelectListItem seis = new SelectListItem() { Text = "6", Value = "6" };
+    SelectListItem sete = new SelectListItem() { Text = "7", Value = "7" };
+    SelectListItem oito = new SelectListItem() { Text = "8", Value = "8" };
+    SelectListItem nove = new SelectListItem() { Text = "9", Value = "9" };
+    SelectListItem dez = new SelectListItem() { Text = "10", Value = "10" };
+    SelectListItem onze = new SelectListItem() { Text = "11", Value = "11" };
+    SelectListItem doze = new SelectListItem() { Text = "12", Value = "12" };
+    SelectListItem treze = new SelectListItem() { Text = "13", Value = "13" };
+    SelectListItem quatorze = new SelectListItem() { Text = "14", Value = "14" };
+    SelectListItem quinze = new SelectListItem() { Text = "15", Value = "15" };
+    ls.Add(um);
+    ls.Add(dois);
+    ls.Add(tres);
+    ls.Add(quatro);
+    ls.Add(cinco);
+    ls.Add(seis);
+    ls.Add(sete);
+    ls.Add(oito);
+    ls.Add(nove);
+    ls.Add(dez);
+    ls.Add(onze);
+    ls.Add(doze);
+    ls.Add(treze);
+    ls.Add(quatorze);
+    ls.Add(quinze);
+
+    <div class="form-horizontal">
+        <h4>Edit Transfer Estimate</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IdTransEst)
+
+        @* Panel Passanger *@
+        <div class="card">
+            <div class="card-header bg-danger py-3 text-white">
+                <div class="card-widgets">
+                    <a href="javascript:;" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
+                    <a data-toggle="collapse" href="#cardPassenger" role="button" aria-expanded="false" aria-controls="cardCollpase2"><i class="mdi mdi-minus"></i></a>
+                    <a href="#" data-toggle="remove"><i class="mdi mdi-close"></i></a>
+                </div>
+                <h5 class="card-title mb-0 text-white">Passenger Information</h5>
+            </div>
+            <div id="cardPassenger" class="collapse show">
+                <div class="card-body">
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-1 col-lg-1 col-xl-1">Name</label>
+                        <div class="col-md-4 col-lg-4 col-xl-4">
+                            @Html.EditorFor(model => model.NamePassenger, new { htmlAttributes = new { @class = "form-control", required = true, onclick = "verifydestination()" } })
+                            @*@Html.EditorFor(model => model.NamePassenger, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.NamePassenger, "", new { @class = "text-danger" })
+                        </div>
+
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-1 col-lg-1 col-xl-1" })
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", required = true } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="col-md-1 col-lg-1 col-xl-1">
+                            <a href="#passenger-modal" class="btn btn-link waves-effect" data-animation="fadein" data-plugin="custommodal" data-overlayColor="#38414a">
+                                <img src="../../images/icon/search.png" />
+                            </a>
+                        </div>
+
+                        <div class="col-md-1 col-lg-1 col-xl-1">
+                            <button id="btnCleanPassenger" class="btn btn-link waves-effect" type="button">
+                                <img src="../../images/icon/clean.png" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-1 col-lg-1 col-xl-1" })
+                        <div class="col-md-4 col-lg-4 col-xl-4">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", required = true } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        @Html.LabelFor(model => model.Phone2, htmlAttributes: new { @class = "control-label col-md-1 col-lg-1 col-xl-1" })
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            @Html.EditorFor(model => model.Phone2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Phone2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-1 col-lg-1 col-xl-1" })
+                        <div class="col-md-11 col-lg-11 col-xl-11">
+                            @Html.TextAreaFor(model => model.Note, new { @class = "form-control", rows = "2", maxlength = 500, onkeyup = "document.getElementById('countNotes').innerHTML=this.value.length + ' of 500 chars';" })
+                            <span id="countNotes" style="font-weight: bold; font-size: 9pt; font-family: Arial; text-align: right;"></span>
+                            @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @* Panel  Voo and Transfer Information*@
+        <div class="card">
+            <div class="card-header bg-danger py-3 text-white">
+                <div class="card-widgets">
+                    <a href="javascript:;" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
+                    <a data-toggle="collapse" href="#cardVooTransInfo" role="button" aria-expanded="false" aria-controls="cardCollpase2"><i class="mdi mdi-minus"></i></a>
+                    <a href="#" data-toggle="remove"><i class="mdi mdi-close"></i></a>
+                </div>
+                <h5 class="card-title mb-0 text-white">Transfer Information</h5>
+            </div>
+            <div id="cardVooTransInfo" class="collapse show">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="control-label col-md-1">Type Transfer</label>
+                        <div class="col-md-2">
+                            @Html.DropDownList("IdTypeTransfer", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdTypeTransfer, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Date Estimate</label>
+                        <div class="col-md-2">
+                            <div class="input-group date" data-provide="datepicker">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span class="fas fa-calendar"></span></span>
+                                </div>
+                                @Html.EditorFor(model => model.DateTransEst, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.DateTransEst, "", new { @class = "text-danger" })
+                        </div>
+                        <label class="control-label col-md-1">Time</label>
+                        <div class="col-md-2">
+                            <div class="input-group clockpicker">
+                                @Html.EditorFor(model => model.TimePiDo, new { htmlAttributes = new { @class = "form-control" } })
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="mdi mdi-clock-outline"></i></span>
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.TimePiDo, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Meting Point</label>
+                        <div class="col-md-2">
+                            @Html.DropDownList("IdMetingPoint", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdMetingPoint, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-1">Passenger</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.QtyPassenger, ls, new { @class = "form-control" })
+                        </div>
+
+                        <label class="control-label col-md-1">Luggage</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.QtyMalaGr, ls, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.QtyMalaGr, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Carry-on </label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.QtyMalaPq, ls, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.QtyMalaPq, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-1">From</label>
+                        <div class="col-md-2">
+                            @Html.DropDownList("CityFromId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CityFromId, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">$ Transfer</label>
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.TransferAmount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TransferAmount, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1"></label>
+                        <div class="col-lg-3 col-md-3">
+                            <button id="btnCalcular" class="ladda-button btn btn-blue waves-effect" type="button">
+                                <img src="../../images/icon/calculate2.png" />&nbsp;&nbsp;Calculate Transfer
+                            </button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @* Flight Details *@
+        <div class="card">
+            <div class="card-header bg-danger py-3 text-white">
+                <div class="card-widgets">
+                    <a href="javascript:;" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
+                    <a data-toggle="collapse" href="#cardFlight" role="button" aria-expanded="false" aria-controls="cardCollpase2"><i class="mdi mdi-minus"></i></a>
+                    <a href="#" data-toggle="remove"><i class="mdi mdi-close"></i></a>
+                </div>
+                <h5 class="card-title mb-0 text-white">Flight Details</h5>
+            </div>
+            <div id="cardFlight" class="collapse show">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="control-label col-md-1">Flight Number</label>
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.FlightNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FlightNumber, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Date Voo</label>
+                        <div class="col-md-2">
+                            <div class="input-group date" data-provide="datepicker">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span class="fas fa-calendar"></span></span>
+                                </div>
+                                @Html.EditorFor(model => model.DateFligh, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.DateFligh, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Time</label>
+                        <div class="col-md-2">
+                            <div class="input-group clockpicker">
+                                @Html.EditorFor(model => model.TimeFligh, new { htmlAttributes = new { @class = "form-control" } })
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="mdi mdi-clock-outline"></i></span>
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.TimeFligh, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @* Destination/Origin *@
+        <div class="card">
+            <div class="card-header bg-danger py-3 text-white">
+                <div class="card-widgets">
+                    <a href="javascript:;" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
+                    <a data-toggle="collapse" href="#cardDestination" role="button" aria-expanded="false" aria-controls="cardCollpase2"><i class="mdi mdi-minus"></i></a>
+                    <a href="#" data-toggle="remove"><i class="mdi mdi-close"></i></a>
+                </div>
+                <h5 class="card-title mb-0 text-white">Destination / Origin</h5>
+            </div>
+            <div id="cardDestination" class="collapse show">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="control-label col-md-1">Local</label>
+                        <div class="col-md-2">
+                            @Html.DropDownList("CityToId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CityToId, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Type Destination</label>
+                        <div class="col-md-3 form-inline">
+                            @Html.DropDownList("IdTypeDestination", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdTypeDestination, "", new { @class = "text-danger" })
+                            <button type="button" value="NewTypeDestination" class="btn btn-outline-light waves-effect waves-light" title="Add New Type Destination" data-toggle="modal" data-target="#AddNewTypeDestination">
+                                <img src="../../images/icon/search.png" />
+                            </button>
+                        </div>
+
+                        <label class="control-label col-md-1">Destination</label>
+                        <div class="col-md-4 form-inline">
+                            @Html.DropDownList("IdDestination", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdDestination, "", new { @class = "text-danger" })
+                            <button type="button" value="NewDestination" class="btn btn-success fa fa-plus" title="Add New Destination" data-toggle="modal" data-target="#ModalAddNewDestination"></button>
+                            <button type="button" id="btnDetailsDestination" class="btn btn-blue fas fa-cloud-download-alt" title="Load Destination Info"></button>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-1">Address</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="address" maxlength="20" placeholder="Stand by loading destination" disabled>
+                        </div>
+
+                        <label class="control-label col-md-1">Contact</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="contact" maxlength="20" placeholder="Stand by loading destination" disabled>
+                        </div>
+
+                        <label class="control-label col-md-1">Phone</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="phone" maxlength="20" placeholder="Stand by loading destination" disabled>
+                        </div>
+
+                        <label class="control-label col-md-1">Mobile</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="mobile" maxlength="20" placeholder="Stand by loading destination" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        @* Sales Channel *@
+        <div class="card">
+            <div class="card-header bg-danger py-3 text-white">
+                <div class="card-widgets">
+                    <a href="javascript:;" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
+                    <a data-toggle="collapse" href="#cardSales" role="button" aria-expanded="false" aria-controls="cardCollpase2"><i class="mdi mdi-minus"></i></a>
+                    <a href="#" data-toggle="remove"><i class="mdi mdi-close"></i></a>
+                </div>
+                <h5 class="card-title mb-0 text-white">Sales Channel</h5>
+            </div>
+            <div id="cardSales" class="collapse show">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="control-label col-md-1">Date</label>
+                        <div class="col-md-2">
+                            <div class="input-group date" data-provide="datepicker">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span class="fas fa-calendar"></span></span>
+                                </div>
+                                @Html.EditorFor(model => model.DateAprove, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.DateAprove, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Sales Channel</label>
+                        <div class="col-md-2">
+                            @Html.DropDownList("IdSales", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdSales, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Type Payment</label>
+                        <div class="col-md-2">
+                            @Html.DropDownList("IdTypePayment", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdTypePayment, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">Status Payment</label>
+                        <div class="col-md-2">
+                            @Html.DropDownList("IdStatusPayment", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdStatusPayment, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-1">$ Discount</label>
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TransferAmount, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1">$ Final Price</label>
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.FinalPrice, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TransferAmount, "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-1"></label>
+                        <div class="col-md-2">
+                            <button id="btnCalcFinal" class="ladda-button btn btn-blue btn-block" type="button">
+                                <img src="../../images/icon/calculate2.png" />&nbsp;&nbsp;Calculate Final Price
+                            </button>
+                        </div>
+
+                        <label class="control-label col-md-1">Aprove</label>
+                        <div class="col-md-2">
+                            @Html.DropDownList("IdAprove", null, htmlAttributes: new { onclick = "AproveDate();", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdAprove, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group row text-right">
+            <div class="col-md-offset-2 col-md-12 text-right">
+                <button type="submit" value="Save" class="ladda-button btn btn-success">
+                    <img src="../../images/icon/save.png" />&nbsp;&nbsp;Save Estimate
+                </button>
+                <button type="submit" value="Cancel" class="ladda-button btn btn-danger">
+                    <img src="../../images/icon/cancel.png" />&nbsp;&nbsp;Cancel
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Custom Modal Sample -->
+    <div id="custom-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.modal.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title">Animation Modal title</h4>
+        <div class="custom-modal-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        </div>
+    </div>
+
+    <!-- Passenger Modal -->
+    <div id="passenger-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.modal.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title bg-danger text-white">Passenger</h4>
+        <div class="custom-modal-text">
+            <div class="row"></div>
+            <div class="row">
+                
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Destination-->
+    <div class="modal fade" role="dialog" id="ModalAddNewDestination" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Insert Destination</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Name</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="namedestination" placeholder="Enter name" maxlength="100" onkeyup="document.getElementById('countname').innerHTML=this.value.length + ' of 100 chars';">
+                                <span id="countname" style="font-weight: bold; font-size: 9pt; font-family: Arial; text-align: right;"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Address</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="addressdestination" placeholder="Enter Address" maxlength="100" onkeyup="document.getElementById('countaddress').innerHTML=this.value.length + ' of 100 chars';">
+                                <span id="countaddress" style="font-weight: bold; font-size: 9pt; font-family: Arial; text-align: right;"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">City</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("CityFromId", null, htmlAttributes: new { @Id = "CityFromIdDestination", @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Postal Code</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="postaldestination" maxlength="6" placeholder="Enter Postal Code">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Phone</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="phonedestination" maxlength="20" placeholder="Enter Phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Mobile</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="mobiledestination" maxlength="20" placeholder="Enter Mobile">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Type Destination</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("IdTypeDestination", null, htmlAttributes: new { @Id = "IdTypeDestinationDestination", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdTypeDestination, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Sales Contact</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("IdSales", null, htmlAttributes: new { @Id = "IdSaleDesdination", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnAddDestination" class="btn btn-primary" type="button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Inserting">Add New</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Modal Type Destination-->
+    <div class="modal fade" id="AddNewTypeDestination" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Insert New Type Destination</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Type Destination</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="desctypedestination" placeholder="Type Destination" maxlength="30" onkeyup="document.getElementById('countdesctypedestination').innerHTML=this.value.length + ' of 30 chars';">
+                            <span id="countdesctypedestination" style="font-weight: bold; font-size: 9pt; font-family: Arial; text-align: right;"></span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="modal-footer">
+                    <button id="btnAddTypeDestination" class="btn btn-primary" type="button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Inserting">Add New</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal View Detail Destination-->
+    <div class="modal fade" id="ModalViewDestination" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Insert New Type Destination</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Contact</label>
+                        <input type="text" class="form-control" id="mdcontact" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" id="mdaddress" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" id="mdphone" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        <input type="text" class="form-control" id="mdmobile" disabled>
+                    </div>
+                </div>
+                <br />
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @*<script src="~/Scripts/moment.min.js"></script>
+        <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+        <script src="~/Scripts/bootstrap-datepicker.min.js"></script>*@
+
+    <script src="~/Ubold/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+    <!-- Plugins js-->
+    <script src="~/Ubold/assets/libs/flatpickr/flatpickr.min.js"></script>
+    <script src="~/Ubold/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+    <script src="~/Ubold/assets/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+
+
+    <!-- Init js-->
+    <script src="~/Ubold/assets/js/pages/form-pickers.init.js"></script>
+
+}
+
+<!--Passenger Info-->
+<script>
+
+</script>
+
+<!--Date TimePicker Bootstrap -->
+@*<script>
+        $(function () {
+            $('.datetimepicker').datetimepicker();
+        });
+    </script>*@
+
+<!--Date TimePicker - Hour only - Bootstrap-->
+@*<script type="text/javascript">
+        $(function () {
+            $('#hourtimepicker').datetimepicker({
+                format: 'LT'
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#hourtimepicker2').datetimepicker({
+                format: 'LT'
+            });
+        });
+    </script>*@
+
+
+<!--DatePicker-->
+@*<script>
+        $(function () {
+            var currentDate = new Date();
+            $('.date').datepicker({
+                format: "mm/dd/yyyy",
+                autoclose: true,
+                todayHighlight: true,
+                inline: true,
+                showOtherMonths: true,
+                dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            });
+            //$('.datenow').datepicker("setDate", currentDate);
+        });
+    </script>*@
+
+<!--Seta a data atual no TextBox-->
+<script>
+    $(function () {
+        var currentDate = new Date();
+        $('.datenow').datepicker({
+            format: "mm/dd/yyyy",
+            autoclose: true,
+            todayHighlight: true,
+            inline: true,
+            showOtherMonths: true,
+            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            beforeShow: function () {
+                setTimeout(function () {
+                    $('.ui-datepicker').css('z-index', 99999999999999);
+                }, 0);
+            }
+        });
+        //$('.datenow').datepicker("setDate", currentDate);
+    });
+</script>
+
+<!-- Time Picker-->
+<script language="javascript" type="text/javascript">
+    $('.time').timepicker({
+        timeFormat: 'H:i',
+        interval: 30,
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+    });
+</script>
+
+<!--Aprove - Insere data atual quando e selecionado-->
+<script>
+    function AproveDate() {
+        var Aprove = $("#IdAprove").val();
+        var currentTime = new Date()
+        var month = currentTime.getMonth() + 1;
+        var day = currentTime.getDate();
+        var year = currentTime.getFullYear();
+
+        var date = month + "/" + day + "/" + year;
+
+        //Aprove = 2 is YES
+        if (Aprove === "2") {
+            document.getElementById("DateAprove").value = date.toString();
+        }
+        else {
+            document.getElementById("DateAprove").value = "";
+        }
+    }
+
+</script>
+
+<!--Add new Type Destination-->
+<script>
+    $("#btnAddTypeDestination").click(function () {
+        var DescTypeDestination = $("#desctypedestination").val();
+
+        if (DescTypeDestination === "") {
+            swal("Type Destination is empty.", "Type Destination is empty.", "warning");
+        }
+        else {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                cache: false,
+                url: "/TypeDestination/AddNew",
+                data: {
+                    TypeDest: $("#desctypedestination").val()
+                },
+                success: function (response, textStatus, jqXHR) {
+                    document.getElementById("desctypedestination").value = "";
+                    $("#AddNewTypeDestination").modal('hide');
+                    swal("Success!", "Add new type destination.", "success");
+                    $("#IdTypeDestination").change(location.reload());
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Error - ' + errorThrown);
+                }
+            });
+        }
+    });
+
+    function verifydestination() {
+        swal("First check if there is a destination and destination type", "Before continuing with the cadastre, check if there is a destination and destination type registered. If you do not register them before starting data entry.", "info");
+    }
+</script>
+
+<!--Add new Destination-->
+<script>
+    $("#btnAddDestination").click(function () {
+        var name = $("#namedestination").val();
+        var address = $("#addressdestination").val();
+        var iddestination = $("#CityFromIdDestination").val();
+        var postalcode = $("#postaldestination").val();
+        var phone = $("#phonedestination").val();
+        var mobile = $("#mobiledestination").val();
+        var idtypedestination = $("#IdTypeDestinationDestination").val();
+        var idsales = $("#IdSaleDesdination").val();
+
+
+        if (!name || !address || !phone || !mobile) {
+            swal("This fields is empty!", "Name, Address, Phone and Mobile.", "warning");
+            aler("Test1");
+        }
+        else {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                cache: false,
+                url: "/Destination/AddNew",
+                data: {
+                    Name: $("#namedestination").val(),
+                    Address = $("#addressdestination").val(),
+                    IdCity = $("#CityFromIdDestination").val(),
+                    PostalCode = $("#postaldestination").val(),
+                    Phone = $("#phonedestination").val(),
+                    Mobile = $("#mobiledestination").val(),
+                    IdTypeDestination = $("#IdTypeDestinationDestination").val(),
+                    IdSalesContact = $("#IdSaleDesdination").val()
+                },
+                success: function (response, textStatus, jqXHR) {
+                    document.getElementById("namedestination").value = "";
+                    $("#ModalAddNewDestination").modal('hide');
+                    swal("Success!", "Add new destination.", "success");
+                    $("#IdDestination").change(location.reload());
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Error - ' + errorThrown);
+                }
+            });
+        }
+    });
+
+</script>
+
+<!--Calcula valor final -->
+<script>
+    $("#btnCalcFinal").click(function () {
+        var Discount = $("#Discount").val();
+        var ValueTrans = $("#TransferAmount").val();
+
+        if (!ValueTrans) {
+            //swal("Calculate Transfer First!", "The value Transfer is empty.", "info");
+            $.toast({
+                heading: 'Calculate Transfer First!',
+                text: 'The value Transfer is empty.',
+                showHideTransition: 'slide',
+                position: 'top-right',
+                icon: 'info'
+            })
+        }
+        else {
+
+            if (!Discount) {
+                document.getElementById("Discount").value = "0";
+            }
+
+            document.getElementById("FinalPrice").value = (document.getElementById("TransferAmount").value - document.getElementById("Discount").value).toFixed(2);
+        }
+    });
+</script>
+
+<!-- View Destination-->
+<script>
+    $("#btnDetailsDestination").click(function () {
+        var id = document.getElementById("IdDestination").value;
+
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            cache: false,
+            url: "/TransferEstimate/GetDestination",
+            data: {
+                Id: $("#IdDestination").val()
+            },
+            success: function (response, textStatus, jqXHR) {
+
+
+                $("#ModalViewDestination").modal();
+
+                document.getElementById("address").value = response.address;
+                document.getElementById("mobile").value = response.mobile;
+                document.getElementById("contact").value = response.contact;
+                document.getElementById("phone").value = response.phone;
+
+                document.getElementById("mdaddress").value = response.address;
+                document.getElementById("mdmobile").value = response.mobile;
+                document.getElementById("mdcontact").value = response.contact;
+                document.getElementById("mdphone").value = response.phone;
+                //$("#ModalViewDestination").ready();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('Error - ' + errorThrown);
+            }
+        });
+
+
+
+        //$("#modal")
+        //    .load("~Destination/ViewDetails?id=" + id,
+        //    function () {
+        //        $("#modal").modal();
+        //    });
+    });
+
+</script>
+
+<!-- Calcula valor do transfer -->
+<script>
+    $("#btnCalcular").click(function () {
+        var CityFrom = $("#CityFromId").val();
+        var CityTo = $("#CityToId").val();
+        var TypeTransfer = $("#IdTypeTransfer").val();
+
+        var QtyP = $("#QtyPassenger").val();
+        var QtyMGr = $("#QtyMalaGr").val();
+        var QtyMPq = $("#QtyMalaPq").val();
+
+        if (QtyP === "0" || !QtyP || !QtyMGr || !QtyMPq) {
+            swal("Number of passengers can not be zero or empty. Amount of suitcases can not be empty.", "Insert 0 (Zero) in field (suitcases) !", "warning");
+        }
+        else {
+            if (CityFrom === CityTo) {
+                swal("Same destination!", "Select City From / To!", "warning");
+                document.getElementById("TransferAmount").value = "Select City From / To!";
+                document.getElementById("TransferAmount").style.color = "red";
+            }
+            else {
+                $.ajax({
+                    type: 'get',
+                    dataType: 'json',
+                    cache: false,
+                    url: "/BudgetTransfer/GetCalculateTranfer",
+                    data: {
+                        qtyPass: $("#QtyPassenger").val(),
+                        QtyMlGr: $("#QtyMalaGr").val(),
+                        QtyMlPq: $("#QtyMalaPq").val(),
+                        IdCityFrom: $("#CityFromId").val(),
+                        IdCityTo: $("#CityToId").val()
+                    },
+                    success: function (response, textStatus, jqXHR) {
+                        document.getElementById("TransferAmount").value = response.oldval;
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        //alert('Error - ' + errorThrown);
+                        $.toast({
+                            heading: 'Error in calculation transfer!',
+                            text: 'The value Transfer is empty.',
+                            showHideTransition: 'slide',
+                            position: 'top-right',
+                            icon: 'error'
+                        })
+                    }
+                });
+            }
+        }
+    });
+
+    function deletealert2() {
+        swal({
+            title: "Are you sure?",
+            text: "Your will not be able to recover this imaginary file!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false
+        },
+            function () {
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            });
+    }
+</script>

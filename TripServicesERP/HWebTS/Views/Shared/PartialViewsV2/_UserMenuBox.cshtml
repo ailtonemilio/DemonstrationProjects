@@ -1,0 +1,56 @@
+﻿<div class="user-box text-center">
+
+    @{try
+        {
+            if (Session["UserLog"] != null)
+            {
+                <img src="../../images/users/@Session["UserLog"].ToString()" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+            }
+            else
+            {
+                <img src="../../images/users/usericon.png" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+            }
+
+        }
+        catch (System.Exception)
+        {
+            Response.Redirect("/Account/login");
+        }
+
+    }
+
+    <div class="dropdown">
+        <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown">@User.Identity.Name</a>
+        <div class="dropdown-menu user-pro-dropdown">
+            <!-- item-->
+            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <i class="fe-user mr-1"></i>
+                <span>My Account</span>
+            </a>
+
+            <!-- item-->
+            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <i class="fe-settings mr-1"></i>
+                <span>Settings</span>
+            </a>
+
+            <!-- item-->
+            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <i class="fe-lock mr-1"></i>
+                <span>Lock Screen</span>
+            </a>
+
+            <!-- item-->
+            <a href="~/Account/Logoff" class="dropdown-item notify-item">
+                <i class="fe-log-out mr-1"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+    </div>
+    <p class="text-muted">
+        Nome da Role
+        <br />
+        @Session["LastAccess"].ToString()
+    </p>
+</div>

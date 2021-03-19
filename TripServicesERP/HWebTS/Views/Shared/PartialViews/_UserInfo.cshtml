@@ -1,0 +1,56 @@
+﻿<div class="media user-media bg-dark dker">
+    @*<div class="user-media-toggleHover">
+            <span class="fa fa-user"></span>
+        </div>*@
+    <div class="user-wrapper">
+        
+        <a class="user-link" href="">
+            @{try
+                {
+                     if (Session["UserLog"] != null)
+                    {
+                        <img class="media-object img-thumbnail user-img" alt="User Picture" src="../../images/users/@Session["UserLog"].ToString()" width="50">
+                    }
+                    else
+                    {
+                        <img class="media-object img-thumbnail user-img" alt="User Picture" src="../../images/users/usericon.png" width="50">
+                    }
+
+                }
+                catch (System.Exception)
+                {
+                    Response.Redirect ("/Account/login");
+                }
+
+            }
+
+        </a>
+
+        <div class="media-body">
+            @{try
+                {
+                    if (Session["LastAccess"] != null)
+                    {
+                        <h5 class="media-heading">@User.Identity.Name</h5>
+                        <ul class="list-unstyled user-info">
+                            <div class="form-inline">
+                                <li><a href="~/Users/Details/@User.Identity.Name" class="text-info"><i class="fa fa-user"></i>&nbsp;Config Profile</a></li>
+                                <li><a href="~/Admin/UsersAdmin/Index"><span class="txt"><i class="fa fa-users"></i>Change Password</span></a></li>
+                            </div>
+                           
+                            <li title="Last Access"><small><i class="fa fa-calendar"></i>&nbsp;@Session["LastAccess"].ToString()</small></li>
+                        </ul>
+
+                        
+                    }
+                }
+                catch (System.Exception)
+                {
+                    Response.Redirect("/Account/login");
+                }
+
+            }
+
+        </div>
+    </div>
+</div>

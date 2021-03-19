@@ -1,0 +1,257 @@
+﻿@model HWebTS.Models.TransferEstimate
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TransferEstimate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFligh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFligh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeFligh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeFligh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimePiDo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimePiDo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyPassenger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyPassenger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyPassengerKids)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyPassengerKids)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyMalaGr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyMalaGr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyMalaPq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyMalaPq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransferAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransferAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTransEst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTransEst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAprove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAprove)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRequestEstimate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRequestEstimate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NamePassenger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamePassenger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetingPoint.DescMetingPoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetingPoint.DescMetingPoint)
+        </dd>
+
+        <dt>
+            <label>City From</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceCitiesFrom.City)
+        </dd>
+
+        <dt>
+            <label>City To</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceCitiesTo.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesContact.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesContact.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusPayment.DescStatusPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusPayment.DescStatusPayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransferAprove.DescAprove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransferAprove.DescAprove)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeDestination.DescTypeDestination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeDestination.DescTypeDestination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypePayment.DescTypePayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypePayment.DescTypePayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeTransfer.DescType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeTransfer.DescType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("CRUDTransfeEstimate.aspx", "Budget", new { IdTransEst = Model.IdTransEst })" title="Edit" class="btn btn-primary">
+        <img src="../../images/icon/editar.png" />&nbsp;&nbsp;Edit
+    </a>
+    <a href="@Url.Action("Index", "TransferEstimate")" title="Back" class="btn btn-warning">
+        <img src="../../images/icon/reverse.png" />&nbsp;&nbsp;Back
+    </a>
+    
+</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+@* Loading in the button *@
+<script>
+    $('.btn').on('click', function () {
+        var $this = $(this);
+        $this.button('loading');
+        setTimeout(function () {
+            $this.button('reset');
+        }, 2000);
+    });
+</script>
+
+}
+

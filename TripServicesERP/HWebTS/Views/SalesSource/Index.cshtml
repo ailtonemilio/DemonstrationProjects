@@ -1,0 +1,141 @@
+﻿@model IEnumerable<HWebTS.Models.SalesSource>
+
+@{
+    ViewBag.Title = "Sales Source";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Sales Source</h2>
+
+<p>
+    <a href="~/SalesSource/Create" title="Create New Sales Source" class="ladda-button btn btn-success">
+        <img src="../../images/icon/add.png" />&nbsp;&nbsp;Create New
+    </a>
+</p>
+<div id="btn" class="card">
+    <div class="card-body">
+        <table id="myTable" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Value)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PercentPay)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypePay)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Note)
+                    </th>
+                    <th>
+                        <label>Invoice</label>
+                        @*@Html.DisplayNameFor(model => model.NumInvoice)*@
+                    </th>
+                    <th>
+                        <label>Sales Contact</label>
+                        @Html.DisplayNameFor(model => model.SalesContact.Contact)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.IdSalesSource.ToString() }, new { @class = "ladda-button btn btn-blue fa fa-edit edit", title = "Edit" })&nbsp;
+                            @Html.ActionLink(" ", "Details", new { id = item.IdSalesSource }, new { @class = "ladda-button btn btn-success far fa-address-card text-white", title = "Details" })&nbsp;
+                            <button type="button" class="ladda-button btn btn-danger fas fa-trash-alt text-white delete" data-id="@item.IdSalesSource" title="Delete"></button>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Value)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PercentPay)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypePay)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Note)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumInvoice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SalesContact.Contact)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        $(".delete").click(function () {
+            var id = $(this).attr("data-id");
+
+            //Sweet Alert V2
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    //Action is here
+                    $.ajax({
+                        type: 'get',
+                        dataType: 'json',
+                        cache: false,
+                        url: "/SalesSource/DeleteItem",
+                        data: {
+                            Id: id
+                        },
+                        success: function (response, textStatus, jqXHR) {
+                            if (response.deleted == "true") {
+                                //Swal.fire({ title: "Deleted!", text: "Your Client has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true });
+
+                                $.toast({
+                                    heading: 'Success',
+                                    text: 'Item deleted successfully!',
+                                    showHideTransition: 'slide',
+                                    position: 'top-right',
+                                    icon: 'success'
+                                })
+
+                                //location.reload();
+                                $("#myTable").change(location.reload());
+
+                                return true;
+                            }
+                            else {
+                                Swal.fire({ title: "Error!", text: "Unable to delete Destination!\n There is Transfer Estimate with Destination.", type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            Swal.fire({ title: "Error!", text: errorThrown, type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                            //alert('Error - ' + errorThrown);
+                        }
+                    });
+                } else {
+                    Swal.fire("Cancelled", "Your Issuer is safe.", "error");
+                    return false;
+                }
+            })
+        });
+    </script>
+}
