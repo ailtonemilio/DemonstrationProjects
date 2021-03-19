@@ -1,0 +1,54 @@
+﻿<a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+
+    @{try
+        {
+            if (Session["UserLog"] != null)
+            {
+                @*<img class="media-object img-thumbnail user-img" alt="User Picture" src="../../images/users/@Session["UserLog"].ToString()" width="50">*@
+                <img src="../../images/users/@Session["UserLog"].ToString()" alt="user-image" class="rounded-circle">
+            }
+            else
+            {
+                @*<img class="media-object img-thumbnail user-img" alt="User Picture" src="../../images/users/usericon.png" width="50">*@
+                <img src="../../images/users/usericon.png" alt="user-image" class="rounded-circle">
+            }
+
+        }
+        catch (System.Exception)
+        {
+            Response.Redirect("/Account/login");
+        }
+
+    }
+        <span class="pro-user-name ml-1">
+            @User.Identity.Name <i class="mdi mdi-chevron-down"></i>
+        </span>
+</a>
+<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+    <!-- item-->
+    <div class="dropdown-header noti-title">
+        <h6 class="text-overflow m-0">Welcome !</h6>
+    </div>
+    <!-- item-->
+    <a href="~/Users/Details/@User.Identity.Name" class="dropdown-item notify-item">
+        <i class="fe-user"></i>
+        <span>My Account</span>
+    </a>
+    <!-- item-->
+    <a href="javascript:void(0);" class="dropdown-item notify-item">
+        <i class="fe-settings"></i>
+        <span>Settings</span>
+    </a>
+    <!-- item-->
+    <a href="~/Account/LockScreen" class="dropdown-item notify-item">
+        <i class="fe-lock"></i>
+        <span>Lock Screen</span>
+    </a>
+    <div class="dropdown-divider"></div>
+    <!-- item-->
+    <a href="~/Account/Logoff" class="dropdown-item notify-item">
+        <i class="fe-log-out"></i>
+        <span>Logout</span>
+    </a>
+   
+</div>

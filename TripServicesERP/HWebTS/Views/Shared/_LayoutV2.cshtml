@@ -1,0 +1,120 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Trip Services Admin Web App</title>
+    <meta name="description" content="ERP WebApp TripServices - Development by AJ Web development">
+    <meta name="mobile-web-app-capable" content="yes">
+    @Styles.Render("~/Bundles/css")
+
+
+    @* Is necessary this links here in all index *@
+    <link href="~/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="~/Scripts/sweetalert/sweetalert.js"></script>
+    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+
+</head>
+
+<body class="  ">
+    <div class="bg-dark dk" id="wrap">
+        <div id="top">
+            <!-- .navbar Top-->
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container-fluid">
+
+                    @Html.Partial("PartialViews/_NavHeader")
+                    @Html.Partial("PartialViews/_TopNavRigth")
+                    @*@Html.Partial("_TopNavLeft")*@
+
+                </div>
+            </nav>
+        </div>
+        <!-- left information -->
+        <div id="left">
+            <!-- User information-->
+            @Html.Partial("PartialViews/_UserInfo")
+
+            <!-- #menu -->
+            @Html.Partial("PartialViews/_Menu")
+            <!-- /#menu -->
+        </div>
+        <!-- content -->
+        <div id="content">
+            <div class="outer">
+                <div class="inner bg-light lter">
+                    @RenderBody()
+
+                </div>
+                <!-- /.inner -->
+            </div>
+            <!-- /.outer -->
+        </div>
+        <div class="text-center">
+            <p>2018 &copy; Trip Services - Development by AJ Web development</p>
+        </div>
+
+        <!-- /#content -->
+        <div id="right" class="onoffcanvas is-right is-fixed bg-light" aria-expanded=false>
+            <a class="onoffcanvas-toggler" href="#right" data-toggle=onoffcanvas aria-expanded=false></a>
+            <br>
+            <br>
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Warning!</strong> Mensagens de Alerta.
+            </div>
+        </div>
+        <!-- /#right -->
+    </div>
+    <!-- /#wrap -->
+    @*<footer class="Footer bg-dark dker">
+            <p>2017 &copy; Trip Services - Development by Ailton Emilio</p>
+        </footer>*@
+    <!-- /#footer -->
+    <!-- #helpModal -->
+    <div id="helpModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Duvidas</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Suas duvidas aqui
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-line" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- /#helpModal -->
+    @* Scripts *@
+    @Scripts.Render("~/bundles/jqueryval")
+    @*DataTables script*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "scrollX": true,
+                colReorder: true
+            });
+        });
+    </script>
+
+    
+
+    @* This is here, becouse the calendar / Este escript tem que estar aqui por causa do calendario *@
+    @*JS*@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

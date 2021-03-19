@@ -1,0 +1,266 @@
+﻿@model IEnumerable<HWebTS.Models.TransferEstimate>
+
+@{
+    ViewBag.Title = "TransferApproved";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TransferApproved</h2>
+<div class="card">
+    <div class="card-body">
+        <table id="myTable" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        <label>ID</label>
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FlightNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateFligh)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TimeFligh)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TimePiDo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.QtyPassenger)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.QtyMalaGr)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.QtyMalaPq)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TransferAmount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Discount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FinalPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateTransEst)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateAprove)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NamePassenger)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Note)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Destination.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MetingPoint.DescMetingPoint)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PriceCitiesFrom.City)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PriceCitiesTo.City)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SalesContact.Contact)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StatusPayment.DescStatusPayment)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TransferAprove.DescAprove)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypeDestination.DescTypeDestination)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypePayment.DescTypePayment)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypeTransfer.DescType)
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="text-align:center;">
+                            <a href="@Url.Action("SendTransferEstimate.aspx", "Budget", new { IdTransEst = item.IdTransEst })" title="Select" class="ladda-button btn btn-blue fa fa-arrow-circle-right select-item"></a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdTransEst)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FlightNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateFligh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TimeFligh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TimePiDo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.QtyPassenger)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.QtyMalaGr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.QtyMalaPq)
+                        </td>
+                        <td>
+                            $&nbsp;@Html.DisplayFor(modelItem => item.TransferAmount)
+                        </td>
+                        <td>
+                            $&nbsp;@Html.DisplayFor(modelItem => item.Discount)
+                        </td>
+                        <td>
+                            $&nbsp;@Html.DisplayFor(modelItem => item.FinalPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateTransEst)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateAprove)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NamePassenger)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Note)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Destination.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MetingPoint.DescMetingPoint)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PriceCitiesFrom.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PriceCitiesTo.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SalesContact.Contact)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StatusPayment.DescStatusPayment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TransferAprove.DescAprove)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypeDestination.DescTypeDestination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypePayment.DescTypePayment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypeTransfer.DescType)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" role="dialog" id="AddNewTypeDestination" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+@section Scripts {
+   
+}
+
+@* Loading in the button *@
+<script>
+    $('.btn').on('click', function () {
+        var $this = $(this);
+        $this.button('loading');
+        setTimeout(function () {
+            $this.button('reset');
+        }, 2000);
+    });
+</script>
+
+<script>
+    function deletealert(ctl, event) {
+        // STORE HREF ATTRIBUTE OF LINK CTL (THIS) BUTTON
+        var defaultAction = $(ctl).prop("href");
+        // CANCEL DEFAULT LINK BEHAVIOUR
+        event.preventDefault();
+        swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover this file!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal({ title: "Deleted!", text: "Your file has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true },
+                        function () {
+                            // RESUME THE DEFAULT LINK ACTION
+                            window.location.href = defaultAction;
+                            return true;
+                        });
+                } else {
+                    swal("Cancelled", "Your file is safe.", "error");
+                    return false;
+                }
+            });
+    }
+</script>

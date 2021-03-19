@@ -1,0 +1,91 @@
+﻿@model HWebTS.Models.ReservationRequest
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReservationRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NamePD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamePD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressPD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressPD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCodePD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCodePD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhonePD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhonePD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobilePD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobilePD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCityPD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCityPD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTypeDestinationPD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTypeDestinationPD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPassenger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPassenger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTransferEst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTransferEst)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdReservationRequest }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

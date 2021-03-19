@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HWebTS.Models.ReservationRequest>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NamePD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressPD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCodePD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhonePD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobilePD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCityPD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTypeDestinationPD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPassenger)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTransferEst)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamePD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressPD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostalCodePD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhonePD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobilePD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCityPD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTypeDestinationPD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPassenger)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTransferEst)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdReservationRequest }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdReservationRequest }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdReservationRequest })
+        </td>
+    </tr>
+}
+
+</table>

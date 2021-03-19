@@ -1,0 +1,62 @@
+﻿@model HWebTS.Models.EditUserViewModel
+
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", required = "required" })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+            </div>
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.DateBirth, htmlAttributes: new { @class = "control-label" })
+                    <div class="input-group date" data-provide="datepicker">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        @Html.EditorFor(model => model.DateBirth, new { htmlAttributes = new { @class = "form-control date" } })
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DateBirth, "", new { @class = "text-danger" })
+                </div>*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserImage, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.UserImage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserImage, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-1">
+            <input type="submit" value="Salvar" class="btn btn-primary" />
+        </div>
+    </div>
+
+   
+                
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

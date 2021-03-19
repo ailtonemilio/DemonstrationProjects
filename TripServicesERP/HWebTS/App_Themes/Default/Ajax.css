@@ -1,0 +1,291 @@
+﻿/* Configurações do MODAL POPUP --------------------------------------------------*/
+.ajax_modalBackground {
+    background-color: Gray;
+    filter:alpha(opacity=70);
+    opacity:0.7;
+}
+    
+.ajax_modalButton{
+    visibility: hidden;
+}
+
+.ajax_animationLoading{
+    position:absolute;
+    top: 25%;
+    left: 48%;
+    z-index: 50;
+}
+
+.popup_Container {
+	background-color:#F7F6F3;
+	border:2px solid #000000;
+	padding: 0px 0px 0px 0px;
+}
+
+.popup_Titlebar {
+	background: url(../../Styles/Horizontal1/mid.gif);
+	height: 30px;
+	width:100%;
+}
+
+.popup_Body
+{
+	padding:15px 15px 15px 15px;
+	font-family:Arial;
+	font-weight:bold;
+	font-size:12px;
+	color:#000000;
+	line-height:15pt;
+	clear:both;
+	padding:20px;
+}
+
+.TitlebarLeft 
+{
+	float:left;
+	padding-left:5px;
+	padding-top:7px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	color:#000000;
+	
+}
+.TitlebarRight 
+{
+	float:right;
+	cursor:pointer;
+	margin-right:2px;
+	margin-top:2px;
+}
+
+.popup_Buttons
+{
+	margin:10px;
+}
+/* Configurações do MODAL POPUP -----------------------------------------------------------*/
+
+/*Calendário ------------------------------------------------------------------------------*/
+.MyCalendar .ajax__calendar_container   {
+    background-color: #d9edf7;
+    border:solid 1px #337ab7;
+}
+
+.MyCalendar .ajax__calendar_header  {
+    background-color: #ffffff;
+    margin-bottom: 4px;
+    border: solid 1px #337ab7;
+}
+
+.MyCalendar .ajax__calendar_title,
+.MyCalendar .ajax__calendar_next,
+.MyCalendar .ajax__calendar_prev    {
+    color: #004080;
+    padding-top: 3px;
+}
+
+.MyCalendar .ajax__calendar_body    {
+    background-color: #ffffff;
+    border: solid 1px #337ab7;
+}
+
+.MyCalendar .ajax__calendar_dayname {
+    text-align:center;
+    font-weight:bold;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+   
+}
+
+.MyCalendar .ajax__calendar_day {
+    text-align:center;
+}
+
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year,
+.MyCalendar .ajax__calendar_active  {
+    color: #004080;
+    font-weight: bold;
+    background-color: #ffffff;
+   
+}
+
+.MyCalendar .ajax__calendar_today   {
+    font-weight:bold;
+}
+
+.MyCalendar .ajax__calendar_other,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_today,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_title {
+    color: #58a4fa;
+}
+/*Calendário ------------------------------------------------------------------------------*/
+
+/* Configurações da TAB do Ajax ------------------------------------------------------------*/
+
+/* default layout */
+.ajax__tab_default .ajax__tab_header {white-space:nowrap;}
+.ajax__tab_default .ajax__tab_outer {display:-moz-inline-box;display:inline-block}
+.ajax__tab_default .ajax__tab_inner {display:-moz-inline-box;display:inline-block}
+.ajax__tab_default .ajax__tab_tab {margin-right:4px;overflow:hidden;text-align:center;cursor:pointer;display:-moz-inline-box;display:inline-block}
+
+/* xp theme */
+.ajax__tab_xp .ajax__tab_header {font-family:verdana,tahoma,helvetica;font-size:11px;background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-line.gif")%>) repeat-x bottom;}
+.ajax__tab_xp .ajax__tab_outer {padding-right:4px;background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-right.gif")%>) no-repeat right;height:21px;}
+.ajax__tab_xp .ajax__tab_inner {padding-left:3px;background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-left.gif")%>) no-repeat;}
+.ajax__tab_xp .ajax__tab_tab {height:13px;padding:4px;margin:0;background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab.gif")%>) repeat-x;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_outer {background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-hover-right.gif")%>) no-repeat right;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_inner {background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-hover-left.gif")%>) no-repeat;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_tab {background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-hover.gif")%>) repeat-x;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_outer {background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-active-right.gif")%>) no-repeat right;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_inner {background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-active-left.gif")%>) no-repeat;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_tab {background:url(<%=WebResource("AjaxControlToolkit.Tabs.tab-active.gif")%>) repeat-x;}
+.ajax__tab_xp .ajax__tab_body {font-family:verdana,tahoma,helvetica;font-size:10pt;border:1px solid #999999;border-top:0;padding:8px;background-color:#ffffff;}
+
+/* scrolling */
+.ajax__scroll_horiz {overflow-x:scroll;}
+.ajax__scroll_vert {overflow-y:scroll;}
+.ajax__scroll_both {overflow:scroll}
+.ajax__scroll_auto {overflow:auto}
+
+/* Configurações da TAB do Ajax ------------------------------------------------------------*/
+
+/* Configurações da ComboBox do Ajax ------------------------------------------------------------*/
+.AquaStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input
+{
+    margin: 0;
+    /*background-image: url(ComboBox/images/aqua-bg.gif);*/
+    background-image: url(../../App_Themes/Default/Imagens/aqua-bg.gif);
+    background-position: top left;
+    border: 0px none;
+    padding: 2px 0px 0px 8px;
+    font-size: 11px;
+    height: 17px;
+    width: 150px;
+}
+.AquaStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button
+{
+    /*background-image: url(ComboBox/images/aqua-arrow.gif);*/
+    background-image: url(../../App_Themes/Default/Imagens/aqua-arrow.gif);
+    background-position: top left;
+    border: 0px none;
+    height: 19px;
+    width: 19px;
+}
+.AquaStyle .ajax__combobox_itemlist
+{
+    border-color: #000000;
+    background-color: #FFFFFF;
+}
+/* Configurações da ComboBox do Ajax ------------------------------------------------------------*/
+
+
+/* Configurações da caixa de Notificacoes -------------------------------------------------- Caio*/
+
+.notificationbox {
+  border: 1px solid;
+  margin: 10px 0px;
+  padding:15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  font-size:0.8em;
+}
+.info {
+  color: #00529B;
+  background-color: #BDE5F8;
+  background-image: url('../../App_Themes/Default/Imagens/notificationbox_info.png');
+}
+.success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  background-image:url('../../App_Themes/Default/Imagens/notificationbox_success.png');
+}
+.warning {
+  color: #9F6000;
+  background-color: #FEEFB3;
+  background-image: url('../../App_Themes/Default/Imagens/notificationbox_warning.png');
+}
+.error {
+  color: #D8000C;
+  background-color: #FFBABA;
+  background-image: url('../../App_Themes/Default/Imagens/notificationbox_error.png');
+}
+/* Configurações da caixa de Notificacoes -------------------------------------------------- Caio*/
+
+/* Configurações AutoComplete Para Coletor--------------------------------------------------------------------*/
+.autocomplete_completionListElementCol 
+{  
+	margin : 0px!important;
+	background-color : #ffffff;
+	color : #000000;
+	border : buttonshadow;
+	border-width : 1px;
+	border-style : solid;
+	cursor : 'default';
+	overflow : auto;
+	height : 200px;
+    text-align : left; 
+    list-style-type : none;
+    font-size:50px;
+}
+
+/* AutoComplete highlighted item */
+
+.autocomplete_highlightedListItemCol
+{
+	background-color: #ffff99;
+	color: black;
+	padding: 1px;
+}
+
+/* AutoComplete item */
+
+.autocomplete_listItemCol 
+{
+	background-color : #ffffff;
+	color : black;
+	padding : 1px;
+}
+
+/* Configurações AutoComplete Para Coletor --------------------------------------------------------------------*//* Configurações AutoComplete --------------------------------------------------------------------*/
+
+/* Configurações AutoComplete --------------------------------------------------------------------*/
+.autocomplete_completionListElement 
+{  
+	margin : 0px!important;
+	background-color : #ffffff;
+	color : #000000;
+	border : buttonshadow;
+	border-width : 1px;
+	border-style : solid;
+	cursor : 'default';
+	overflow : auto;
+	height : 100px;
+	width:80PX;
+    text-align : left; 
+    list-style-type : none;
+    font-size:12px;
+}
+
+/* AutoComplete highlighted item */
+
+.autocomplete_highlightedListItem
+{
+	background-color: #ffff99;
+	color: black;
+	padding: 1px;
+}
+
+/* AutoComplete item */
+
+.autocomplete_listItem 
+{
+	background-color : #ffffff;
+	color : black;
+	padding : 1px;
+}
+
+/* Configurações AutoComplete --------------------------------------------------------------------*//* Configurações AutoComplete --------------------------------------------------------------------*/

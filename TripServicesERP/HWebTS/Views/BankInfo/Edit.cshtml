@@ -1,0 +1,120 @@
+﻿@using HWebTS.Models
+@using HWebTS.Controllers
+
+@model HWebTS.Models.BankInfo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Edit Bank Info</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdBankInfo)
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Bank</label>
+        <div class="col-md-10">
+            @Html.DropDownList("IdBank", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdBank, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Customer</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Customer, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Customer, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Account Number</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.AccountNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AccountNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Transit Number</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TransitNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TransitNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Swift Code</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SwiftCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SwiftCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Address</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BankAddress, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BankAddress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Postal Code</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BankPostalCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BankPostalCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">City</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.BankCity, BankInfoController.GetCity(), new { id = "BankCity", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BankCity, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Province</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.BankProvince, BankInfoController.GetProvince(), new { id = "BankProvince", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BankProvince, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 text-right">
+            <button type="submit" value="Save" class="ladda-button btn btn-blue ">
+                <img src="../../images/icon/save.png" />&nbsp;&nbsp;Save
+            </button>
+
+            <a href="@Url.Action("Index")" title="Back to List" class="ladda-button btn btn-danger">
+                <img src="../../images/icon/cancel.png" />&nbsp;&nbsp;Cancel
+            </a>
+        </div>
+    </div>
+</div>
+}
+
+@* Loading in the button *@
+<script>
+    $('.btn').on('click', function () {
+        var $this = $(this);
+        $this.button('loading');
+        setTimeout(function () {
+            $this.button('reset');
+        }, 2000);
+    });
+</script>

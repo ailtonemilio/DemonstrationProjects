@@ -1,0 +1,91 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        @if (!string.IsNullOrWhiteSpace(ViewBag.Title))
+        {
+            @ViewBag.Title@: -
+        }
+        Trip Services
+    </title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <style>
+        .text-white {
+            color:white;
+        }
+    .bgpage {
+        background-color: black;
+        background-image: url("../../Content/metis/img/pattern/vancouver.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        z-index: 0;
+    }
+    .bgpage .form-signin {
+        max-width: 330px;
+        padding: 20px;
+        margin: 0 auto;
+        background-color: #000000;
+        border-radius: 3px;
+    }
+
+        .bgpage .form-signin .form-signin-heading,
+        .bgpage .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+
+        .bgpage .form-signin .checkbox {
+            font-weight: normal;
+        }
+
+        .bgpage .form-signin input[type="text"],
+        .bgpage .form-signin input[type="password"],
+        .bgpage .form-signin input[type="email"] {
+            position: relative;
+            font-size: 16px;
+            height: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+            .bgpage .form-signin input[type="text"]:focus,
+            .bgpage .form-signin input[type="password"]:focus,
+            .bgpage .form-signin input[type="email"]:focus {
+                z-index: 2;
+            }
+
+        .bgpage .form-signin input.top {
+            margin-bottom: -1px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .bgpage .form-signin input.middle {
+            margin-bottom: -1px;
+            border-radius: 0;
+        }
+
+        .bgpage .form-signin input.bottom {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    </style>
+</head>
+<body class="bgpage">
+
+    <div class="form-signin">
+        @RenderBody()
+    </div>
+    @*<script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>*@
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

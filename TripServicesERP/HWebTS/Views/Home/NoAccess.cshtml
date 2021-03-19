@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>No Access</title>
+</head>
+<body>
+    <div>
+        <h3>You do not have access to this part of the system</h3>
+    </div>
+    <div>
+        @Html.ActionLink(" Back ", "Index", null, new { @class = "fa fa-ban btn btn-danger", title = "Back to System" })
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div class="row">
+        <ul class="stats_box">
+            <li>
+                <label class="radio-inline"><input type="radio" name="optradio" checked>One Week</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Two week</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Three Week</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Month</label>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <ul class="stats_box">
+            <li>
+                
+                @*<div class="sparkline bar_week"></div>*@
+                <div class="stat_text">
+                    <strong>50</strong>Weekly Estimative
+                    <span class="percent up"> <i class="fa fa-caret-up"></i> +16%</span>
+                </div>
+            </li>
+            <li>
+                @*<div class="sparkline line_day"></div>*@
+                <div class="stat_text">
+                    <strong>165</strong>Weekly Visit
+                    <span class="percent up"> <i class="fa fa-caret-up"></i> +23%</span>
+                </div>
+            </li>
+            <li>
+                @*<div class="sparkline pie_week"></div>*@
+                <div class="stat_text">
+                    <strong>$2,345.00</strong>Weekly Sales
+                    <span class="percent"> 35%</span>
+                </div>
+            </li>
+            <li>
+                @*<div class="sparkline stacked_month"></div>*@
+                <div class="stat_text">
+                    <strong>$678.00</strong>Weekly Sale
+                    <span class="percent down"> <i class="fa fa-caret-down"></i> -10%</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading">New Transfer Estimate</div>
+                <div class="panel-body">
+                    <h4>Here you will find the information about the new transfer estimates for the week</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">Schedule</div>
+                <div class="panel-body">
+                    <h4>Here is a calendar</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">Payments</div>
+                <div class="panel-body">
+                    <h4>Payments to be made this week (7 days)</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-warning">
+                <div class="panel-heading">Invoices</div>
+                <div class="panel-body">
+                    <h4>Invoices of the week</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

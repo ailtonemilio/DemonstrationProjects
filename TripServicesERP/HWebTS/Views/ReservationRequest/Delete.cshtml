@@ -1,0 +1,97 @@
+﻿@model HWebTS.Models.ReservationRequest
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ReservationRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NamePD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamePD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressPD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressPD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCodePD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCodePD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhonePD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhonePD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobilePD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobilePD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCityPD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCityPD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTypeDestinationPD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTypeDestinationPD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPassenger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPassenger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTransferEst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTransferEst)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
