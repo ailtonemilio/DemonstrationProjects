@@ -6,7 +6,7 @@ Short description of the projects
 ShipSmpl Project 
 Grain transloading management application.
 Developed with Visual Studio.NET Windows Forms.
-The Application is using 3-tier technology.
+The Application is using 3-tier design pattern.
 Model, Data and Business layer.
 
 TripServive Project (www.tripservices.ca)
