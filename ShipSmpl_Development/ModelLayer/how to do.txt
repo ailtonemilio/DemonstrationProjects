@@ -1,0 +1,23 @@
+﻿ON NuGet
+
+To Enable migrations first time:
+	>  Enable-Migrations
+To Enable migrations first time for specific context:
+	Enable-Migrations -ContextTypeName ModelLayer.NameOfContext
+
+To make changes on model go to migration: Go to context file and add inside class:
+   Database.SetInitializer(new MigrateDatabaseToLatestVersion<SchoolContext, EF6CodeFirstDemo.Migrations.Configuration>()); )
+
+	> add-migration NameOfYourMigration
+
+To Add migration ignoring changes:
+	> Add-Migration MingrationName -IgnoreChanges
+
+To update changes in Db
+	> Update-Database -verbose
+
+To update changes in db of specific migration
+	> Update-Database -TargetMigration: NameOfSecondToLastMigration
+
+To insert data
+migrationBuilder.InsertData(table: "MyTable", column: "MyColumn", value: "MyValue");

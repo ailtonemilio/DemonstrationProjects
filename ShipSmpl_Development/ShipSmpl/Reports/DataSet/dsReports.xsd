@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReports" targetNamespace="http://tempuri.org/dsReports.xsd" xmlns:mstns="http://tempuri.org/dsReports.xsd" xmlns="http://tempuri.org/dsReports.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReports" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReports" msprop:Generator_UserDSName="dsReports">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HoursWorkedYard" msprop:Generator_TableClassName="HoursWorkedYardDataTable" msprop:Generator_TableVarName="tableHoursWorkedYard" msprop:Generator_TablePropName="HoursWorkedYard" msprop:Generator_RowDeletingName="HoursWorkedYardRowDeleting" msprop:Generator_RowChangingName="HoursWorkedYardRowChanging" msprop:Generator_RowEvHandlerName="HoursWorkedYardRowChangeEventHandler" msprop:Generator_RowDeletedName="HoursWorkedYardRowDeleted" msprop:Generator_UserTableName="HoursWorkedYard" msprop:Generator_RowChangedName="HoursWorkedYardRowChanged" msprop:Generator_RowEvArgName="HoursWorkedYardRowChangeEvent" msprop:Generator_RowClassName="HoursWorkedYardRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Yard" msprop:Generator_ColumnVarNameInTable="columnYard" msprop:Generator_ColumnPropNameInRow="Yard" msprop:Generator_ColumnPropNameInTable="YardColumn" msprop:Generator_UserColumnName="Yard" type="xs:string" minOccurs="0" />
+              <xs:element name="Punch_x0020_Type" msprop:Generator_ColumnVarNameInTable="columnPunch_Type" msprop:Generator_ColumnPropNameInRow="Punch_Type" msprop:Generator_ColumnPropNameInTable="Punch_TypeColumn" msprop:Generator_UserColumnName="Punch Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HoursWorkedYardType" msprop:Generator_TableClassName="HoursWorkedYardTypeDataTable" msprop:Generator_TableVarName="tableHoursWorkedYardType" msprop:Generator_TablePropName="HoursWorkedYardType" msprop:Generator_RowDeletingName="HoursWorkedYardTypeRowDeleting" msprop:Generator_RowChangingName="HoursWorkedYardTypeRowChanging" msprop:Generator_RowEvHandlerName="HoursWorkedYardTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="HoursWorkedYardTypeRowDeleted" msprop:Generator_UserTableName="HoursWorkedYardType" msprop:Generator_RowChangedName="HoursWorkedYardTypeRowChanged" msprop:Generator_RowEvArgName="HoursWorkedYardTypeRowChangeEvent" msprop:Generator_RowClassName="HoursWorkedYardTypeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Yard" msprop:Generator_ColumnVarNameInTable="columnYard" msprop:Generator_ColumnPropNameInRow="Yard" msprop:Generator_ColumnPropNameInTable="YardColumn" msprop:Generator_UserColumnName="Yard" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" msdata:Caption="Punch Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Punch_x0020_Type" msdata:Caption="Time" msprop:Generator_ColumnVarNameInTable="columnPunch_Type" msprop:Generator_ColumnPropNameInRow="Punch_Type" msprop:Generator_ColumnPropNameInTable="Punch_TypeColumn" msprop:Generator_UserColumnName="Punch Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HoursWorkedEmploeeSite" msprop:Generator_TableClassName="HoursWorkedEmploeeSiteDataTable" msprop:Generator_TableVarName="tableHoursWorkedEmploeeSite" msprop:Generator_TablePropName="HoursWorkedEmploeeSite" msprop:Generator_RowDeletingName="HoursWorkedEmploeeSiteRowDeleting" msprop:Generator_RowChangingName="HoursWorkedEmploeeSiteRowChanging" msprop:Generator_RowEvHandlerName="HoursWorkedEmploeeSiteRowChangeEventHandler" msprop:Generator_RowDeletedName="HoursWorkedEmploeeSiteRowDeleted" msprop:Generator_UserTableName="HoursWorkedEmploeeSite" msprop:Generator_RowChangedName="HoursWorkedEmploeeSiteRowChanged" msprop:Generator_RowEvArgName="HoursWorkedEmploeeSiteRowChangeEvent" msprop:Generator_RowClassName="HoursWorkedEmploeeSiteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name_x0020_Employee" msprop:Generator_ColumnVarNameInTable="columnName_Employee" msprop:Generator_ColumnPropNameInRow="Name_Employee" msprop:Generator_ColumnPropNameInTable="Name_EmployeeColumn" msprop:Generator_UserColumnName="Name Employee" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Yard" msprop:Generator_ColumnVarNameInTable="columnYard" msprop:Generator_ColumnPropNameInRow="Yard" msprop:Generator_ColumnPropNameInTable="YardColumn" msprop:Generator_UserColumnName="Yard" type="xs:string" minOccurs="0" />
+              <xs:element name="Punch_x0020_Type" msprop:Generator_ColumnVarNameInTable="columnPunch_Type" msprop:Generator_ColumnPropNameInRow="Punch_Type" msprop:Generator_ColumnPropNameInTable="Punch_TypeColumn" msprop:Generator_UserColumnName="Punch Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetOutGate" targetNamespace="http://tempuri.org/DataSetOutGate.xsd" xmlns:mstns="http://tempuri.org/DataSetOutGate.xsd" xmlns="http://tempuri.org/DataSetOutGate.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetOutGate" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetOutGate" msprop:Generator_UserDSName="DataSetOutGate">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OutgatedContainers" msprop:Generator_TableClassName="OutgatedContainersDataTable" msprop:Generator_TableVarName="tableOutgatedContainers" msprop:Generator_TablePropName="OutgatedContainers" msprop:Generator_RowDeletingName="OutgatedContainersRowDeleting" msprop:Generator_RowChangingName="OutgatedContainersRowChanging" msprop:Generator_RowEvHandlerName="OutgatedContainersRowChangeEventHandler" msprop:Generator_RowDeletedName="OutgatedContainersRowDeleted" msprop:Generator_UserTableName="OutgatedContainers" msprop:Generator_RowChangedName="OutgatedContainersRowChanged" msprop:Generator_RowEvArgName="OutgatedContainersRowChangeEvent" msprop:Generator_RowClassName="OutgatedContainersRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="numbOrder" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnnumbOrder" msprop:Generator_ColumnPropNameInRow="numbOrder" msprop:Generator_ColumnPropNameInTable="numbOrderColumn" msprop:Generator_UserColumnName="numbOrder" type="xs:int" minOccurs="0" />
+              <xs:element name="Container_Number" msprop:Generator_ColumnVarNameInTable="columnContainer_Number" msprop:Generator_ColumnPropNameInRow="Container_Number" msprop:Generator_ColumnPropNameInTable="Container_NumberColumn" msprop:Generator_UserColumnName="Container_Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Booking_x0020_Number" msprop:Generator_ColumnVarNameInTable="columnBooking_Number" msprop:Generator_ColumnPropNameInRow="Booking_Number" msprop:Generator_ColumnPropNameInTable="Booking_NumberColumn" msprop:Generator_UserColumnName="Booking Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:string" minOccurs="0" />
+              <xs:element name="Tare" msprop:Generator_ColumnVarNameInTable="columnTare" msprop:Generator_ColumnPropNameInRow="Tare" msprop:Generator_ColumnPropNameInTable="TareColumn" msprop:Generator_UserColumnName="Tare" type="xs:double" minOccurs="0" />
+              <xs:element name="Date-Time" msprop:Generator_ColumnVarNameInTable="_columnDate_Time" msprop:Generator_ColumnPropNameInRow="_Date_Time" msprop:Generator_ColumnPropNameInTable="_Date_TimeColumn" msprop:Generator_UserColumnName="Date-Time" type="xs:string" minOccurs="0" />
+              <xs:element name="Outgoing_x0020_Carrier" msprop:Generator_ColumnVarNameInTable="columnOutgoing_Carrier" msprop:Generator_ColumnPropNameInRow="Outgoing_Carrier" msprop:Generator_ColumnPropNameInTable="Outgoing_CarrierColumn" msprop:Generator_UserColumnName="Outgoing Carrier" type="xs:string" minOccurs="0" />
+              <xs:element name="Condition" msprop:Generator_ColumnVarNameInTable="columnCondition" msprop:Generator_ColumnPropNameInRow="Condition" msprop:Generator_ColumnPropNameInTable="ConditionColumn" msprop:Generator_UserColumnName="Condition" type="xs:string" minOccurs="0" />
+              <xs:element name="ssLine" msprop:Generator_ColumnVarNameInTable="columnssLine" msprop:Generator_ColumnPropNameInRow="ssLine" msprop:Generator_ColumnPropNameInTable="ssLineColumn" msprop:Generator_UserColumnName="ssLine" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

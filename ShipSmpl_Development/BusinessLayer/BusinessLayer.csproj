@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6100F8DF-DFDE-4C88-8DF3-E278021B4588}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessLayer</RootNamespace>
+    <AssemblyName>BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompanyTypeService.cs" />
+    <Compile Include="WTC-Ceres\BaggerService.cs" />
+    <Compile Include="WTC-Ceres\BagInventoryService.cs" />
+    <Compile Include="WTC-Ceres\BookingCompanyService.cs" />
+    <Compile Include="WTC-Ceres\BookingDestinationService.cs" />
+    <Compile Include="WTC-Ceres\BookingService.cs" />
+    <Compile Include="WTC-Ceres\BookingServiceService.cs" />
+    <Compile Include="WTC-Ceres\BookingTypeService.cs" />
+    <Compile Include="WTC-Ceres\CargoTypeService.cs" />
+    <Compile Include="WTC-Ceres\CeresExcelPendingSyncService.cs" />
+    <Compile Include="WTC-Ceres\CompanyAddressService.cs" />
+    <Compile Include="WTC-Ceres\CompanyCategoryService.cs" />
+    <Compile Include="WTC-Ceres\CompanyCompanyTypeService.cs" />
+    <Compile Include="WTC-Ceres\CompanyCustomerRateTypeService.cs" />
+    <Compile Include="WTC-Ceres\ContainerSizeService.cs" />
+    <Compile Include="WTC-Ceres\CountryRegionService.cs" />
+    <Compile Include="WTC-Ceres\CountryService.cs" />
+    <Compile Include="WTC-Ceres\InboundFollowUpService.cs" />
+    <Compile Include="WTC-Ceres\InboundReqDeclinedQtyService.cs" />
+    <Compile Include="WTC-Ceres\InboundRequestService.cs" />
+    <Compile Include="WTC-Ceres\MinibookingCommodityService.cs" />
+    <Compile Include="WTC-Ceres\MinibookingMiniUnitAssignmentService.cs" />
+    <Compile Include="WTC-Ceres\CommodityService.cs" />
+    <Compile Include="WTC-Ceres\CompanyRateTypeService.cs" />
+    <Compile Include="WTC-Ceres\CompanyService.cs" />
+    <Compile Include="WTC-Ceres\ContainerMinibookingService.cs" />
+    <Compile Include="WTC-Ceres\ContainerService.cs" />
+    <Compile Include="WTC-Ceres\Containers_In_OutService.cs" />
+    <Compile Include="WTC-Ceres\EmployeeActivityLogService.cs" />
+    <Compile Include="WTC-Ceres\FTPAccountService.cs" />
+    <Compile Include="WTC-Ceres\GradeService.cs" />
+    <Compile Include="WTC-Ceres\GrainInventoryService.cs" />
+    <Compile Include="WTC-Ceres\MinibookingService.cs" />
+    <Compile Include="WTC-Ceres\DrayageRateService.cs" />
+    <Compile Include="WTC-Ceres\DrayageSchemeService.cs" />
+    <Compile Include="WTC-Ceres\ContainersInOutDrayageService.cs" />
+    <Compile Include="WTC-Ceres\EmployeeService.cs" />
+    <Compile Include="WTC-Ceres\DocumentsStoredDepartmentService.cs" />
+    <Compile Include="WTC-Ceres\DocumentsStoredService.cs" />
+    <Compile Include="WTC-Ceres\DocumentsStoredTypeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WTC-Ceres\DocumentsStoredUserDepartmentService.cs" />
+    <Compile Include="WTC-Ceres\MiniUnitService.cs" />
+    <Compile Include="WTC-Ceres\PalletService.cs" />
+    <Compile Include="WTC-Ceres\RegionCityService.cs" />
+    <Compile Include="WTC-Ceres\RelDistChangeReqScheduleDeclinedQtyService.cs" />
+    <Compile Include="WTC-Ceres\RelDistChangeSchRequestedService.cs" />
+    <Compile Include="WTC-Ceres\RelDistRequestScheduleService.cs" />
+    <Compile Include="WTC-Ceres\RelDistScheduleAcceptedService.cs" />
+    <Compile Include="WTC-Ceres\ReleaseDistributionRequestService.cs" />
+    <Compile Include="WTC-Ceres\ReleaseOrderMinibookingService.cs" />
+    <Compile Include="WTC-Ceres\ReleaseOrderService.cs" />
+    <Compile Include="WTC-Ceres\ReleaseService.cs" />
+    <Compile Include="WTC-Ceres\RelOrderPickUpDropOffLocationService.cs" />
+    <Compile Include="WTC-Ceres\RequestStatusService.cs" />
+    <Compile Include="WTC-Ceres\StorageTypeService.cs" />
+    <Compile Include="WTC-Ceres\TestTableService.cs" />
+    <Compile Include="WTC-Ceres\TruckDriverCompanyService.cs" />
+    <Compile Include="WTC-Ceres\TruckDriverService.cs" />
+    <Compile Include="WTC-Ceres\TruckDriversService.cs" />
+    <Compile Include="WTC-Ceres\UnitStatusService.cs" />
+    <Compile Include="WTC-Ceres\UnitSourceService.cs" />
+    <Compile Include="WTC-Ceres\VesselService.cs" />
+    <Compile Include="WTC-Ceres\VesselVoyageService.cs" />
+    <Compile Include="WTC-Ceres\VesselVoyageStatusService.cs" />
+    <Compile Include="WTC-Ceres\VW_UnitSOurceMiniUnitService.cs" />
+    <Compile Include="WTC-Ceres\YardLocationService.cs" />
+    <Compile Include="WTCOperations\Safetyand_Risk_Management_ClearanceService.cs" />
+    <Compile Include="WTC-Ceres\TimeSheetService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{2eaa2fda-09b1-40a3-a5b9-fc0e16afcc78}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
+      <Project>{abd1a4b0-ca74-48aa-8f39-b4b053b48ed9}</Project>
+      <Name>ModelLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

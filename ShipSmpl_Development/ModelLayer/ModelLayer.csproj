@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA7A111B-246E-46C9-8622-ECE21FCADDA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ModelLayer</RootNamespace>
+    <AssemblyName>ModelLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\202103111716171_Initial.cs" />
+    <Compile Include="Migrations\202103111716171_Initial.designer.cs">
+      <DependentUpon>202103111716171_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103121931203_AddedTruckDriverModel.cs" />
+    <Compile Include="Migrations\202103121931203_AddedTruckDriverModel.designer.cs">
+      <DependentUpon>202103121931203_AddedTruckDriverModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WTC-Ceres\Mappings\BookingCompanyEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BookingEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BagEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BaggerEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BagInventoryEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BagLocationEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BagLogoEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BagSizeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\Blocked_ContainerstEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\MinibookingEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BookingChangeLogEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BookingDestinationEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BookingStatusEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BookingTypeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CargoTypeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\ColorListEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CommodityEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CompanyTypeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\ContainerEntityConfiguration%29.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\ContainerSizeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\ContainerStatusEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CountryEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CountryRegionEntityConfiguration .cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CustomerRateTypeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\DocumentsStoredEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\DocumentsStoredBookingEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\DocumentsStoredDepartmentEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\DocumentsStoredGroupEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\DocumentsStoredTypeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\DrayageRateEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\DrayageSchemeRateEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\FSC_RateEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\FTPAccountEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\GradeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\GrainInventoryEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\GrainInventoryTransactionEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\GrainInvStorageLocationEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\InboundReqDeclinedQtyEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\InboundRequestEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\RelDistChangeReqScheduleEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\RelDistChangeReqScheduleDeclinedQtyEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\RelDistRequestScheduleEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\RelDistScheduleAcceptedEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\RelOrderPickUpDropOffLocationEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\RequestStatusEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\StorageTypeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\TEF_RateEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\TruckDriverCompanyEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\UnitSourceEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\VesselVoyageEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\VesselVoyageStatusEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\WTCWorkstationsEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\Truck_DriversEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\TimeSheetEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\YardLocationEntityConfiguration .cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\VesselEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\UnitStatusEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\TruckDriverEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\TransactionTypeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\ReleaseOrderEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\ReleaseEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\RegionCityEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\MiniUnitEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\EmployeeEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\EmployeeActivityLogEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CompanyEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CompanyAddressEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CompanyCategoryEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\CeresExcelPendingSyncEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BookingServiceEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Mappings\BagWeightEntityConfiguration.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Allowed_Transfers.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Bag.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Bagger.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BagInventory.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BagInventoryTransaction.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BagLocation.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BagLogo.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BagSize.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BagWeight.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Blocked_Containers.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Booking.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingBagAssignment.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingBagUsage.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingChangeLog.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingCommoditiesChangeLog.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingCompany.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingCompanyChangeLog.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingDestination.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingService.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingStatus.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\BookingType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CargoType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Carriers_Static_IPs.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CeresExcelPendingSync.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ColorList.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Commodity.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Company.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CompanyAddress.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CompanyCategory.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CompanyCompanyType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CompanyCustomerRateType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CompanySSLineEDIRequired.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CompanyType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Contacts.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Contact_Type.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Container.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ContainerDelegation.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ContainerGrainDoor.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ContainerImages.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ContainerMinibooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ContainerSize.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ContainerStatus.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Containers_In_Out.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Container_Releases.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Container_Transfers.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Countries.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Country.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CountryRegion.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\CustomerRateType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\DocumentsStored.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\DocumentsStoredBooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\DocumentsStoredDepartment.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\DocumentsStoredGroup.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\DocumentsStoredType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\DocumentsStoredUserDepartment.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\DrayageRate.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\DrayageScheme.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\EDI_Records.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Employee.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\EmployeeActivityLog.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ExcelHarvesterPushRequest.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\FSC_Rate.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\FTPAccount.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Grade.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\GrainInventory.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\GrainInventoryTransaction.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\GrainInventoryTransfer.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\GrainInvMinibookingAssignment.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\GrainInvMinibookingTransaction.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\GrainInvStorageLocation.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\GrainInvTransactionGrainStorageLocation.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Harvester_Alive.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\InboundFollowUpRequest.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\InboundReqDeclinedQty.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\InboundRequest.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ManualEDILog.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Minibooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\MiniBookingChangeLog.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\MiniBookingCommodity.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\MinibookingMiniUnitAssignment.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\MiniUnit.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Notifications.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\OCRData.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Pallet.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Program.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Rail_List.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\RegionCity.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\RelDistChangeReqSchedule.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\RelDistChangeReqScheduleDeclinedQty.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\RelDistRequestSchedule.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\RelDistScheduleAccepted.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Release.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ReleaseDistributionRequest.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ReleaseOrder.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\ReleaseOrderMinibooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\RelOrderPickUpDropOffLocation.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\RequestStatus.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\StorageType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\TEF_Rate.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Terminal.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\TestTable.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\TimeSheet.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\TransactionType.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Transload.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\TransloadCrew.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\TruckDriver.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\TruckDriverCompany.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Truck_Drivers.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\UnitSource.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\UnitSourceActiveUpdate.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\UnitStatus.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\Vessel.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\VesselVoyage.cs" />
+    <Compile Include="Models\WTC-Ceres\Enitites\VesselVoyageStatus.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\DrayageSchemeRate.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_ActiveCarrierBookings.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_Bag.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_BagInventory.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_BagInventoryTransaction.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_Booking.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_BookingBagInventoryAssignment.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_BookingContainerAssignments.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_BookingDestination.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_BookingMinibooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_CeresExcelPendingSyncBooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_CompanyCompanyType.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_Container.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_ContainerGrainDoor.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_ContainersByBooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_ContainersInOutDrayage.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_EDIPerformanceAudit.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_EmployeeActivityLog.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_ExcelHarvesterPushRequest.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_GrainInventory.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_GrainInventoryTransaction.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_GrainInvMinibookingAssignment.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_GrainInvMinibookingTransaction.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_GrainUnitStorage.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_InboundFollowUpRequest.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_InboundReport.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_InboundRequest.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_InventoryBagLocation.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_MinibookingCommodity.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_MinibookingMiniUnitAssignment.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_RegionCity.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_RelDistChangeReqSchedule.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_RelDistReqSchRelDistSchAccpt.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_RelDistRequestSchedule.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_RelDistScheduleAccepted.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_Release.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_ReleaseDistributionRequest.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_ReleaseOrder.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_ReleaseOrderMinibooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_RelOrderPickUpDropOffLocation.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_TransloadMiniUnitMiniBooking.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_TransloadRecords.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_UnitSource.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\VW_UnitSourceMiniUnit.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\WTCWorkstations.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\WTC_Containers.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\YardLocation.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\Yard_Locations.cs" />
+    <Compile Include="Models\WTC-Ceres\Views\Yard_Static_IPs.cs" />
+    <Compile Include="Models\WTCOperations\Entities\Employees.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\CompaniesName.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\Containers_In_OutReport.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\EmployeeName.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\EmployeeWorking.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\TruckDriverList.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\VesselVoyageList.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\VW_Company.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\VW_InboundReqDeclinedQty.cs" />
+    <Compile Include="Models\WTC-Ceres\CustomModel\VW_RelDistChangeSchRequested.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WTCOperations\Entities\Safety_and_Risk_Management_Clearance.cs" />
+    <Compile Include="Models\WTCOperations\Entities\Time_Sheet.cs" />
+    <Compile Include="WTCCeresEntities.cs" />
+    <Compile Include="WTCOperationsEntities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103111716171_Initial.resx">
+      <DependentUpon>202103111716171_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103121931203_AddedTruckDriverModel.resx">
+      <DependentUpon>202103121931203_AddedTruckDriverModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="how to do.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

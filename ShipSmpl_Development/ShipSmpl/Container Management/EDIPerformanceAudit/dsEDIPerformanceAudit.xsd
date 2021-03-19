@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsEDIPerformanceAudit" targetNamespace="http://tempuri.org/dsEDIPerformanceAudit.xsd" xmlns:mstns="http://tempuri.org/dsEDIPerformanceAudit.xsd" xmlns="http://tempuri.org/dsEDIPerformanceAudit.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsEDIPerformanceAudit" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsEDIPerformanceAudit" msprop:Generator_UserDSName="dsEDIPerformanceAudit">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EDIPerformanceAudit" msprop:Generator_TableClassName="EDIPerformanceAuditDataTable" msprop:Generator_TableVarName="tableEDIPerformanceAudit" msprop:Generator_RowChangedName="EDIPerformanceAuditRowChanged" msprop:Generator_TablePropName="EDIPerformanceAudit" msprop:Generator_RowDeletingName="EDIPerformanceAuditRowDeleting" msprop:Generator_RowChangingName="EDIPerformanceAuditRowChanging" msprop:Generator_RowEvHandlerName="EDIPerformanceAuditRowChangeEventHandler" msprop:Generator_RowDeletedName="EDIPerformanceAuditRowDeleted" msprop:Generator_RowClassName="EDIPerformanceAuditRow" msprop:Generator_UserTableName="EDIPerformanceAudit" msprop:Generator_RowEvArgName="EDIPerformanceAuditRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SS_Line_Code_In" msprop:Generator_ColumnVarNameInTable="columnSS_Line_Code_In" msprop:Generator_ColumnPropNameInRow="SS_Line_Code_In" msprop:Generator_ColumnPropNameInTable="SS_Line_Code_InColumn" msprop:Generator_UserColumnName="SS_Line_Code_In" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SS_Line_Name_In" msprop:Generator_ColumnVarNameInTable="columnSS_Line_Name_In" msprop:Generator_ColumnPropNameInRow="SS_Line_Name_In" msprop:Generator_ColumnPropNameInTable="SS_Line_Name_InColumn" msprop:Generator_UserColumnName="SS_Line_Name_In" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Container_Number" msprop:Generator_ColumnVarNameInTable="columnContainer_Number" msprop:Generator_ColumnPropNameInRow="Container_Number" msprop:Generator_ColumnPropNameInTable="Container_NumberColumn" msprop:Generator_UserColumnName="Container_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gate_Date_In" msprop:Generator_ColumnVarNameInTable="columnGate_Date_In" msprop:Generator_ColumnPropNameInRow="Gate_Date_In" msprop:Generator_ColumnPropNameInTable="Gate_Date_InColumn" msprop:Generator_UserColumnName="Gate_Date_In" type="xs:string" minOccurs="0" />
+              <xs:element name="Gate_EDI_Date" msprop:Generator_ColumnVarNameInTable="columnGate_EDI_Date" msprop:Generator_ColumnPropNameInRow="Gate_EDI_Date" msprop:Generator_ColumnPropNameInTable="Gate_EDI_DateColumn" msprop:Generator_UserColumnName="Gate_EDI_Date" type="xs:string" minOccurs="0" />
+              <xs:element name="AVG_Delay" msprop:Generator_ColumnVarNameInTable="columnAVG_Delay" msprop:Generator_ColumnPropNameInRow="AVG_Delay" msprop:Generator_ColumnPropNameInTable="AVG_DelayColumn" msprop:Generator_UserColumnName="AVG_Delay" type="xs:double" minOccurs="0" />
+              <xs:element name="Booking_Number" msprop:Generator_ColumnVarNameInTable="columnBooking_Number" msprop:Generator_ColumnPropNameInRow="Booking_Number" msprop:Generator_ColumnPropNameInTable="Booking_NumberColumn" msprop:Generator_UserColumnName="Booking_Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Gate_Type" msprop:Generator_ColumnVarNameInTable="columnGate_Type" msprop:Generator_ColumnPropNameInRow="Gate_Type" msprop:Generator_ColumnPropNameInTable="Gate_TypeColumn" msprop:Generator_UserColumnName="Gate_Type" type="xs:string" minOccurs="0" />
+              <xs:element name="RequestDate" msprop:Generator_ColumnVarNameInTable="columnRequestDate" msprop:Generator_ColumnPropNameInRow="RequestDate" msprop:Generator_ColumnPropNameInTable="RequestDateColumn" msprop:Generator_UserColumnName="RequestDate" type="xs:string" minOccurs="0" />
+              <xs:element name="InputSource" msprop:Generator_ColumnVarNameInTable="columnInputSource" msprop:Generator_ColumnPropNameInRow="InputSource" msprop:Generator_ColumnPropNameInTable="InputSourceColumn" msprop:Generator_UserColumnName="InputSource" type="xs:string" minOccurs="0" />
+              <xs:element name="EDIHour" msprop:Generator_ColumnVarNameInTable="columnEDIHour" msprop:Generator_ColumnPropNameInRow="EDIHour" msprop:Generator_ColumnPropNameInTable="EDIHourColumn" msprop:Generator_UserColumnName="EDIHour" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

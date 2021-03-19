@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetSummaryReport" targetNamespace="http://tempuri.org/DataSetSummaryReport.xsd" xmlns:mstns="http://tempuri.org/DataSetSummaryReport.xsd" xmlns="http://tempuri.org/DataSetSummaryReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetSummaryReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetSummaryReport" msprop:Generator_UserDSName="DataSetSummaryReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTSummary" msprop:Generator_TableClassName="DTSummaryDataTable" msprop:Generator_TableVarName="tableDTSummary" msprop:Generator_TablePropName="DTSummary" msprop:Generator_RowDeletingName="DTSummaryRowDeleting" msprop:Generator_RowChangingName="DTSummaryRowChanging" msprop:Generator_RowEvHandlerName="DTSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="DTSummaryRowDeleted" msprop:Generator_UserTableName="DTSummary" msprop:Generator_RowChangedName="DTSummaryRowChanged" msprop:Generator_RowEvArgName="DTSummaryRowChangeEvent" msprop:Generator_RowClassName="DTSummaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Service_Name" msprop:Generator_ColumnVarNameInTable="columnService_Name" msprop:Generator_ColumnPropNameInRow="Service_Name" msprop:Generator_ColumnPropNameInTable="Service_NameColumn" msprop:Generator_UserColumnName="Service_Name" type="xs:string" />
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_UserColumnName="Rate" type="xs:string" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:string" minOccurs="0" />
+              <xs:element name="Trucker" msprop:Generator_ColumnVarNameInTable="columnTrucker" msprop:Generator_ColumnPropNameInRow="Trucker" msprop:Generator_ColumnPropNameInTable="TruckerColumn" msprop:Generator_UserColumnName="Trucker" type="xs:string" minOccurs="0" />
+              <xs:element name="ServiceType" msprop:Generator_ColumnVarNameInTable="columnServiceType" msprop:Generator_ColumnPropNameInRow="ServiceType" msprop:Generator_ColumnPropNameInTable="ServiceTypeColumn" msprop:Generator_UserColumnName="ServiceType" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTServPortSummary" msprop:Generator_TableClassName="DTServPortSummaryDataTable" msprop:Generator_TableVarName="tableDTServPortSummary" msprop:Generator_TablePropName="DTServPortSummary" msprop:Generator_RowDeletingName="DTServPortSummaryRowDeleting" msprop:Generator_RowChangingName="DTServPortSummaryRowChanging" msprop:Generator_RowEvHandlerName="DTServPortSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="DTServPortSummaryRowDeleted" msprop:Generator_UserTableName="DTServPortSummary" msprop:Generator_RowChangedName="DTServPortSummaryRowChanged" msprop:Generator_RowEvArgName="DTServPortSummaryRowChangeEvent" msprop:Generator_RowClassName="DTServPortSummaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Yarn_In" msprop:Generator_ColumnVarNameInTable="columnYarn_In" msprop:Generator_ColumnPropNameInRow="Yarn_In" msprop:Generator_ColumnPropNameInTable="Yarn_InColumn" msprop:Generator_UserColumnName="Yarn_In" type="xs:string" minOccurs="0" />
+              <xs:element name="Port_Out" msprop:Generator_ColumnVarNameInTable="columnPort_Out" msprop:Generator_ColumnPropNameInRow="Port_Out" msprop:Generator_ColumnPropNameInTable="Port_OutColumn" msprop:Generator_UserColumnName="Port_Out" type="xs:string" minOccurs="0" />
+              <xs:element name="Service_Name" msprop:Generator_ColumnVarNameInTable="columnService_Name" msprop:Generator_ColumnPropNameInRow="Service_Name" msprop:Generator_ColumnPropNameInTable="Service_NameColumn" msprop:Generator_UserColumnName="Service_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_UserColumnName="Rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTFSCSummary" msprop:Generator_TableClassName="DTFSCSummaryDataTable" msprop:Generator_TableVarName="tableDTFSCSummary" msprop:Generator_RowChangedName="DTFSCSummaryRowChanged" msprop:Generator_TablePropName="DTFSCSummary" msprop:Generator_RowDeletingName="DTFSCSummaryRowDeleting" msprop:Generator_RowChangingName="DTFSCSummaryRowChanging" msprop:Generator_RowEvHandlerName="DTFSCSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="DTFSCSummaryRowDeleted" msprop:Generator_RowClassName="DTFSCSummaryRow" msprop:Generator_UserTableName="DTFSCSummary" msprop:Generator_RowEvArgName="DTFSCSummaryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fee_Name" msprop:Generator_ColumnVarNameInTable="columnFee_Name" msprop:Generator_ColumnPropNameInRow="Fee_Name" msprop:Generator_ColumnPropNameInTable="Fee_NameColumn" msprop:Generator_UserColumnName="Fee_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_UserColumnName="Rate" type="xs:int" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DEFCSummary" msprop:Generator_TableClassName="DEFCSummaryDataTable" msprop:Generator_TableVarName="tableDEFCSummary" msprop:Generator_RowChangedName="DEFCSummaryRowChanged" msprop:Generator_TablePropName="DEFCSummary" msprop:Generator_RowDeletingName="DEFCSummaryRowDeleting" msprop:Generator_RowChangingName="DEFCSummaryRowChanging" msprop:Generator_RowEvHandlerName="DEFCSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="DEFCSummaryRowDeleted" msprop:Generator_RowClassName="DEFCSummaryRow" msprop:Generator_UserTableName="DEFCSummary" msprop:Generator_RowEvArgName="DEFCSummaryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fee_Name" msprop:Generator_ColumnVarNameInTable="columnFee_Name" msprop:Generator_ColumnPropNameInRow="Fee_Name" msprop:Generator_ColumnPropNameInTable="Fee_NameColumn" msprop:Generator_UserColumnName="Fee_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_UserColumnName="Rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtRVSummaty" msprop:Generator_TableClassName="DtRVSummatyDataTable" msprop:Generator_TableVarName="tableDtRVSummaty" msprop:Generator_RowChangedName="DtRVSummatyRowChanged" msprop:Generator_TablePropName="DtRVSummaty" msprop:Generator_RowDeletingName="DtRVSummatyRowDeleting" msprop:Generator_RowChangingName="DtRVSummatyRowChanging" msprop:Generator_RowEvHandlerName="DtRVSummatyRowChangeEventHandler" msprop:Generator_RowDeletedName="DtRVSummatyRowDeleted" msprop:Generator_RowClassName="DtRVSummatyRow" msprop:Generator_UserTableName="DtRVSummaty" msprop:Generator_RowEvArgName="DtRVSummatyRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Terminal" msprop:Generator_ColumnVarNameInTable="columnTerminal" msprop:Generator_ColumnPropNameInRow="Terminal" msprop:Generator_ColumnPropNameInTable="TerminalColumn" msprop:Generator_UserColumnName="Terminal" type="xs:string" minOccurs="0" />
+              <xs:element name="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_UserColumnName="Rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CutOffTime" msprop:Generator_ColumnVarNameInTable="columnCutOffTime" msprop:Generator_ColumnPropNameInRow="CutOffTime" msprop:Generator_ColumnPropNameInTable="CutOffTimeColumn" msprop:Generator_UserColumnName="CutOffTime" type="xs:duration" minOccurs="0" />
+              <xs:element name="RateType" msprop:Generator_ColumnVarNameInTable="columnRateType" msprop:Generator_ColumnPropNameInRow="RateType" msprop:Generator_ColumnPropNameInTable="RateTypeColumn" msprop:Generator_UserColumnName="RateType" type="xs:string" minOccurs="0" />
+              <xs:element name="DayMode" msprop:Generator_ColumnVarNameInTable="columnDayMode" msprop:Generator_ColumnPropNameInRow="DayMode" msprop:Generator_ColumnPropNameInTable="DayModeColumn" msprop:Generator_UserColumnName="DayMode" type="xs:string" minOccurs="0" />
+              <xs:element name="WeekMode" msprop:Generator_ColumnVarNameInTable="columnWeekMode" msprop:Generator_ColumnPropNameInRow="WeekMode" msprop:Generator_ColumnPropNameInTable="WeekModeColumn" msprop:Generator_UserColumnName="WeekMode" type="xs:string" minOccurs="0" />
+              <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:int" minOccurs="0" />
+              <xs:element name="RVSummaryID" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnRVSummaryID" msprop:Generator_ColumnPropNameInRow="RVSummaryID" msprop:Generator_ColumnPropNameInTable="RVSummaryIDColumn" msprop:Generator_UserColumnName="RVSummaryID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Carrier" msprop:Generator_TableClassName="CarrierDataTable" msprop:Generator_TableVarName="tableCarrier" msprop:Generator_TablePropName="Carrier" msprop:Generator_RowDeletingName="CarrierRowDeleting" msprop:Generator_RowChangingName="CarrierRowChanging" msprop:Generator_RowEvHandlerName="CarrierRowChangeEventHandler" msprop:Generator_RowDeletedName="CarrierRowDeleted" msprop:Generator_UserTableName="Carrier" msprop:Generator_RowChangedName="CarrierRowChanged" msprop:Generator_RowEvArgName="CarrierRowChangeEvent" msprop:Generator_RowClassName="CarrierRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CarrierName" msprop:Generator_ColumnVarNameInTable="columnCarrierName" msprop:Generator_ColumnPropNameInRow="CarrierName" msprop:Generator_ColumnPropNameInTable="CarrierNameColumn" msprop:Generator_UserColumnName="CarrierName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DTSummary" />
+      <xs:field xpath="mstns:Service_Name" />
+    </xs:unique>
+    <xs:unique name="DTServPortSummary_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DTServPortSummary" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="DtRVSummaty_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DtRVSummaty" />
+      <xs:field xpath="mstns:RVSummaryID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
