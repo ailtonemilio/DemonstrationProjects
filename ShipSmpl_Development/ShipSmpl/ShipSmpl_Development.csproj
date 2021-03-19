@@ -1,0 +1,2172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45FAA1D8-E837-4B6B-AA0A-5BF5F9D91B32}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>ShipSmpl.My.MyApplication</StartupObject>
+    <RootNamespace>ShipSmpl</RootNamespace>
+    <AssemblyName>ShipSmplDevelopment</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(ProjectDir)**\*.vb</DefaultItemExcludes>
+    <LangVersion>latest</LangVersion>
+    <PublishUrl>C:\ShipSmpl\ShipSmpl_Staging\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>ShipSmpl %28Development%29</ProductName>
+    <PublisherName>WTC Group Inc.</PublisherName>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>bin\Debug\ShipSmplDevelopment.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>bin\Release\ShipSmplDevelopment.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LogoAppOrange.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>28A0CF5A46599353AF89EA2216E05C553C1B8C07</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>wtc_group_inc.p12</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>bin\x64\Debug\ShipSmplDevelopment.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>bin\x64\Release\ShipSmplDevelopment.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Bunifu.Core, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForm.BunifuShadowPanel, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForm.BunifuShadowPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuFormDock, Version=1.11.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGauge, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel, Version=1.11.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages, Version=1.11.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar, Version=1.11.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToolTip, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTransition, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuUserControl, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.ToggleSwitch, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.ToggleSwitch.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\Bunifu UI WinForms 1.11.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Prompting.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CustomizedControlsLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\CustomizedControlsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="TabControlEX, Version=0.0.3271.41578, Culture=neutral, PublicKeyToken=1db242dc828e4b4e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Controls\TabControlEX.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WinSCPnet, Version=1.7.2.10803, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinSCP.5.17.8\lib\net40\WinSCPnet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Employee Management\BunifuToggle.cs" />
+    <Compile Include="Employee Management\BunifuToggleSwich.cs" />
+    <Compile Include="Miscellaneous\frmAddCompanyToDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous\frmAddCompanyToDriver.Designer.cs">
+      <DependentUpon>frmAddCompanyToDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous\frmEditTruckDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous\frmEditTruckDrivers.Designer.cs">
+      <DependentUpon>frmEditTruckDrivers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous\frmTruckDriverList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous\frmTruckDriverList.Designer.cs">
+      <DependentUpon>frmTruckDriverList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyNamespace.Dynamic.Designer.cs" />
+    <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
+    <Compile Include="My Project\MyNamespace.Static.2.Designer.cs" />
+    <Compile Include="My Project\MyNamespace.Static.3.Designer.cs" />
+    <Compile Include="APIs\Countries\Country.cs" />
+    <Compile Include="APIs\Countries\CountriesAPI.cs" />
+    <Compile Include="APIs\Countries\FrmTestCountry.Designer.cs">
+      <DependentUpon>FrmTestCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APIs\Countries\FrmTestCountry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billing\CrystalTruckingReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalTruckingReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Billing\DataSetSummaryReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSummaryReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\DataSetSummaryReport.cs">
+      <DependentUpon>DataSetSummaryReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\FrmAddEditServices.Designer.cs">
+      <DependentUpon>FrmAddEditServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\FrmAddEditServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billing\FrmAddNewStartDate.Designer.cs">
+      <DependentUpon>FrmAddNewStartDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\FrmAddNewStartDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billing\FrmEditDrayage.Designer.cs">
+      <DependentUpon>FrmEditDrayage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\FrmEditDrayage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billing\FrmReportViwer.Designer.cs">
+      <DependentUpon>FrmReportViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\FrmReportViwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billing\FrmServices.Designer.cs">
+      <DependentUpon>FrmServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\FrmServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\AddEditBooking\FrmAddEditDestination.Designer.cs">
+      <DependentUpon>FrmAddEditDestination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\AddEditBooking\FrmAddEditDestination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Booking-Unit Assignment\FrmAssignToUnits.Designer.cs">
+      <DependentUpon>FrmAssignToUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Booking-Unit Assignment\FrmAssignToUnits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Booking-Unit Assignment\MessageBoxCustomerMatchingWarning.Designer.cs">
+      <DependentUpon>MessageBoxCustomerMatchingWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Booking-Unit Assignment\MessageBoxCustomerMatchingWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\FrmBookingReport.Designer.cs">
+      <DependentUpon>FrmBookingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\FrmBookingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\FrmDeactivateBooking.Designer.cs">
+      <DependentUpon>FrmDeactivateBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\FrmDeactivateBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\AddEditBooking\FrmEditAddBooking.Designer.cs">
+      <DependentUpon>FrmEditAddBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\AddEditBooking\FrmEditAddBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\FrmBookingList.Designer.cs">
+      <DependentUpon>FrmBookingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\FrmBookingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Booking-Unit Assignment\FrmMiniBookingWarning.Designer.cs">
+      <DependentUpon>FrmMiniBookingWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Booking-Unit Assignment\FrmMiniBookingWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\AddEditBooking\FrmModifyTotalNumbCont.Designer.cs">
+      <DependentUpon>FrmModifyTotalNumbCont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\AddEditBooking\FrmModifyTotalNumbCont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\FrmEditMBsCarrierOut.Designer.cs">
+      <DependentUpon>FrmEditMBsCarrierOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\FrmEditMBsCarrierOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\FrmSplitbooking.Designer.cs">
+      <DependentUpon>FrmSplitbooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\FrmSplitbooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\AddEditBooking\FrmSplitContainersg.Designer.cs">
+      <DependentUpon>FrmSplitContainersg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\AddEditBooking\FrmSplitContainersg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselCSVUpdate.Designer.cs">
+      <DependentUpon>frmVesselCSVUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselCSVUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselList.Designer.cs">
+      <DependentUpon>frmVesselList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselAddEdit.Designer.cs">
+      <DependentUpon>frmVesselAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselVoyageAddEdit.Designer.cs">
+      <DependentUpon>frmVesselVoyageAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselVoyageAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselVoyageCSVUpdate.Designer.cs">
+      <DependentUpon>frmVesselVoyageCSVUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselVoyageCSVUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselVoyageList.Designer.cs">
+      <DependentUpon>frmVesselVoyageList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking Management\Vessel\frmVesselVoyageList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacts\FrmAddContact.Designer.cs">
+      <DependentUpon>FrmAddContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\FrmAddContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacts\FrmAddEditRegionCity.Designer.cs">
+      <DependentUpon>FrmAddEditRegionCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\FrmAddEditRegionCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacts\FrmAddOrganization.Designer.cs">
+      <DependentUpon>FrmAddOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\FrmAddOrganization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacts\FrmContactsWarningMessage.Designer.cs">
+      <DependentUpon>FrmContactsWarningMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\FrmContactsWarningMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacts\FrmDisplayContacts.Designer.cs">
+      <DependentUpon>FrmDisplayContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\FrmDisplayContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacts\FrmEDI.Designer.cs">
+      <DependentUpon>FrmEDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\FrmEDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacts\FrmEditAddress.Designer.cs">
+      <DependentUpon>FrmEditAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\FrmEditAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\CrystalReportOuGate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportOuGate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Container Management\CrystalReportReceipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportReceipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </EmbeddedResource>
+    <Compile Include="Container Management\DataSetOutGate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetOutGate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\DataSetReceipt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReceipt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\EDIPerformanceAudit\dsEDIPerformanceAudit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEDIPerformanceAudit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAudit.Designer.cs">
+      <DependentUpon>frmEDIPerformanceAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAuditMain.Designer.cs">
+      <DependentUpon>frmEDIPerformanceAuditMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAuditMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAuditReport.Designer.cs">
+      <DependentUpon>frmEDIPerformanceAuditReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAuditReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\EDIPerformanceAudit\rptEDIPerformanceAudit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEDIPerformanceAudit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Container Management\EDI\FrmChangeEDI.Designer.cs">
+      <DependentUpon>FrmChangeEDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\EDI\FrmChangeEDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmAddComodity.Designer.cs">
+      <DependentUpon>FrmAddComodity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmAddComodity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmAddEditOutGate.Designer.cs">
+      <DependentUpon>FrmAddEditOutGate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmAddEditOutGate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\Assign Container\FrmAssignContainer.Designer.cs">
+      <DependentUpon>FrmAssignContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\Assign Container\FrmAssignContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\Assign Container\FrmAssignStorageExtra.Designer.cs">
+      <DependentUpon>FrmAssignStorageExtra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\Assign Container\FrmAssignStorageExtra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmBlockContainer.Designer.cs">
+      <DependentUpon>FrmBlockContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmBlockContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmCFIALabel.Designer.cs">
+      <DependentUpon>FrmCFIALabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmCFIALabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\Assign Container\FrmChangeBooking.Designer.cs">
+      <DependentUpon>FrmChangeBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\Assign Container\FrmChangeBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmCreateTransfer.Designer.cs">
+      <DependentUpon>FrmCreateTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmCreateTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\EDI\FrmEDIManagement.Designer.cs">
+      <DependentUpon>FrmEDIManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\EDI\FrmEDIManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmInOutGate.Designer.cs">
+      <DependentUpon>FrmInOutGate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmInOutGate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmListBlockedContainers.Designer.cs">
+      <DependentUpon>FrmListBlockedContainers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmListBlockedContainers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\Assign Container\FrmListContainers.Designer.cs">
+      <DependentUpon>FrmListContainers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\Assign Container\FrmListContainers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmListTransfers.Designer.cs">
+      <DependentUpon>FrmListTransfers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmListTransfers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billing\FrmTruckingRecon.Designer.cs">
+      <DependentUpon>FrmTruckingRecon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\FrmTruckingRecon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmOutGateReport.Designer.cs">
+      <DependentUpon>FrmOutGateReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmOutGateReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmPushBooking.Designer.cs">
+      <DependentUpon>FrmPushBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmPushBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmReceiptsReport.Designer.cs">
+      <DependentUpon>FrmReceiptsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmReceiptsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmLoadingPDF.Designer.cs">
+      <DependentUpon>frmLoadingPDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmLoadingPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmReportEmployeeIsworking.Designer.cs">
+      <DependentUpon>frmReportEmployeeIsworking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmReportEmployeeIsworking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\FTPServerManagement.cs" />
+    <Compile Include="Employee Management\SafetyRisk\frmAddDepartment.Designer.cs">
+      <DependentUpon>frmAddDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmAddDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmAddDocumentType.Designer.cs">
+      <DependentUpon>frmAddDocumentType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmAddDocumentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmAddEditStoreFiles.Designer.cs">
+      <DependentUpon>frmAddEditStoreFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmAddEditStoreFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\FrmSafetyRiskMain.Designer.cs">
+      <DependentUpon>FrmSafetyRiskMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\FrmSafetyRiskMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmStoreFiles.Designer.cs">
+      <DependentUpon>frmStoreFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmStoreFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmWebBrowserPDF.Designer.cs">
+      <DependentUpon>frmWebBrowserPDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\frmWebBrowserPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\MdlDataCleasing.cs" />
+    <Compile Include="Reports\CrystalReportReceipts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportReceipts.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\FrmListReleases.Designer.cs">
+      <DependentUpon>FrmListReleases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\FrmListReleases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Grain Inventory\FrmAddEditGrainInventory.Designer.cs">
+      <DependentUpon>FrmAddEditGrainInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Grain Inventory\FrmAddEditGrainInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Grain Inventory\FrmGrainInvList.Designer.cs">
+      <DependentUpon>FrmGrainInvList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Grain Inventory\FrmGrainInvList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Grain Inventory\FrmGrainLocation.Designer.cs">
+      <DependentUpon>FrmGrainLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Grain Inventory\FrmGrainLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Grain Inventory\FrmUseInvQty.Designer.cs">
+      <DependentUpon>FrmUseInvQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Grain Inventory\FrmUseInvQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home and Extra\FrmManageServices.Designer.cs">
+      <DependentUpon>FrmManageServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home and Extra\FrmManageServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmAddEditBagInventoryLocation.Designer.cs">
+      <DependentUpon>FrmAddEditBagInventoryLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmAddEditBagInventoryLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmAddEditBagLogo.Designer.cs">
+      <DependentUpon>FrmAddEditBagLogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmAddEditBagLogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmAdjustBagsInventoryQty.Designer.cs">
+      <DependentUpon>FrmAdjustBagsInventoryQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmAdjustBagsInventoryQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmEditAddBags.Designer.cs">
+      <DependentUpon>FrmEditAddBags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmEditAddBags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmEmptyBagInvList.Designer.cs">
+      <DependentUpon>FrmEmptyBagInvList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmEmptyBagInvList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmAddEditInventory.Designer.cs">
+      <DependentUpon>FrmAddEditInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmAddEditInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmInvenotryDetail.Designer.cs">
+      <DependentUpon>FrmInvenotryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Management\Empty Bag Inventory\FrmInvenotryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Message Boxes\MessageBoxCeresOK.Designer.cs">
+      <DependentUpon>MessageBoxCeresOK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message Boxes\MessageBoxCeresOK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Message Boxes\MessageBoxCeresYesNo.Designer.cs">
+      <DependentUpon>MessageBoxCeresYesNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message Boxes\MessageBoxCeresYesNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Message Boxes\MessageBoxConfirmDelete.Designer.cs">
+      <DependentUpon>MessageBoxConfirmDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message Boxes\MessageBoxConfirmDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\MdlBookingManagement.cs" />
+    <Compile Include="Modules\MdlCustmDGV.cs" />
+    <Compile Include="Modules\MdlEnum.cs" />
+    <Compile Include="Modules\MdlFtp.cs" />
+    <Compile Include="Modules\MdlUnits.cs" />
+    <Compile Include="RailList Management\AddEditUnits\FrmAddMultipleUnits.Designer.cs">
+      <DependentUpon>FrmAddMultipleUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\FrmAddMultipleUnits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\DataUnitSource.cs" />
+    <Compile Include="RailList Management\UnitAssignment\FrmAssignUnitToBooking.Designer.cs">
+      <DependentUpon>FrmAssignUnitToBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\UnitAssignment\FrmAssignUnitToBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\frmCommodityGrainMain.Designer.cs">
+      <DependentUpon>frmCommodityGrainMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\frmCommodityGrainMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\FrmEditAddRailList.Designer.cs">
+      <DependentUpon>FrmEditAddRailList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\FrmEditAddRailList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\frmEditCommodity.Designer.cs">
+      <DependentUpon>frmEditCommodity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\frmEditCommodity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\frmEditGrade.Designer.cs">
+      <DependentUpon>frmEditGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\frmEditGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\UnitAssignment\frmMiniUnitToAssign.Designer.cs">
+      <DependentUpon>frmMiniUnitToAssign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\UnitAssignment\frmMiniUnitToAssign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\FrmMissingUnits.Designer.cs">
+      <DependentUpon>FrmMissingUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\FrmMissingUnits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\FrmModifyMUBilledValues.Designer.cs">
+      <DependentUpon>FrmModifyMUBilledValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\FrmModifyMUBilledValues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\FrmRailList.Designer.cs">
+      <DependentUpon>FrmRailList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\FrmRailList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database Helper\DatabaseHelper.cs" />
+    <Compile Include="Database Helper\DatabaseHelperCeres.cs" />
+    <Compile Include="Employee Management\FrmAddNewEmployee.Designer.cs">
+      <DependentUpon>FrmAddNewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmAddNewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmCardAssignment.Designer.cs">
+      <DependentUpon>FrmCardAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmCardAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmClearance.Designer.cs">
+      <DependentUpon>FrmClearance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmClearance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmConfirmPassword.Designer.cs">
+      <DependentUpon>FrmConfirmPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmConfirmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmCreateUsernameAndPassword.Designer.cs">
+      <DependentUpon>FrmCreateUsernameAndPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmCreateUsernameAndPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmEmployeeDetails.Designer.cs">
+      <DependentUpon>FrmEmployeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmEmployeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmEmployeeManagement.Designer.cs">
+      <DependentUpon>FrmEmployeeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmEmployeeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmSuspention.Designer.cs">
+      <DependentUpon>FrmSuspention.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmSuspention.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\pictureViwer.Designer.cs">
+      <DependentUpon>pictureViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\pictureViwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container Management\FrmAddEditInGate.Designer.cs">
+      <DependentUpon>FrmAddEditInGate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container Management\FrmAddEditInGate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home and Extra\FrmTypeInfoForDeletion.Designer.cs">
+      <DependentUpon>FrmTypeInfoForDeletion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home and Extra\FrmTypeInfoForDeletion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\frmReturnSplitMiniUnit.Designer.cs">
+      <DependentUpon>frmReturnSplitMiniUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\frmReturnSplitMiniUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\frmSplitMiniUnit.Designer.cs">
+      <DependentUpon>frmSplitMiniUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RailList Management\AddEditUnits\frmSplitMiniUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RailList Management\MiniUnitMiniBooking.cs" />
+    <Compile Include="RailList Management\UnitSourceActive.cs" />
+    <Compile Include="RailList Management\UnitSourceActiveUpdate.cs" />
+    <Compile Include="Reports\DataSet\dsReports.Designer.cs" />
+    <Compile Include="Reports\frmHoursWorkedYard.Designer.cs">
+      <DependentUpon>frmHoursWorkedYard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmHoursWorkedYard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHoursWorkedEmploee1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHoursWorkedEmploee.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHoursWorkedEmployee11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHoursWorkedEmployee1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHoursWorkedYard1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHoursWorkedYard.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHoursWorkedYardType1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHoursWorkedYardType.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TimeTracker\FrmTimeTracker.Designer.cs">
+      <DependentUpon>FrmTimeTracker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeTracker\FrmTimeTracker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\FrmCarrierAssignment.Designer.cs">
+      <DependentUpon>FrmCarrierAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\FrmCarrierAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\Distribute\FrmAddEditCarrierReqDist.Designer.cs">
+      <DependentUpon>FrmAddEditCarrierReqDist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\Distribute\FrmAddEditCarrierReqDist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\Distribute\FrmAddEditDistRequest.Designer.cs">
+      <DependentUpon>FrmAddEditDistRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\Distribute\FrmAddEditDistRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\Distribute\FrmDistributeRecChangeMsg.Designer.cs">
+      <DependentUpon>FrmDistributeRecChangeMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\Distribute\FrmDistributeRecChangeMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\Distribute\FrmListDistributions.Designer.cs">
+      <DependentUpon>FrmListDistributions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\Distribute\FrmListDistributions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\FrmListRequests.Designer.cs">
+      <DependentUpon>FrmListRequests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\FrmListRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditRelease.Designer.cs">
+      <DependentUpon>FrmAddEditRelease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditRelease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleaseDetail.Designer.cs">
+      <DependentUpon>FrmAddEditReleaseDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleaseDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleaseMb.Designer.cs">
+      <DependentUpon>FrmAddEditReleaseMb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleaseMb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleasePickUpDropOff.Designer.cs">
+      <DependentUpon>FrmAddEditReleasePickUpDropOff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleasePickUpDropOff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditRequest.Designer.cs">
+      <DependentUpon>FrmAddEditRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmManageReleaseBalance.Designer.cs">
+      <DependentUpon>FrmManageReleaseBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmManageReleaseBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmRelDistSchDeclined.Designer.cs">
+      <DependentUpon>FrmRelDistSchDeclined.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmRelDistSchDeclined.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmUpdateReqStatus.Designer.cs">
+      <DependentUpon>FrmUpdateReqStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Truck Dispatch\Inbound\RequestAndRelease\FrmUpdateReqStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="app.manifest" />
+    <None Include="Billing\DataSetSummaryReport.xsc">
+      <DependentUpon>DataSetSummaryReport.xsd</DependentUpon>
+    </None>
+    <None Include="Billing\DataSetSummaryReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSummaryReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Billing\DataSetSummaryReport.xss">
+      <DependentUpon>DataSetSummaryReport.xsd</DependentUpon>
+    </None>
+    <None Include="Container Management\DataSetOutGate.xsc">
+      <DependentUpon>DataSetOutGate.xsd</DependentUpon>
+    </None>
+    <None Include="Container Management\DataSetOutGate.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetOutGate.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Container Management\DataSetOutGate.xss">
+      <DependentUpon>DataSetOutGate.xsd</DependentUpon>
+    </None>
+    <None Include="Container Management\DataSetReceipt.xsc">
+      <DependentUpon>DataSetReceipt.xsd</DependentUpon>
+    </None>
+    <None Include="Container Management\DataSetReceipt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReceipt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Container Management\DataSetReceipt.xss">
+      <DependentUpon>DataSetReceipt.xsd</DependentUpon>
+    </None>
+    <None Include="Container Management\EDIPerformanceAudit\dsEDIPerformanceAudit.xsc">
+      <DependentUpon>dsEDIPerformanceAudit.xsd</DependentUpon>
+    </None>
+    <None Include="Container Management\EDIPerformanceAudit\dsEDIPerformanceAudit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEDIPerformanceAudit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Container Management\EDIPerformanceAudit\dsEDIPerformanceAudit.xss">
+      <DependentUpon>dsEDIPerformanceAudit.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\DataSources\DataLayer.Billing.DrayageSchemeRepository.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.BagLogo.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Bookings.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Commodities.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Commodity1.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Companies.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Company.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.ContainersInOutDrayage.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Containers_In_Out.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Country.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.CustomModel.CompaniesName.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.CustomModel.Containers_In_OutReport.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.CustomModel.VesselList.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.CustomModel.VesselVoyageList.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.DocumentsStored.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.DocumentsStoredDepartment.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.DocumentsStoredType.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.DrayageRate.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.DrayageScheme.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.DrayageSchemeRate.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.EmployeeName.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Employees.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Grade1.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.GrainInventory.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.StoreFiles.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Truck_Drivers.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.Vessel.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VesselStatus.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VesselVoyage.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VesselVoyageStatus.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_Bag.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_BagInventory.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_BagInventoryTransaction.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_Booking.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_BookingDestination.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_BookingJoinMB.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_BookingMinibooking.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_CeresExcelPendingSyncBooking.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_CompanyCompanyType1.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_ContainersByBooking.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_GrainInventory.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_GrainInventoryTransaction.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_GrainInvMinibookingTransaction.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_GrainUnitStorage.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_InvenotryBagLocation.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_MinibookingCommodity.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_MinibookingMiniUnitAssignment.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_RelDistReqSchRelDistSchAccpt.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_UnitSource.datasource" />
+    <None Include="My Project\DataSources\ModelLayer.VW_UnitSourceMiniUnit.datasource" />
+    <None Include="packages.config" />
+    <None Include="Reports\DataSet\dsReports.xsc">
+      <DependentUpon>dsReports.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSet\dsReports.xsd" />
+    <None Include="Reports\DataSet\dsReports.xss">
+      <DependentUpon>dsReports.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\DatabaseHelper1.cs" />
+    <Compile Include="Time Management\FrmDetailedEntry.Designer.cs">
+      <DependentUpon>FrmDetailedEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Time Management\FrmDetailedEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home and Extra\FrmHomePage.Designer.cs">
+      <DependentUpon>FrmHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home and Extra\FrmHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home and Extra\FrmLoginWindow.Designer.cs">
+      <DependentUpon>FrmLoginWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home and Extra\FrmLoginWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home and Extra\FrmLogs.Designer.cs">
+      <DependentUpon>FrmLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home and Extra\FrmLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmPrintCard.Designer.cs">
+      <DependentUpon>FrmPrintCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmPrintCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\FrmSafetyRiskManagement.Designer.cs">
+      <DependentUpon>FrmSafetyRiskManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\SafetyRisk\FrmSafetyRiskManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Management\FrmShiftScheduling.Designer.cs">
+      <DependentUpon>FrmShiftScheduling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Management\FrmShiftScheduling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home and Extra\FrmdeleteWarning.Designer.cs">
+      <DependentUpon>FrmdeleteWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home and Extra\FrmdeleteWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home and Extra\FrmParentScreen.Designer.cs">
+      <DependentUpon>FrmParentScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home and Extra\FrmParentScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\MdlContactsModifySaveData.cs" />
+    <Compile Include="Modules\MdlContainerManagement.cs" />
+    <Compile Include="Modules\MdlControllerModifier.cs" />
+    <Compile Include="Modules\MdlEmpManagement.cs" />
+    <Compile Include="Modules\MdlLoadingSetting.cs" />
+    <Compile Include="Modules\MdlModifyData.cs" />
+    <Compile Include="Modules\MdlOptionsManagement.cs" />
+    <Compile Include="Modules\MdlSafetyAndRiskManagement.cs" />
+    <Compile Include="Modules\MdlScripts.cs" />
+    <Compile Include="Modules\MdlTimeManagement.cs" />
+    <Compile Include="My Project\Application.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Home Page - Employee Management\FrmActionDetails.Designer.cs">
+      <DependentUpon>FrmActionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home Page - Employee Management\FrmActionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home Page - Employee Management\FrmMessage.Designer.cs">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home Page - Employee Management\FrmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home Page - Employee Management\FrmEmployeeManagementHP.Designer.cs">
+      <DependentUpon>FrmEmployeeManagementHP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home Page - Employee Management\FrmEmployeeManagementHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home Page - Employee Management\FrmReminderDetails.Designer.cs">
+      <DependentUpon>FrmReminderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home Page - Employee Management\FrmReminderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreScripts\FrmCreatePreScript.Designer.cs">
+      <DependentUpon>FrmCreatePreScript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreScripts\FrmCreatePreScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreScripts\FrmDisplayTemplates.Designer.cs">
+      <DependentUpon>FrmDisplayTemplates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreScripts\FrmDisplayTemplates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreScripts\FrmRulesAndActions.Designer.cs">
+      <DependentUpon>FrmRulesAndActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreScripts\FrmRulesAndActions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home and Extra\FrmInConstruction.Designer.cs">
+      <DependentUpon>FrmInConstruction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home and Extra\FrmInConstruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Time Management\FrmAddNewEntry.Designer.cs">
+      <DependentUpon>FrmAddNewEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Time Management\FrmAddNewEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Time Management\FrmEditEntry.Designer.cs">
+      <DependentUpon>FrmEditEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Time Management\FrmEditEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Time Management\FrmHolidays.Designer.cs">
+      <DependentUpon>FrmHolidays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Time Management\FrmHolidays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Time Management\FrmTimeReport.Designer.cs">
+      <DependentUpon>FrmTimeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Time Management\FrmTimeReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Time Management\FrmTimeSheet.Designer.cs">
+      <DependentUpon>FrmTimeSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Time Management\FrmTimeSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="wtc_group_inc.p12" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APIs\Countries\FrmTestCountry.resx">
+      <DependentUpon>FrmTestCountry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billing\CrystalTruckingReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalTruckingReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billing\FrmAddEditServices.resx">
+      <DependentUpon>FrmAddEditServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billing\FrmAddNewStartDate.resx">
+      <DependentUpon>FrmAddNewStartDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billing\FrmEditDrayage.resx">
+      <DependentUpon>FrmEditDrayage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billing\FrmReportViwer.resx">
+      <DependentUpon>FrmReportViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billing\FrmServices.resx">
+      <DependentUpon>FrmServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\AddEditBooking\FrmAddEditDestination.resx">
+      <DependentUpon>FrmAddEditDestination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Booking-Unit Assignment\FrmAssignToUnits.resx">
+      <DependentUpon>FrmAssignToUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Booking-Unit Assignment\MessageBoxCustomerMatchingWarning.resx">
+      <DependentUpon>MessageBoxCustomerMatchingWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\FrmBookingReport.resx">
+      <DependentUpon>FrmBookingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\FrmDeactivateBooking.resx">
+      <DependentUpon>FrmDeactivateBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\AddEditBooking\FrmEditAddBooking.resx">
+      <DependentUpon>FrmEditAddBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\FrmBookingList.resx">
+      <DependentUpon>FrmBookingList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Booking-Unit Assignment\FrmMiniBookingWarning.resx">
+      <DependentUpon>FrmMiniBookingWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\AddEditBooking\FrmModifyTotalNumbCont.resx">
+      <DependentUpon>FrmModifyTotalNumbCont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\FrmEditMBsCarrierOut.resx">
+      <DependentUpon>FrmEditMBsCarrierOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\FrmSplitbooking.resx">
+      <DependentUpon>FrmSplitbooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\AddEditBooking\FrmSplitContainersg.resx">
+      <DependentUpon>FrmSplitContainersg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Vessel\frmVesselCSVUpdate.resx">
+      <DependentUpon>frmVesselCSVUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Vessel\frmVesselList.resx">
+      <DependentUpon>frmVesselList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Vessel\frmVesselAddEdit.resx">
+      <DependentUpon>frmVesselAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Vessel\frmVesselVoyageAddEdit.resx">
+      <DependentUpon>frmVesselVoyageAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Vessel\frmVesselVoyageCSVUpdate.resx">
+      <DependentUpon>frmVesselVoyageCSVUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking Management\Vessel\frmVesselVoyageList.resx">
+      <DependentUpon>frmVesselVoyageList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacts\FrmAddContact.resx">
+      <DependentUpon>FrmAddContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacts\FrmAddEditRegionCity.resx">
+      <DependentUpon>FrmAddEditRegionCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacts\FrmAddOrganization.resx">
+      <DependentUpon>FrmAddOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacts\FrmContactsWarningMessage.resx">
+      <DependentUpon>FrmContactsWarningMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacts\FrmDisplayContacts.resx">
+      <DependentUpon>FrmDisplayContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacts\FrmEDI.resx">
+      <DependentUpon>FrmEDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacts\FrmEditAddress.resx">
+      <DependentUpon>FrmEditAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\CrystalReportOuGate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportOuGate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\CrystalReportReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAudit.resx">
+      <DependentUpon>frmEDIPerformanceAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAuditMain.resx">
+      <DependentUpon>frmEDIPerformanceAuditMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\EDIPerformanceAudit\frmEDIPerformanceAuditReport.resx">
+      <DependentUpon>frmEDIPerformanceAuditReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\EDIPerformanceAudit\rptEDIPerformanceAudit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEDIPerformanceAudit.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\EDI\FrmChangeEDI.resx">
+      <DependentUpon>FrmChangeEDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmAddComodity.resx">
+      <DependentUpon>FrmAddComodity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmAddEditOutGate.resx">
+      <DependentUpon>FrmAddEditOutGate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\Assign Container\FrmAssignContainer.resx">
+      <DependentUpon>FrmAssignContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\Assign Container\FrmAssignStorageExtra.resx">
+      <DependentUpon>FrmAssignStorageExtra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmBlockContainer.resx">
+      <DependentUpon>FrmBlockContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmCFIALabel.resx">
+      <DependentUpon>FrmCFIALabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\Assign Container\FrmChangeBooking.resx">
+      <DependentUpon>FrmChangeBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmCreateTransfer.resx">
+      <DependentUpon>FrmCreateTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\EDI\FrmEDIManagement.resx">
+      <DependentUpon>FrmEDIManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmInOutGate.resx">
+      <DependentUpon>FrmInOutGate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmListBlockedContainers.resx">
+      <DependentUpon>FrmListBlockedContainers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\Assign Container\FrmListContainers.resx">
+      <DependentUpon>FrmListContainers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmListTransfers.resx">
+      <DependentUpon>FrmListTransfers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billing\FrmTruckingRecon.resx">
+      <DependentUpon>FrmTruckingRecon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmOutGateReport.resx">
+      <DependentUpon>FrmOutGateReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmPushBooking.resx">
+      <DependentUpon>FrmPushBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmReceiptsReport.resx">
+      <DependentUpon>FrmReceiptsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\frmAddDepartment.resx">
+      <DependentUpon>frmAddDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\frmAddDocumentType.resx">
+      <DependentUpon>frmAddDocumentType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\frmAddEditStoreFiles.resx">
+      <DependentUpon>frmAddEditStoreFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\frmLoadingPDF.resx">
+      <DependentUpon>frmLoadingPDF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\frmReportEmployeeIsworking.resx">
+      <DependentUpon>frmReportEmployeeIsworking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\FrmSafetyRiskMain.resx">
+      <DependentUpon>FrmSafetyRiskMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\frmStoreFiles.resx">
+      <DependentUpon>frmStoreFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\frmWebBrowserPDF.resx">
+      <DependentUpon>frmWebBrowserPDF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home and Extra\FrmManageServices.resx">
+      <DependentUpon>FrmManageServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Empty Bag Inventory\FrmAddEditBagInventoryLocation.resx">
+      <DependentUpon>FrmAddEditBagInventoryLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Empty Bag Inventory\FrmAddEditBagLogo.resx">
+      <DependentUpon>FrmAddEditBagLogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Empty Bag Inventory\FrmAdjustBagsInventoryQty.resx">
+      <DependentUpon>FrmAdjustBagsInventoryQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Empty Bag Inventory\FrmEditAddBags.resx">
+      <DependentUpon>FrmEditAddBags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Empty Bag Inventory\FrmEmptyBagInvList.resx">
+      <DependentUpon>FrmEmptyBagInvList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Empty Bag Inventory\FrmAddEditInventory.resx">
+      <DependentUpon>FrmAddEditInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Empty Bag Inventory\FrmInvenotryDetail.resx">
+      <DependentUpon>FrmInvenotryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Grain Inventory\FrmAddEditGrainInventory.resx">
+      <DependentUpon>FrmAddEditGrainInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Grain Inventory\FrmGrainInvList.resx">
+      <DependentUpon>FrmGrainInvList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Grain Inventory\FrmGrainLocation.resx">
+      <DependentUpon>FrmGrainLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Management\Grain Inventory\FrmUseInvQty.resx">
+      <DependentUpon>FrmUseInvQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Message Boxes\MessageBoxCeresOK.resx">
+      <DependentUpon>MessageBoxCeresOK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Message Boxes\MessageBoxCeresYesNo.resx">
+      <DependentUpon>MessageBoxCeresYesNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Message Boxes\MessageBoxConfirmDelete.resx">
+      <DependentUpon>MessageBoxConfirmDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous\frmAddCompanyToDriver.resx">
+      <DependentUpon>frmAddCompanyToDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous\frmEditTruckDrivers.resx">
+      <DependentUpon>frmEditTruckDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous\frmTruckDriverList.resx">
+      <DependentUpon>frmTruckDriverList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\AddEditUnits\FrmAddMultipleUnits.resx">
+      <DependentUpon>FrmAddMultipleUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\UnitAssignment\FrmAssignUnitToBooking.resx">
+      <DependentUpon>FrmAssignUnitToBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\frmCommodityGrainMain.resx">
+      <DependentUpon>frmCommodityGrainMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\AddEditUnits\FrmEditAddRailList.resx">
+      <DependentUpon>FrmEditAddRailList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\frmEditCommodity.resx">
+      <DependentUpon>frmEditCommodity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\frmEditGrade.resx">
+      <DependentUpon>frmEditGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\UnitAssignment\frmMiniUnitToAssign.resx">
+      <DependentUpon>frmMiniUnitToAssign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\FrmMissingUnits.resx">
+      <DependentUpon>FrmMissingUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\AddEditUnits\FrmModifyMUBilledValues.resx">
+      <DependentUpon>FrmModifyMUBilledValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\FrmRailList.resx">
+      <DependentUpon>FrmRailList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmAddNewEmployee.resx">
+      <DependentUpon>FrmAddNewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmCardAssignment.resx">
+      <DependentUpon>FrmCardAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmClearance.resx">
+      <DependentUpon>FrmClearance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmConfirmPassword.resx">
+      <DependentUpon>FrmConfirmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmCreateUsernameAndPassword.resx">
+      <DependentUpon>FrmCreateUsernameAndPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmEmployeeDetails.resx">
+      <DependentUpon>FrmEmployeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmEmployeeManagement.resx">
+      <DependentUpon>FrmEmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmSuspention.resx">
+      <DependentUpon>FrmSuspention.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\pictureViwer.resx">
+      <DependentUpon>pictureViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container Management\FrmAddEditInGate.resx">
+      <DependentUpon>FrmAddEditInGate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home and Extra\FrmTypeInfoForDeletion.resx">
+      <DependentUpon>FrmTypeInfoForDeletion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\AddEditUnits\frmReturnSplitMiniUnit.resx">
+      <DependentUpon>frmReturnSplitMiniUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RailList Management\AddEditUnits\frmSplitMiniUnit.resx">
+      <DependentUpon>frmSplitMiniUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrystalReportReceipts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportReceipts.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmHoursWorkedYard.resx">
+      <DependentUpon>frmHoursWorkedYard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHoursWorkedEmploee.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHoursWorkedEmploee1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHoursWorkedEmployee1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHoursWorkedEmployee11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHoursWorkedYard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHoursWorkedYard1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHoursWorkedYardType.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHoursWorkedYardType1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time Management\FrmDetailedEntry.resx">
+      <DependentUpon>FrmDetailedEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home and Extra\FrmHomePage.resx">
+      <DependentUpon>FrmHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home and Extra\FrmLoginWindow.resx">
+      <DependentUpon>FrmLoginWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home and Extra\FrmLogs.resx">
+      <DependentUpon>FrmLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmPrintCard.resx">
+      <DependentUpon>FrmPrintCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\SafetyRisk\FrmSafetyRiskManagement.resx">
+      <DependentUpon>FrmSafetyRiskManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Management\FrmShiftScheduling.resx">
+      <DependentUpon>FrmShiftScheduling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home and Extra\FrmdeleteWarning.resx">
+      <DependentUpon>FrmdeleteWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home and Extra\FrmParentScreen.resx">
+      <DependentUpon>FrmParentScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ShipSmpl.My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home Page - Employee Management\FrmActionDetails.resx">
+      <DependentUpon>FrmActionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home Page - Employee Management\FrmMessage.resx">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home Page - Employee Management\FrmEmployeeManagementHP.resx">
+      <DependentUpon>FrmEmployeeManagementHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home Page - Employee Management\FrmReminderDetails.resx">
+      <DependentUpon>FrmReminderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreScripts\FrmCreatePreScript.resx">
+      <DependentUpon>FrmCreatePreScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreScripts\FrmDisplayTemplates.resx">
+      <DependentUpon>FrmDisplayTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreScripts\FrmRulesAndActions.resx">
+      <DependentUpon>FrmRulesAndActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home and Extra\FrmInConstruction.resx">
+      <DependentUpon>FrmInConstruction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time Management\FrmAddNewEntry.resx">
+      <DependentUpon>FrmAddNewEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time Management\FrmEditEntry.resx">
+      <DependentUpon>FrmEditEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time Management\FrmHolidays.resx">
+      <DependentUpon>FrmHolidays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time Management\FrmTimeReport.resx">
+      <DependentUpon>FrmTimeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time Management\FrmTimeSheet.resx">
+      <DependentUpon>FrmTimeSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeTracker\FrmTimeTracker.resx">
+      <DependentUpon>FrmTimeTracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\FrmCarrierAssignment.resx">
+      <DependentUpon>FrmCarrierAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\Distribute\FrmAddEditCarrierReqDist.resx">
+      <DependentUpon>FrmAddEditCarrierReqDist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\Distribute\FrmAddEditDistRequest.resx">
+      <DependentUpon>FrmAddEditDistRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\Distribute\FrmDistributeRecChangeMsg.resx">
+      <DependentUpon>FrmDistributeRecChangeMsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\Distribute\FrmListDistributions.resx">
+      <DependentUpon>FrmListDistributions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\FrmListRequests.resx">
+      <DependentUpon>FrmListRequests.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditRelease.resx">
+      <DependentUpon>FrmAddEditRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleaseDetail.resx">
+      <DependentUpon>FrmAddEditReleaseDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleaseMb.resx">
+      <DependentUpon>FrmAddEditReleaseMb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditReleasePickUpDropOff.resx">
+      <DependentUpon>FrmAddEditReleasePickUpDropOff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\RequestAndRelease\FrmAddEditRequest.resx">
+      <DependentUpon>FrmAddEditRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\RequestAndRelease\FrmManageReleaseBalance.resx">
+      <DependentUpon>FrmManageReleaseBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\RequestAndRelease\FrmRelDistSchDeclined.resx">
+      <DependentUpon>FrmRelDistSchDeclined.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Truck Dispatch\Inbound\RequestAndRelease\FrmUpdateReqStatus.resx">
+      <DependentUpon>FrmUpdateReqStatus.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>Ceres.My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ceresVerticalIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27-274488_phone-icon-png-mobile-cell-phone-vector-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\announcements.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\badge.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\badge1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\badgeShow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Capture.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grayWhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-available.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-not-available.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lampOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lampOn.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photoPfofile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roundedGradientGreen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\starOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\starOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tapCardIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tapCardIcon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wtc.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wtcLogoCard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wtcLogoCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wtcLogoCard1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wtcsmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ceres icon.png" />
+    <None Include="Resources\workingComplete.png" />
+    <None Include="Resources\workingInProgress.png" />
+    <None Include="Resources\workingComplete1.png" />
+    <None Include="Resources\workingInProgress1.png" />
+    <None Include="Resources\Icon1.ico" />
+    <None Include="Resources\Ceres icon.ico" />
+    <None Include="Resources\workingComplete.ico" />
+    <None Include="Resources\workingInProgress.ico" />
+    <None Include="Resources\editedPencil.ico" />
+    <None Include="Resources\expandArrow.png" />
+    <None Include="Resources\shrinkArrow.png" />
+    <None Include="Resources\dinConstruction.png" />
+    <None Include="Resources\cellphoneTap.png" />
+    <None Include="Resources\cellphoneTap1.png" />
+    <None Include="Resources\tapCard.png" />
+    <None Include="Resources\loadig.gif" />
+    <None Include="Resources\wtcFooter.png" />
+    <None Include="Resources\refresh-pngrepo-com.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\connectionCERESLogs.txt" />
+    <Content Include="LogoAppOrange.ico" />
+    <None Include="Resources\arrowRight.png" />
+    <None Include="Resources\arrowRightWhiteBackground.png" />
+    <None Include="Resources\script.png" />
+    <None Include="Resources\addWhite.png" />
+    <None Include="Resources\removeWhite.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\nextDisabled.png" />
+    <None Include="Resources\nextEnabled.png" />
+    <None Include="Resources\previous.png" />
+    <None Include="Resources\previousDisabled.png" />
+    <None Include="Resources\previousEnabled.png" />
+    <None Include="Resources\csv.png" />
+    <None Include="Resources\wtc2X.jpg" />
+    <None Include="Resources\wtcpng.png" />
+    <None Include="Resources\wtc1x.jpg" />
+    <None Include="Resources\printer-label-icon.png" />
+    <None Include="Resources\copy-file-White.png" />
+    <None Include="Resources\caution.png" />
+    <None Include="Resources\removeRedBall.png" />
+    <None Include="Resources\removeEdition.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\arrowLeft.png" />
+    <None Include="Resources\container.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\password.png" />
+    <None Include="Resources\dropDownMenu.png" />
+    <None Include="Resources\dropDownMenuDark.png" />
+    <None Include="Resources\dropDownMenuDark1.png" />
+    <None Include="Resources\newMessage.png" />
+    <None Include="Resources\oldMessage.png" />
+    <None Include="Resources\noMessage.png" />
+    <None Include="Resources\SSWithName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{6100f8df-dfde-4c88-8df3-e278021b4588}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{2eaa2fda-09b1-40a3-a5b9-fc0e16afcc78}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
+      <Project>{abd1a4b0-ca74-48aa-8f39-b4b053b48ed9}</Project>
+      <Name>ModelLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\WinSCP.5.17.8\build\WinSCP.targets" Condition="Exists('..\packages\WinSCP.5.17.8\build\WinSCP.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\WinSCP.5.17.8\build\WinSCP.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WinSCP.5.17.8\build\WinSCP.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

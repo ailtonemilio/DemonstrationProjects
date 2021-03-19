@@ -1,0 +1,3 @@
+Data Source = wtc-ceres.database.windows.net;
+    Initial Catalog=CERES-LOGS;User ID=CeresAdmin;Password=C3r3$@dm!n;Connect Timeout=30; 
+    Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False

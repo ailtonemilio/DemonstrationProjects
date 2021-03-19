@@ -1,0 +1,4 @@
+
+Go to tools >> Nuget Package Manager>>  Nuget Package Manager Console and type:
+
+Install-Package System.Configuration.ConfigurationManager 
