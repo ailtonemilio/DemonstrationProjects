@@ -3,7 +3,7 @@ Demo Codes and Projects
 
 Short description of the projects
 
-ShipSmpl Project (www.wtcgroup.com)
+ShipSmpl Project 
 Grain transloading management application.
 Developed with Visual Studio.NET Windows Forms.
 The Application is using 3-tier technology.
