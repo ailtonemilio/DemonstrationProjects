@@ -1,0 +1,59 @@
+﻿<div class="user-info clearfix">
+    @{try
+        {
+            if (Session["UserImage"] != null)
+            {
+                <img class="media-object img-thumbnail user-img" alt="User Picture" src="~/images/users/@Session["UserImage"].ToString()" width="50">
+            }
+            else
+            {
+                <img class="media-object img-thumbnail user-img" alt="User Picture" src="~/images/users/usericon.png" width="50">
+            }
+
+        }
+        catch (System.Exception)
+        {
+            Response.Redirect("/Account/login");
+        }
+
+    }
+
+    <span class="name">@User.Identity.Name</span>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default btn-xs">
+            <i class="l-basic-gear"></i>
+        </button>
+        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+            settings <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu right" role="menu">
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <li><a href="~/Admin/UsersAdmin/Index"><span class="txt"><i class="fa fa-users"></i>Admin Users</span></a></li>
+                <li><a href="~/RolesAdmin/Index"><span class="txt"><i class="fa fa-cogs"></i>Roles</span></a></li>
+            }
+            <li class="divider"></li>
+            <li>
+                <a href="/Account/Logoff"><i class="fa fa-power-off"></i>Logout</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        @{try
+            {
+                if (Session["LastAccess"] != null)
+                {
+                    @*<h6><span class="name"><i class="fa fa-calendar"></i>&nbsp;@Session["LastAccess"].ToString()</span></h6>*@
+                }
+
+            }
+            catch (System.Exception)
+            {
+                Response.Redirect("/Account/login");
+            }
+
+        }
+        
+    </div>
+</div>

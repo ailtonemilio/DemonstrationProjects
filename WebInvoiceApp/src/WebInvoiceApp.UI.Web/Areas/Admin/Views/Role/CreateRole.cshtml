@@ -1,0 +1,86 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+@{
+    ViewBag.Title = "Create";
+   
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        @using (Html.BeginForm())
+        {
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Criar novo Cliente</h4>
+            </div>
+
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+
+                @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
+                {
+                    <div class="alert alert-danger alert-dismissible fade in">
+                        <a href="#" class="close returnuser" data-dismiss="alert" aria-label="close">&times;</a>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                }
+
+                <div class="col-12 forgot">
+                    <br />
+                    @if (@ViewBag.Message != null)
+                    {
+                        <div class="alert alert-danger fade in">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <i class="glyphicon glyphicon-ban-circle alert-icon "></i>
+                            <strong>Oh Error!</strong> @ViewBag.Message
+                        </div>
+                    }
+                </div>
+                @*<form id="validate" class="form-horizontal group-border stripped" role="form">*@
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.Label("Perfil Name", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                @*</form>*@
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Criar Perfil" class="btn btn-primary" />
+                        <button type="button" class="btn btn-danger returnuser" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+
+    <!-- Other plugins ( load only nessesary plugins for every page) -->
+    <script src="~/tpl/plugins/forms/bootstrap-filestyle/bootstrap-filestyle.js"></script>
+    <script src="~/tpl/plugins/forms/select2/select2.js"></script>
+    <script src="~/tpl/plugins/forms/validation/jquery.validate.js"></script>
+    <script src="~/tpl/plugins/forms/validation/additional-methods.min.js"></script>
+    <script src="~/tpl/plugins/charts/sparklines/jquery.sparkline.js"></script>
+    <script src="~/tpl/js/jquery.dynamic.js"></script>
+    <script src="~/tpl/js/main.js"></script>
+    <script src="~/tpl/js/pages/forms-validation.js"></script>
+
+    <script>
+        $(".returnuser").click(function () {
+            $(location).attr('href', '../../../Users/ListUser');
+        });
+    </script>
+}

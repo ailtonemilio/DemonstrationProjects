@@ -1,0 +1,44 @@
+﻿<div class="side-nav">
+    <ul class="nav">
+
+
+        @*<li><a href="/Home/Index"><i class="l-basic-laptop"></i><span class="txt">Home</span></a></li>
+
+        <li>
+            <a href="#"><i class="l-basic-elaboration-todolist-cloud"></i> <span class="txt">Areas</span></a>
+            <ul class="sub">
+                <li>@Html.ActionLink("Administrator", "Index", "Home", new { @area = "Admin" }, null)</li>
+                <li>@Html.ActionLink("Driver", "Index", "Home", new { @area = "Driver" }, null)</li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#"><span class="txt">Administer Users</span></a>
+            <ul class="sub">
+                <li>@Html.ActionLink("Create User", "Register", "UsersControl", new { @area = "Admin" }, null)</li>
+                <li>@Html.ActionLink("Users List", "Index", "UsersControl", new { @area = "Admin" }, null)</li>
+                <li>@Html.ActionLink("Perfil", "Index", "Role", new { @area = "Admin" }, null)</li>
+                <li>@Html.ActionLink("Create Perfil", "Create", "Role", new { @area = "Admin" }, null)</li>
+            </ul>
+        </li>*@
+
+        <li>
+            <a href="~/Invoice/Index"><i class="l-basic-elaboration-todolist-cloud"></i> <span class="txt">Invoice</span></a>
+
+        </li>
+
+        <li>
+            <a href="~/Client/Index"><i class="l-basic-elaboration-todolist-cloud"></i> <span class="txt">Client</span></a>
+
+        </li>
+
+        <li>
+            <a href="~/Issuer/Index"><i class="l-basic-elaboration-todolist-cloud"></i> <span class="txt">Issuer</span></a>
+
+        </li>
+
+        @*<li>
+            <a href="~/UsersADM/Index"><i class="l-basic-elaboration-todolist-cloud"></i> <span class="txt">Users ADM</span></a>
+        </li>*@
+    </ul>
+</div>

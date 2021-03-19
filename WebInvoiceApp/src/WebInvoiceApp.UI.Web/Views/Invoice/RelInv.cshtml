@@ -1,0 +1,230 @@
+﻿@model WebInvoiceApp.UI.Web.Models.Invoice
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Report.cshtml";
+}
+
+@*<h2>Edit</h2>*@
+
+<style>
+    .font14 {
+        font-size:14pt;
+    }
+    .font13 {
+        font-size: 13pt;
+    }
+    .font12 {
+        font-size: 12pt;
+    }
+    .font11 {
+        font-size: 11pt;
+    }
+</style>
+
+<style>
+    #textArea textarea {
+        max-width: 600px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.NumInvoice)
+
+<fieldset>
+
+
+    <div class="form-group row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4" style="text-align:center;">
+            <label style="font-family:Arial, Helvetica, sans-serif; font-size:30pt;">Invoice</label>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group row">
+        <div class="col-md-8"></div>
+        <div class="col-md-3" style="text-align:right;">
+            <label>Invoice: #</label>
+            @Html.DisplayFor(model => model.NumInvoice)<br />
+            <label>Issue Date: </label>
+            @Html.DisplayFor(model => model.IssueDate, new { htmlAttributes = new { @class = "form-control" } })<br />
+            <label>Due Date: </label>
+            @Html.DisplayFor(model => model.DueDate, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-1"></div>
+        <div class="form-group col-md-5">
+            <label><u>From:</u></label><br />
+            <b class="font14">@Html.DisplayFor(model => model.Issuer.NameIssuer)</b><br />
+            @Html.DisplayFor(model => model.Issuer.Address)<br />
+            @Html.DisplayFor(model => model.Issuer.City) - @Html.DisplayFor(model => model.Issuer.Province) - @Html.DisplayFor(model => model.Issuer.PostalCode)
+        </div>
+
+        <div class="col-md-5">
+            <div class="form-group">
+                <label><u>Bill to:</u></label><br />
+                <b class="font14">@Html.DisplayFor(model => model.Client.NameClient, new { htmlAttributes = new { @class = "form-control" } })</b><br />
+                @Html.DisplayFor(model => model.Client.Address, new { htmlAttributes = new { @class = "form-control" } })<br />
+                @Html.DisplayFor(model => model.Client.City) - @Html.DisplayFor(model => model.Client.Province) - @Html.DisplayFor(model => model.Client.PostalCode)
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h5>Services</h5>
+            <div class="table-responsive-sm">
+                <table id="TableService" class="table table-striped table-bordered table-sm font11">
+                    <thead>
+                        <tr>
+
+                            <th scope="col" style="width:32%;">Type</th>
+                            <th scope="col" style="width:32%;">Description</th>
+                            <th scope="col" style="width:10%;text-align:center;">Hours Rate</th>
+                            <th scope="col" style="width:9%;text-align:center;">Hours</th>
+                            <th scope="col" style="width:7%;text-align:center;">Tax</th>
+                            <th scope="col" style="width:10%;text-align:center;">Line Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Service)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TypeServices)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DescriptionServ)
+                                </td>
+                                <td align="right">
+                                    $ @Html.DisplayFor(modelItem => item.HourRate)
+                                </td>
+                                <td align="center">
+                                    @Html.DisplayFor(modelItem => item.Hour)
+                                </td>
+                                <td align="right">
+                                    $ @Html.DisplayFor(modelItem => item.TaxServ)
+                                </td>
+                                <td align="right">
+                                    $ @Html.DisplayFor(modelItem => item.LineTotalServ)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h5><b>Products</b></h5>
+            <div class="table-responsive-sm">
+                <table id="TableProduct" class="table table-striped table-bordered table-sm font11">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width:32%;">Name</th>
+                            <th scope="col" style="width:32%;">Description</th>
+                            <th scope="col" style="width:10%;text-align:center;">Unit Cost</th>
+                            <th scope="col" style="width:9%;text-align:center;">Amount</th>
+                            <th scope="col" style="width:7%;text-align:center;">Tax</th>
+                            <th scope="col" style="width:10%;text-align:center;">Line Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Product)
+                        {
+                            <tr data-id="@item.IdProduct">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TypeProducts)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DescriptionProd)
+                                </td>
+                                <td align="right">
+                                    $ @Html.DisplayFor(modelItem => item.UnitCost)
+                                </td>
+                                <td align="center">
+                                    @Html.DisplayFor(modelItem => item.Amount)
+                                </td>
+                                <td align="right">
+                                    $ @Html.DisplayFor(modelItem => item.TaxProd)
+                                </td>
+                                <td align="right">
+                                    $ @Html.DisplayFor(modelItem => item.LineTotalProd)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7"></div>
+        <div class="col-md-3">
+            <table class="table font11">
+                <tbody>
+                    <tr>
+                        <td style="width:50%;"><label>SubTotal</label></td>
+                        <td style="width:50%;text-align:right;">
+                            <b>$ @Html.DisplayFor(model => model.SubTotal)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;"><label>Tax</label></td>
+                        <td style="width:50%;text-align:right;">
+                            <b>$ @Html.DisplayFor(model => model.Tax)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;"><label>Invoice Total</label></td>
+                        <td style="width:50%;text-align:right;">
+                            <b>$ @Html.DisplayFor(model => model.Total)</b>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-md-1">
+            &nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="col-md-9">
+            <label class="font12">Note:</label><br />
+            <label class="font12">@Html.DisplayFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })</label>
+        </div>
+    </div>
+</fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/scripts")
+}

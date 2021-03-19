@@ -1,0 +1,20 @@
+﻿
+@{
+    if (Session["Name"] != null)
+    {
+        ViewBag.Title = "Welcome to system " + @Session["Name"].ToString();
+    }
+    else
+    {
+        ViewBag.Title = "Welcome to system";
+    }
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Small boxes (Stat box) -->
+
+
+
+

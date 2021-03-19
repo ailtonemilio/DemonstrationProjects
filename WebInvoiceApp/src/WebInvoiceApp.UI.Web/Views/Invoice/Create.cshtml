@@ -1,0 +1,124 @@
+﻿@model WebInvoiceApp.UI.Web.Models.Invoice
+
+
+@{
+    /**/
+
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    #textArea textarea {
+        max-width: 600px;
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<fieldset>
+    <div class="panel panel-primary plain toggle panelMove panelRefresh">
+        <div class="panel-heading">
+            <h4 class="panel-title">Edit Invoice: # @Html.DisplayFor(model => model.NumInvoice)</h4>
+        </div>
+        <div class="panel-body">
+            <div class="form-group row">
+                <label class="control-label col-md-1">Issuer</label>
+                <div class="col-md-3">
+                    @Html.DropDownList("IdIssuer", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdIssuer, "", new { @class = "text-danger" })
+                </div>
+
+                @*<div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="datepicker">
+                    </div>*@
+
+                <label class="control-label col-md-1">Issue Date</label>
+                <div class="col-md-2">
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        @Html.EditorFor(model => model.IssueDate, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.IssueDate, "", new { @class = "text-danger" })
+                </div>
+
+                <label class="control-label col-md-1">Status</label>
+                <div class="col-md-2">
+                    @Html.DropDownList("IdStatusInv", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdStatusInv, "", new { @class = "text-danger" })
+                </div>
+
+                <div col-md-2></div>
+
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-1">Cliente</label>
+                <div class="col-md-3">
+                    @Html.DropDownList("IdClient", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdClient, "", new { @class = "text-danger" })
+                </div>
+
+                <label class="control-label col-md-1">Due Date</label>
+                <div class="col-md-2">
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        @Html.EditorFor(model => model.DueDate, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DueDate, "", new { @class = "text-danger" })
+                </div>
+
+                <label class="control-label col-md-1">Note</label>
+                <div class="form-group col-md-4">
+                    <div id="textarea ">
+                        @Html.TextAreaFor(model => model.Note, new { @class = "form-control", rows = "2", maxlength = 250, onkeyup = "document.getElementById('countNotes').innerHTML=this.value.length + ' of 250 chars';" })
+                        <span id="countNotes" style="font-weight: bold; font-size: 9pt; font-family: Arial; text-align: right;"></span>
+                        @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="panel-footer text-right">
+            <button type="submit" value="Create" class="btn btn-primary fa fa-check-square-o" title="Create New Invoice"> Create New Invoice</button>
+            &nbsp;&nbsp;&nbsp;
+            @Html.ActionLink(" Back to List", "Index", null, new { @class = "btn btn-danger fa fa-chevron-left" })
+        </div>
+    </div>
+
+</fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @* Date Picker Start*@
+    <script>
+        $('#IssueDate').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+
+    <script>
+        $('#DueDate').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+    @* Date Picker End*@
+}
+
+
+
+
