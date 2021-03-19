@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="webinvoiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCESS">
+          <Key>
+            <PropertyRef Name="IdLogin" />
+          </Key>
+          <Property Name="IdLogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="UserLog" Type="varchar" MaxLength="25" />
+          <Property Name="UserLogin" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Active" Type="char" MaxLength="1" />
+          <Property Name="Profile" Type="varchar" MaxLength="15" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="LastName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="UserImage" Type="nvarchar" MaxLength="120" />
+          <Property Name="LastAccess" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="IdClient" />
+          </Key>
+          <Property Name="IdClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameClient" Type="varchar" MaxLength="30" />
+          <Property Name="Contact" Type="varchar" MaxLength="30" />
+          <Property Name="Address" Type="varchar" MaxLength="30" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="Province" Type="varchar" MaxLength="3" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="7" />
+          <Property Name="Fone" Type="varchar" MaxLength="15" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="NumInvoice" />
+          </Key>
+          <Property Name="NumInvoice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubTotal" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Total" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Tax" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="IssueDate" Type="date" />
+          <Property Name="DueDate" Type="date" />
+          <Property Name="IdIssuer" Type="int" />
+          <Property Name="IdClient" Type="int" />
+          <Property Name="IdStatusInv" Type="int" />
+          <Property Name="Note" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Issuer">
+          <Key>
+            <PropertyRef Name="IdIssuer" />
+          </Key>
+          <Property Name="IdIssuer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameIssuer" Type="varchar" MaxLength="30" />
+          <Property Name="Contact" Type="varchar" MaxLength="30" />
+          <Property Name="Address" Type="varchar" MaxLength="30" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="Province" Type="varchar" MaxLength="3" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="7" />
+          <Property Name="Fone" Type="varchar" MaxLength="15" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeProducts" Type="varchar" MaxLength="30" />
+          <Property Name="DescriptionProd" Type="varchar" MaxLength="30" />
+          <Property Name="UnitCost" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Amount" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="TotalProd" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="TaxProd" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="LineTotalProd" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="NumInvoice" Type="int" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="IdService" />
+          </Key>
+          <Property Name="IdService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeServices" Type="varchar" MaxLength="30" />
+          <Property Name="DescriptionServ" Type="varchar" MaxLength="30" />
+          <Property Name="HourRate" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Hour" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="TotalServ" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="TaxServ" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="LineTotalServ" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="NumInvoice" Type="int" />
+        </EntityType>
+        <EntityType Name="StatusInvoice">
+          <Key>
+            <PropertyRef Name="IdStatusInv" />
+          </Key>
+          <Property Name="IdStatusInv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescStatusInv" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TypeTaxProd">
+          <Key>
+            <PropertyRef Name="IdTypeTaxProd" />
+          </Key>
+          <Property Name="IdTypeTaxProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescTypeTaxProd" Type="varchar" MaxLength="15" />
+          <Property Name="TaxProd" Type="decimal" Precision="3" Scale="1" />
+          <Property Name="NumInvoice" Type="int" />
+        </EntityType>
+        <EntityType Name="TypeTaxServ">
+          <Key>
+            <PropertyRef Name="IdTypeTaxServ" />
+          </Key>
+          <Property Name="IdTypeTaxServ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescTypeTaxServ" Type="varchar" MaxLength="15" />
+          <Property Name="TaxServ" Type="decimal" Precision="3" Scale="1" />
+          <Property Name="NumInvoice" Type="int" />
+        </EntityType>
+        <Association Name="FK_Invoice_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Issuer">
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issuer">
+              <PropertyRef Name="IdIssuer" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="IdIssuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_StatusInvoice">
+          <End Role="StatusInvoice" Type="Self.StatusInvoice" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusInvoice">
+              <PropertyRef Name="IdStatusInv" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="IdStatusInv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Invoice">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="NumInvoice" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="NumInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Invoice">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="NumInvoice" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="NumInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_TypeTaxServ">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <End Role="TypeTaxServ" Type="Self.TypeTaxServ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="NumInvoice" />
+            </Principal>
+            <Dependent Role="TypeTaxServ">
+              <PropertyRef Name="NumInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeTaxProd_Invoice">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <End Role="TypeTaxProd" Type="Self.TypeTaxProd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="NumInvoice" />
+            </Principal>
+            <Dependent Role="TypeTaxProd">
+              <PropertyRef Name="NumInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="webinvoiceModelStoreContainer">
+          <EntitySet Name="ACCESS" EntityType="Self.ACCESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Issuer" EntityType="Self.Issuer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusInvoice" EntityType="Self.StatusInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeTaxProd" EntityType="Self.TypeTaxProd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeTaxServ" EntityType="Self.TypeTaxServ" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Invoice_Client" Association="Self.FK_Invoice_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Issuer" Association="Self.FK_Invoice_Issuer">
+            <End Role="Issuer" EntitySet="Issuer" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_StatusInvoice" Association="Self.FK_Invoice_StatusInvoice">
+            <End Role="StatusInvoice" EntitySet="StatusInvoice" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Invoice" Association="Self.FK_Product_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Invoice" Association="Self.FK_Service_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_TypeTaxServ" Association="Self.FK_Service_TypeTaxServ">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="TypeTaxServ" EntitySet="TypeTaxServ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeTaxProd_Invoice" Association="Self.FK_TypeTaxProd_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="TypeTaxProd" EntitySet="TypeTaxProd" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="webinvoiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="webinvoiceEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="ACCESS" EntityType="webinvoiceModel.ACCESS" />
+          <EntitySet Name="Client" EntityType="webinvoiceModel.Client" />
+          <EntitySet Name="Invoice" EntityType="webinvoiceModel.Invoice" />
+          <EntitySet Name="Issuer" EntityType="webinvoiceModel.Issuer" />
+          <EntitySet Name="Product" EntityType="webinvoiceModel.Product" />
+          <EntitySet Name="Service" EntityType="webinvoiceModel.Service" />
+          <EntitySet Name="StatusInvoice" EntityType="webinvoiceModel.StatusInvoice" />
+          <EntitySet Name="TypeTaxProd" EntityType="webinvoiceModel.TypeTaxProd" />
+          <EntitySet Name="TypeTaxServ" EntityType="webinvoiceModel.TypeTaxServ" />
+          <AssociationSet Name="FK_Invoice_Client" Association="webinvoiceModel.FK_Invoice_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Issuer" Association="webinvoiceModel.FK_Invoice_Issuer">
+            <End Role="Issuer" EntitySet="Issuer" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_StatusInvoice" Association="webinvoiceModel.FK_Invoice_StatusInvoice">
+            <End Role="StatusInvoice" EntitySet="StatusInvoice" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Invoice" Association="webinvoiceModel.FK_Product_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Invoice" Association="webinvoiceModel.FK_Service_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_TypeTaxServ" Association="webinvoiceModel.FK_Service_TypeTaxServ">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="TypeTaxServ" EntitySet="TypeTaxServ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeTaxProd_Invoice" Association="webinvoiceModel.FK_TypeTaxProd_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="TypeTaxProd" EntitySet="TypeTaxProd" />
+          </AssociationSet>
+          <EntitySet Name="AspNetUsers" EntityType="webinvoiceModel.AspNetUsers" />
+          <EntitySet Name="AspNetRoles" EntityType="webinvoiceModel.AspNetRoles" />
+        </EntityContainer>
+        <EntityType Name="ACCESS">
+          <Key>
+            <PropertyRef Name="IdLogin" />
+          </Key>
+          <Property Name="IdLogin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserLog" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogin" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Profile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="IdClient" />
+          </Key>
+          <Property Name="IdClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameClient" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Fone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Invoice" Relationship="webinvoiceModel.FK_Invoice_Client" FromRole="Client" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="NumInvoice" />
+          </Key>
+          <Property Name="NumInvoice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubTotal" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Tax" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="IssueDate" Type="DateTime" Precision="0" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="IdIssuer" Type="Int32" />
+          <Property Name="IdClient" Type="Int32" />
+          <Property Name="IdStatusInv" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="webinvoiceModel.FK_Invoice_Client" FromRole="Invoice" ToRole="Client" />
+          <NavigationProperty Name="Issuer" Relationship="webinvoiceModel.FK_Invoice_Issuer" FromRole="Invoice" ToRole="Issuer" />
+          <NavigationProperty Name="StatusInvoice" Relationship="webinvoiceModel.FK_Invoice_StatusInvoice" FromRole="Invoice" ToRole="StatusInvoice" />
+          <NavigationProperty Name="Product" Relationship="webinvoiceModel.FK_Product_Invoice" FromRole="Invoice" ToRole="Product" />
+          <NavigationProperty Name="Service" Relationship="webinvoiceModel.FK_Service_Invoice" FromRole="Invoice" ToRole="Service" />
+          <NavigationProperty Name="TypeTaxServ" Relationship="webinvoiceModel.FK_Service_TypeTaxServ" FromRole="Invoice" ToRole="TypeTaxServ" />
+          <NavigationProperty Name="TypeTaxProd" Relationship="webinvoiceModel.FK_TypeTaxProd_Invoice" FromRole="Invoice" ToRole="TypeTaxProd" />
+        </EntityType>
+        <EntityType Name="Issuer">
+          <Key>
+            <PropertyRef Name="IdIssuer" />
+          </Key>
+          <Property Name="IdIssuer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameIssuer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Fone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Invoice" Relationship="webinvoiceModel.FK_Invoice_Issuer" FromRole="Issuer" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeProducts" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionProd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UnitCost" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Amount" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="TotalProd" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="TaxProd" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="LineTotalProd" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="NumInvoice" Type="Int32" />
+          <NavigationProperty Name="Invoice" Relationship="webinvoiceModel.FK_Product_Invoice" FromRole="Product" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="IdService" />
+          </Key>
+          <Property Name="IdService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeServices" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionServ" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HourRate" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Hour" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="TotalServ" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="TaxServ" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="LineTotalServ" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="NumInvoice" Type="Int32" />
+          <NavigationProperty Name="Invoice" Relationship="webinvoiceModel.FK_Service_Invoice" FromRole="Service" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="StatusInvoice">
+          <Key>
+            <PropertyRef Name="IdStatusInv" />
+          </Key>
+          <Property Name="IdStatusInv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescStatusInv" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Invoice" Relationship="webinvoiceModel.FK_Invoice_StatusInvoice" FromRole="StatusInvoice" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="TypeTaxProd">
+          <Key>
+            <PropertyRef Name="IdTypeTaxProd" />
+          </Key>
+          <Property Name="IdTypeTaxProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescTypeTaxProd" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TaxProd" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="NumInvoice" Type="Int32" />
+          <NavigationProperty Name="Invoice" Relationship="webinvoiceModel.FK_TypeTaxProd_Invoice" FromRole="TypeTaxProd" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="TypeTaxServ">
+          <Key>
+            <PropertyRef Name="IdTypeTaxServ" />
+          </Key>
+          <Property Name="IdTypeTaxServ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescTypeTaxServ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TaxServ" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="NumInvoice" Type="Int32" />
+          <NavigationProperty Name="Invoice" Relationship="webinvoiceModel.FK_Service_TypeTaxServ" FromRole="TypeTaxServ" ToRole="Invoice" />
+        </EntityType>
+        <Association Name="FK_Invoice_Client">
+          <End Type="webinvoiceModel.Client" Role="Client" Multiplicity="0..1" />
+          <End Type="webinvoiceModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Issuer">
+          <End Type="webinvoiceModel.Issuer" Role="Issuer" Multiplicity="0..1" />
+          <End Type="webinvoiceModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issuer">
+              <PropertyRef Name="IdIssuer" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="IdIssuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_StatusInvoice">
+          <End Type="webinvoiceModel.StatusInvoice" Role="StatusInvoice" Multiplicity="0..1" />
+          <End Type="webinvoiceModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusInvoice">
+              <PropertyRef Name="IdStatusInv" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="IdStatusInv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Invoice">
+          <End Type="webinvoiceModel.Invoice" Role="Invoice" Multiplicity="0..1" />
+          <End Type="webinvoiceModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="NumInvoice" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="NumInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Invoice">
+          <End Type="webinvoiceModel.Invoice" Role="Invoice" Multiplicity="0..1" />
+          <End Type="webinvoiceModel.Service" Role="Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="NumInvoice" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="NumInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_TypeTaxServ">
+          <End Type="webinvoiceModel.Invoice" Role="Invoice" Multiplicity="0..1" />
+          <End Type="webinvoiceModel.TypeTaxServ" Role="TypeTaxServ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="NumInvoice" />
+            </Principal>
+            <Dependent Role="TypeTaxServ">
+              <PropertyRef Name="NumInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeTaxProd_Invoice">
+          <End Type="webinvoiceModel.Invoice" Role="Invoice" Multiplicity="0..1" />
+          <End Type="webinvoiceModel.TypeTaxProd" Role="TypeTaxProd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="NumInvoice" />
+            </Principal>
+            <Dependent Role="TypeTaxProd">
+              <PropertyRef Name="NumInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="LastAccess" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="webinvoiceModelStoreContainer" CdmEntityContainer="webinvoiceEntities" >
+          <EntitySetMapping Name="ACCESS">
+            <EntityTypeMapping TypeName="webinvoiceModel.ACCESS">
+              <MappingFragment StoreEntitySet="ACCESS">
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+                <ScalarProperty Name="UserLog" ColumnName="UserLog" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="webinvoiceModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fone" ColumnName="Fone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="NameClient" ColumnName="NameClient" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="webinvoiceModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IdStatusInv" ColumnName="IdStatusInv" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="IdIssuer" ColumnName="IdIssuer" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="NumInvoice" ColumnName="NumInvoice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Issuer">
+            <EntityTypeMapping TypeName="webinvoiceModel.Issuer">
+              <MappingFragment StoreEntitySet="Issuer">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fone" ColumnName="Fone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="NameIssuer" ColumnName="NameIssuer" />
+                <ScalarProperty Name="IdIssuer" ColumnName="IdIssuer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="webinvoiceModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="NumInvoice" ColumnName="NumInvoice" />
+                <ScalarProperty Name="LineTotalProd" ColumnName="LineTotalProd" />
+                <ScalarProperty Name="TaxProd" ColumnName="TaxProd" />
+                <ScalarProperty Name="TotalProd" ColumnName="TotalProd" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+                <ScalarProperty Name="DescriptionProd" ColumnName="DescriptionProd" />
+                <ScalarProperty Name="TypeProducts" ColumnName="TypeProducts" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="webinvoiceModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="NumInvoice" ColumnName="NumInvoice" />
+                <ScalarProperty Name="LineTotalServ" ColumnName="LineTotalServ" />
+                <ScalarProperty Name="TaxServ" ColumnName="TaxServ" />
+                <ScalarProperty Name="TotalServ" ColumnName="TotalServ" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+                <ScalarProperty Name="HourRate" ColumnName="HourRate" />
+                <ScalarProperty Name="DescriptionServ" ColumnName="DescriptionServ" />
+                <ScalarProperty Name="TypeServices" ColumnName="TypeServices" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusInvoice">
+            <EntityTypeMapping TypeName="webinvoiceModel.StatusInvoice">
+              <MappingFragment StoreEntitySet="StatusInvoice">
+                <ScalarProperty Name="DescStatusInv" ColumnName="DescStatusInv" />
+                <ScalarProperty Name="IdStatusInv" ColumnName="IdStatusInv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeTaxProd">
+            <EntityTypeMapping TypeName="webinvoiceModel.TypeTaxProd">
+              <MappingFragment StoreEntitySet="TypeTaxProd">
+                <ScalarProperty Name="NumInvoice" ColumnName="NumInvoice" />
+                <ScalarProperty Name="TaxProd" ColumnName="TaxProd" />
+                <ScalarProperty Name="DescTypeTaxProd" ColumnName="DescTypeTaxProd" />
+                <ScalarProperty Name="IdTypeTaxProd" ColumnName="IdTypeTaxProd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeTaxServ">
+            <EntityTypeMapping TypeName="webinvoiceModel.TypeTaxServ">
+              <MappingFragment StoreEntitySet="TypeTaxServ">
+                <ScalarProperty Name="NumInvoice" ColumnName="NumInvoice" />
+                <ScalarProperty Name="TaxServ" ColumnName="TaxServ" />
+                <ScalarProperty Name="DescTypeTaxServ" ColumnName="DescTypeTaxServ" />
+                <ScalarProperty Name="IdTypeTaxServ" ColumnName="IdTypeTaxServ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="webinvoiceModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastAccess" ColumnName="LastAccess" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="webinvoiceModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

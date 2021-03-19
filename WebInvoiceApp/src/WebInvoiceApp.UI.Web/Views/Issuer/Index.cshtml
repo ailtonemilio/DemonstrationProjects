@@ -1,0 +1,221 @@
+﻿@*@model IEnumerable<WebInvoice.Models.Issuer>*@
+@model List<WebInvoiceApp.UI.Web.Models.Issuer>
+@{
+    ViewBag.Title = "Issuer";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+@if (@ViewBag.Message != null)
+{
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p class="mb-0"> @ViewBag.Message</p>
+    </div>
+}
+<div class="panel panel-primary">
+    <div class="form-group" style="margin-left:10px;">
+        <br />
+        @Html.ActionLink("  Create New Issuer", "Create", null, new { @class = "btn btn-primary fa fa-check-square-o" })
+    </div>
+    <div class="box animated fadeInRightBig">
+        <div class="box-body" style="margin-left:10px;">
+            <table id="basic-datatables" class="table table-striped table-bordered table-hover nowrap" style="font-size:10pt;" cellspacing="0" width="99%">
+                <thead>
+                    <tr>
+                        <th ></th>
+                        <th ></th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Contact
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            City
+                        </th>
+                        <th>
+                            Province
+                        </th>
+                        <th>
+                            PostalCode
+                        </th>
+                        <th>
+                            Fone
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td align="center">
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdIssuer }, new { @class = "fa fa-edit", title = "Edit", type = "button" })
+                                @*@Html.ActionLink(" ", "Details", new { id = item.IdIssuer }, new { @class = "fa fa-copy text-success details", title = "Details", type = "button" }) &nbsp;&nbsp;|&nbsp;&nbsp;*@
+                                
+                            </td>
+                            <td align="center">
+                                <a class="fa fa-trash-o text-danger delete" data-id="@item.IdIssuer" title="Delete Issuer" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NameIssuer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Contact)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Province)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PostalCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fone)
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@*<div class="modal fade modal-style6"
+     id="modal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    
+</div>*@
+
+<div id="modal" class="modal fade" role="dialog" />
+
+@section Scripts {
+
+
+    <script>
+        //$(".details").click(function () {
+        //    var id = $(this).attr("data-id");
+        //    $("#modal").load("Details?id=" + id, function () {
+        //        $("#modal").modal();
+        //    });
+        //});
+
+        $(function () {
+            $(".details").click(function () {
+                var id = $(this).attr("data-id");
+                //alert(id);
+                $("#modal").load("Details?id=" + id, function () {
+                    $("#modal").modal();
+                })
+            });
+
+            $(".edit").click(function () {
+                var id = $(this).attr("data-id");
+                alert(id);
+                $("#modal").load("Edit?id=" + id, function () {
+                    $("#modal").modal();
+                })
+            });
+
+            //$(".delete").click(function () {
+            //    var id = $(this).attr("data-id");
+            //    alert(id);
+            //    $("#modal").load("Delete?id=" + id, function () {
+            //        $("#modal").modal();
+            //    })
+            //});
+
+            $(".create").click(function () {
+                $("#modal").load("Create", function () {
+                    $("#modal").modal();
+                })
+            });
+
+        })
+    </script>
+
+    @* DELETE com Ajax Sweet Alert *@
+    <script>
+        $(".delete").click(function () {
+            var id = $(this).attr("data-id");
+
+            //Sweet Alert start here
+            event.preventDefault();
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this Issuer!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonClass: "btn-primary",
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        //Action is here
+                        $.ajax({
+                            type: 'get',
+                            dataType: 'json',
+                            cache: false,
+                            url: "/Issuer/DeleteIssuer",
+                            data: {
+                                Id: id
+                            },
+                            success: function (response, textStatus, jqXHR) {
+                                if (response.deleted == "true") {
+                                    swal({ title: "Deleted!", text: "Your Issuer has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true });
+                                    //location.reload();
+                                    $("#myTable").change(location.reload());
+
+                                    return true;
+                                }
+                                else {
+                                    swal({ title: "Error!", text: "Unable to delete Issuer!\n There is Invoice with Issuer.", type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                                }
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                swal({ title: "Error!", text: errorThrown, type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                                //alert('Error - ' + errorThrown);
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your Issuer is safe.", "error");
+                        return false;
+                    }
+                });
+            //Sweet Alert end here
+
+        });
+    </script>
+
+    @* Loading in the button *@
+    <script>
+        $('.btn').on('click', function () {
+            var $this = $(this);
+            $this.button('loading');
+            setTimeout(function () {
+                $this.button('reset');
+            }, 2000);
+        });
+    </script>
+}

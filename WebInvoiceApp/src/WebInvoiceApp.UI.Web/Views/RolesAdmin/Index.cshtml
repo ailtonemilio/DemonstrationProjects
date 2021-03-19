@@ -1,0 +1,330 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+
+@{
+    ViewBag.Title = "Roles List";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+@if (@ViewBag.Message != null)
+{
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p class="mb-0"> @ViewBag.Message</p>
+    </div>
+}
+
+<div class="panel panel-primary">
+    <div class="form-group" style="margin-left:10px;">
+        <br />
+        <button id="btnCreateRole" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Adds a new Access Policy so it can be associated with Users." data-original-title="Adds a new Access Policy so it can be associated with Users."> <i class="glyphicon glyphicon-check"></i>&nbsp;&nbsp;Add Access Policy</button>
+    </div>
+
+    <div class="box animated fadeInRightBig" id="divtable">
+        <div class="box-body" style="margin-left:10px;">
+            <table id="basic-datatables" class="table table-striped table-bordered table-hover nowrap" style="font-size:10pt;" cellspacing="0" width="99%">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.Label("Perfil Name")
+                        </th>
+                        <th style="width:10%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td width="80%">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td width="20%" align="center">
+                                @if (@Html.DisplayFor(modelItem => item.Name).ToString() == "Admin")
+                                {
+                                    @*<button class="btn btn-primary editRole disabled" data-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Edit User" data-original-title="Edit User"> <i class="glyphicon glyphicon-edit"></i> </button>*@
+                                    <a class="btn btn-primary glyphicon glyphicon-edit editRole disabled" data-id="@item.Id" title="Delete Issuer" />
+                                    <a class="btn btn-danger glyphicon glyphicon-trash delete disabled" data-id="@item.Id" title="Delete Issuer" />
+                                }
+                                else
+                                {
+                                    <button class="btn btn-primary editRole" id="createUser" data-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Edit User" data-original-title="Edit User"> <i class="glyphicon glyphicon-edit"></i> </button>
+                                    <a class="btn btn-danger glyphicon glyphicon-trash delete" data-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Delete Role" data-original-title="Delete Role" />
+                                }
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-style6" id="ModalCreateRole" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLabel">Create New Role</h5>
+            </div>
+            <div class="modal-body">
+                @*<form id="validate" class="form-horizontal group-border" role="form">*@
+                    @Html.Hidden("IdRole", "0")
+                    <div class="form-group" id="divrolename">
+                        <label for="rolename" class="control-label col-md-12">Role Name</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control col-md-12 required" name="rolename" id="rolename" maxlength="50">
+                        </div>
+                    </div>
+
+                @*</form>*@
+            </div>
+            <div class="modal-footer">
+                <button id="btnAddRole" class="btn btn-primary fa fa-save" type="submit" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Inserting">   Insert</button>
+                <button id="btnSaveRole" class="btn btn-primary fa fa-save" type="submit" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Inserting">   Save</button>
+                <button type="button" class="btn btn-danger fa fa-window-close" data-dismiss="modal">   Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-style6"
+     id="modal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    @* MODAL SERÁ CARREGADO AQUI! *@
+</div>
+
+
+
+@section Scripts {
+
+    <!--Roles Control-->
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-full-width",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        $("#btnCreateRole").click(function () {
+            document.getElementById("rolename").value = "";
+            $('#btnAddRole').show();
+            $('#btnSaveRole').hide();
+            $("#ModalCreateRole").modal('show');
+        });
+
+        $("#btnAddRole").click(function () {
+            var NameRole = $('#rolename').val();
+
+            if (NameRole === "") {
+                //swal("Fields is empty.", "Role Name is Empty", "warning");
+                toastr["error"]("Role Name is Empty !");
+            }
+            else {
+                $.ajax({
+                    type: 'get',
+                    dataType: 'json',
+                    cache: false,
+                    url: "/RolesAdmin/CreateRoleName",
+                    data: {
+                        Name: $("#rolename").val()
+                    },
+                    success: function (response, textStatus, jqXHR) {
+                        document.getElementById("rolename").value = "";
+                        $("#ModalCreateRole").modal('hide');
+                        $("#divtable").change(location.reload());
+                        toastr["success"]("Role successfully created !")
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        //alert('Error - ' + errorThrown);
+                        toastr["error"]("Role name already exists!")
+                    }
+                });
+            }
+        });
+
+        $("#btnSaveRole").click(function () {
+            var nameRole = $('#rolename').val();
+            var id = $('#IdRole').val();
+
+            if (nameRole === "") {
+                toastr["error"]("Role Name is Empty !");
+            }
+            else {
+                $.ajax({
+                    type: 'get',
+                    dataType: 'json',
+                    cache: false,
+                    url: "/RolesAdmin/EditRole",
+                    data: {
+                        Name: nameRole,
+                        Id: id
+                    },
+                    success: function (response, textStatus, jqXHR) {
+
+                        if (response.issuccess == "true")
+                        {
+                            $("#ModalCreateRole").modal('hide');
+                            $("#divtable").change(location.reload());
+                            toastr["success"]("Role successfully updated !")
+                        }
+                        else
+                        {
+                            toastr["error"]("Role name already exists !")
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        //alert('Error - ' + errorThrown);
+                        toastr["error"]("Role name already exists !")
+                    }
+                });
+            }
+        });
+
+        $(".editRole").click(function () {
+            var id = $(this).attr("data-id");
+            var NameRole = $('#rolename').val();
+            $('#btnSaveRole').show();
+            $('#btnAddRole').hide();
+
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                cache: false,
+                url: "/RolesAdmin/GetRole",
+                data: {
+                    Id: id
+                },
+                success: function (response, textStatus, jqXHR) {
+
+                    $("#ModalCreateRole").modal('show');
+                    document.getElementById("rolename").value = response.name;
+                    document.getElementById("IdRole").value = response.id;
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Error - ' + errorThrown);
+                }
+            });
+        });
+
+        @* DELETE Service *@
+        function deletealertrole(ctl, event) {
+            // STORE HREF ATTRIBUTE OF LINK CTL (THIS) BUTTON
+            var defaultAction = $(ctl).prop("href");
+            // CANCEL DEFAULT LINK BEHAVIOUR
+            event.preventDefault();
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonClass: "btn-primary",
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        swal({ title: "Deleted!", text: "Your file has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true },
+                            function () {
+                                // RESUME THE DEFAULT LINK ACTION
+                                window.location.href = defaultAction;
+                                return true;
+                            });
+                    } else {
+                        swal("Cancelled", "Your file is safe.", "error");
+                        return false;
+                    }
+                });
+        }
+        
+        $(".delete").click(function () {
+            var id = $(this).attr("data-id");
+
+            //Sweet Alert start here
+            event.preventDefault();
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this Issuer!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonClass: "btn-primary",
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+            function (isConfirm) {
+                    if (isConfirm) {
+                        //Action is here
+                        $.ajax({
+                            type: 'get',
+                            dataType: 'json',
+                            cache: false,
+                            url: "/RolesAdmin/DeleteRole",
+                            data: {
+                                Id: id
+                            },
+                            success: function (response, textStatus, jqXHR) {
+                                if (response.deleted == "true") {
+                                    swal({ title: "Deleted!", text: "Your User has been deleted.", type: "success", confirmButtonText: "OK!", closeOnConfirm: true });
+                                    //location.reload();
+                                    $("#divtable").change(location.reload());
+                                    return true;
+                                }
+                                else {
+                                    swal({ title: "Error!", text: "Unable to delete User!\n Try again.", type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                                }
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                swal({ title: "Error!", text: errorThrown, type: "error", confirmButtonText: "OK!", closeOnConfirm: true });
+                                //alert('Error - ' + errorThrown);
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your Issuer is safe.", "error");
+                        return false;
+                    }
+            });
+            //Sweet Alert end here
+
+        });
+
+    </script>
+
+   
+
+    @* Loading in the button *@
+    <script>
+        $('.btn').on('click', function () {
+            var $this = $(this);
+            $this.button('loading');
+            setTimeout(function () {
+                $this.button('reset');
+            }, 2000);
+        });
+    </script>
+}
+
+
+

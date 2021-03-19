@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d135520d16e8489694ffb7e28df0a419" Name="Diagram1" ZoomLevel="86" >
+        <EntityTypeShape EntityType="webinvoiceModel.ACCESS" Width="1.5" PointX="0.875" PointY="0.5" />
+        <EntityTypeShape EntityType="webinvoiceModel.Client" Width="1.5" PointX="3.125" PointY="0.5" />
+        <EntityTypeShape EntityType="webinvoiceModel.Invoice" Width="1.5" PointX="5.125" PointY="2.625" />
+        <EntityTypeShape EntityType="webinvoiceModel.Issuer" Width="1.5" PointX="7.125" PointY="0.5" />
+        <EntityTypeShape EntityType="webinvoiceModel.Product" Width="1.5" PointX="7.125" PointY="4" />
+        <EntityTypeShape EntityType="webinvoiceModel.Service" Width="1.5" PointX="3.125" PointY="4" />
+        <EntityTypeShape EntityType="webinvoiceModel.StatusInvoice" Width="1.5" PointX="5.125" PointY="0.5" />
+        <EntityTypeShape EntityType="webinvoiceModel.TypeTaxProd" Width="1.5" PointX="7.125" PointY="7.375" />
+        <EntityTypeShape EntityType="webinvoiceModel.TypeTaxServ" Width="1.5" PointX="3.125" PointY="7.5" />
+        <AssociationConnector Association="webinvoiceModel.FK_Invoice_Client" />
+        <AssociationConnector Association="webinvoiceModel.FK_Invoice_Issuer" />
+        <AssociationConnector Association="webinvoiceModel.FK_Invoice_StatusInvoice" />
+        <AssociationConnector Association="webinvoiceModel.FK_Product_Invoice" />
+        <AssociationConnector Association="webinvoiceModel.FK_Service_Invoice" />
+        <AssociationConnector Association="webinvoiceModel.FK_Service_TypeTaxServ" />
+        <AssociationConnector Association="webinvoiceModel.FK_TypeTaxProd_Invoice" />
+        <EntityTypeShape EntityType="webinvoiceModel.AspNetUsers" Width="1.5" PointX="0.875" PointY="3.5" />
+        <EntityTypeShape EntityType="webinvoiceModel.AspNetRoles" Width="1.5" PointX="0.875" PointY="7.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
